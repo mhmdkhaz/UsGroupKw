@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lemonada", cursive;
+}
+
+/* start in input numbet in check code page admine */
+input[type="number"] {
+  display: block;
+  border: none;
+  padding: 0;
+  width: 10.5ch;
+  background: repeating-linear-gradient(
+      90deg,
+      dimgrey 0,
+      dimgrey 1ch,
+      transparent 0,
+      transparent 1.8ch
+    )
+    0 100% / 10ch 2px no-repeat;
+  font: 4.5ch droid sans mono, consolas, monospace;
+  letter-spacing: 0.8ch;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"]:focus {
+  outline: none;
+  color: dodgerblue;
+}
+
+/* end in input numbet in check code page admine */
+
+/* start in sidebar */
+aside {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+/* end in sidebar */
+
+/* start in main  */
+.titleMain {
+  text-shadow: 0px 4px 4px #282828;
+}
+/* end in main  */
+
+/* start in setting  */
+main form input {
+  box-shadow: 0 6.7px 5.3px rgba(0, 0, 0, 0.044),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.066), 0 100px 80px rgba(0, 0, 0, 0.11);
+}
+/* end in setting  */

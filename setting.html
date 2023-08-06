@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setting</title>
+    <!-- start in check code -->
+    <link rel="stylesheet" href="puplic/css/output.css" />
+    <!-- start in style css -->
+    <link rel="stylesheet" href="puplic/css/admin.css" />
+    <!-- start in fontawsome -->
+    <link rel="stylesheet" href="../puplic/FontAwesome/css/all.min.css" />
+  </head>
+  <body>
+    <!-- start in sidebar -->
+    <div
+      class="flex flex-row-reverse min-h-screen 2xl:border-x-2 2xl:border-indigo-50"
+    >
+      <!-- Sidebar -->
+      <aside
+        class="h-screen bg-white w-1/5 py-10 min-w-min border-r border-indigo-900/20"
+      >
+        <div class="font-bold text-2xl text-center capitalize">group</div>
+
+        <!-- Menu -->
+        <div class="mt-12 flex flex-col space-y-7 text-gray-500 font-medium">
+          <a
+            class="flex flex-row-reverse items-center justify-center gap-2 py-1 group hover:border-r-2 hover:border-r-[#0074D9] hover:translate-x-[-4px] transition-all transition-delay-300 hover:text-[#0074D9]"
+            href="#"
+          >
+            <i class="fa-solid fa-house"></i>
+            <span>الرئيسية</span>
+          </a>
+          <a
+            class="flex flex-row-reverse items-center justify-center gap-2 py-1 group hover:border-r-2 hover:border-r-[#0074D9] hover:translate-x-[-4px] transition-all transition-delay-300 hover:text-[#0074D9]"
+            href="imgSlider.html"
+          >
+            <i class="fa-regular fa-image"></i>
+            <span>صور الشريط</span>
+          </a>
+          <hr />
+          <a
+            class="flex flex-row-reverse items-center justify-center gap-2 py-1 group hover:border-r-2 hover:border-r-[#0074D9] hover:translate-x-[-4px] transition-all transition-delay-300 text-[#0074D9]"
+            href="#"
+          >
+            <i class="fa-solid fa-gear"></i>
+            <span>الاعدادات</span>
+          </a>
+          <a
+            class="flex flex-row-reverse items-center justify-center gap-2 py-1 group hover:border-r-2 hover:border-r-[#0074D9] hover:translate-x-[-4px] transition-all transition-delay-300 hover:text-[#0074D9]"
+            href="#"
+          >
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>تسجيل الخروج</span>
+          </a>
+        </div>
+        <!-- /Menu -->
+      </aside>
+      <!-- /Sidebar -->
+
+      <main class="w-full py-10 sm:px-10" style="direction: rtl">
+        <div class="container mx-auto">
+          <h1 class="titleMain text-2xl">تعديل معلومات</h1>
+          <div
+            class="grid lg:grid-cols-2 grid-cols-1 justify-center items-center gap-10 flex-wrap h-full"
+          >
+            <form action="" class="text-start">
+              <div class="name">
+                <label for="">تعديل الاسم</label>
+                <div class="relative flex w-full flex-wrap items-stretch my-3">
+                  <span
+                    class="z-10 h-full leading-snug font-normal text-center text-[#0074D9] absolute bg-transparent rounded text-base items-center justify-center w-8 pr-3 py-3"
+                  >
+                    <i class="fa-regular fa-user"></i>
+                  </span>
+                  <input
+                    type="text"
+                    class="px-8 py-3 relative bg-white rounded text-sm border-0 outline-none focus:outline-none w-full pl-10"
+                  />
+                </div>
+              </div>
+              <!-- password -->
+              <div class="password mt-10">
+                <label for="">تعديل كلمة السر</label>
+                <div class="relative flex w-full flex-wrap items-stretch my-3">
+                  <span
+                    class="z-10 h-full leading-snug font-normal text-center text-[#0074D9] absolute bg-transparent rounded text-base items-center justify-center w-8 pr-3 py-3"
+                  >
+                    <i class="fa-solid fa-lock"></i>
+                  </span>
+                  <input
+                    type="password"
+                    class="px-8 py-3 relative bg-white rounded text-sm border-0 outline-none focus:outline-none w-full pl-10"
+                  />
+                </div>
+              </div>
+              <div class="relative mt-10">
+                <button
+                  class="bg-[#0074D9] text-white rounded-md px-5 py-3 capitalize space-x-2"
+                >
+                  تحديث
+                </button>
+              </div>
+            </form>
+            <figure>
+              <img
+                src="./puplic/images/admin/setting.svg"
+                alt=""
+                class="h-2/4"
+              />
+            </figure>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- end in sidebar -->
+  </body>
+</html>

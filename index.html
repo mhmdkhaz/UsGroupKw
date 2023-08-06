@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- start css -->
+    <link rel="stylesheet" href="../puplic/css/style.css" />
+    <!-- start in fontawsome -->
+    <link rel="stylesheet" href="../puplic/FontAwesome/css/all.min.css" />
+    <!-- start tawilwind -->
+    <link rel="stylesheet" href="../puplic/css/output.css" />
+    <!-- start in google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;300;700&family=Inter:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- start in splide js -->
+    <link
+      rel="stylesheet"
+      href="./node_modules/@splidejs/splide/dist/css/splide-core.min.css"
+    />
+  </head>
+  <body>
+    <!-- start in navbar -->
+
+    <nav class="fixed z-10 w-screen">
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <a href="https://flowbite.com/" class="flex items-center">
+          <h1 class="capitalize text-2xl font-bold logo">us group kw</h1>
+        </a>
+        <div class="flex">
+          <div class="relative hidden md:block">
+            <div
+              class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+            >
+              <svg
+                class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                />
+              </svg>
+              <span class="sr-only">Search icon</span>
+            </div>
+            <input
+              type="text"
+              id="search-navbar"
+              class="block w-full p-2 pl-10 text-sm text-gray-900 border"
+              placeholder="Search..."
+            />
+          </div>
+        </div>
+        <div class="hidden w-full md:flex md:w-auto">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- end in navbar -->
+
+    <!-- start in slider -->
+
+    <section class="h-screen">
+      <section
+        class="splide sliderHeader"
+        aria-label="Splide Basic HTML Example"
+      >
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide h-screen w-scree relative">
+              <img
+                src="../puplic/images/slider/slide_1.jpg "
+                class="w-screen h-screen"
+                alt=""
+              />
+              <div class="w-2/4 absolute top-2/4 left-10 z-10 text-white">
+                <h1 class="capitalize text-4xl">offers</h1>
+                <p class="opacity-70 my-5">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Laudantium, recusandae doloremque? Maxime fuga, quas vero
+                  temporibus corrupti, iste voluptatem tempore, itaque quasi
+                  dolorum illo odit? Officiis itaque labore voluptates
+                  reprehenderit?
+                </p>
+                <button
+                  class="capitalize border-2 border-white py-2 px-4 rounded-sm hover:bg-[#185951] transition ease-in duration-250"
+                >
+                  shooping
+                </button>
+              </div>
+            </li>
+            <li class="splide__slide h-screen w-scree relative">
+              <img
+                src="../puplic/images/slider/slide_2.jpg "
+                class="w-screen h-screen"
+                alt=""
+              />
+              <div class="w-2/4 absolute top-2/4 left-10 z-10 text-white">
+                <h1 class="capitalize text-4xl">black friday</h1>
+                <p class="opacity-70 my-5">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Laudantium, recusandae doloremque? Maxime fuga, quas vero
+                  temporibus corrupti, iste voluptatem tempore, itaque quasi
+                  dolorum illo odit? Officiis itaque labore voluptates
+                  reprehenderit?
+                </p>
+                <button
+                  class="capitalize border-2 border-white py-2 px-4 rounded-sm hover:bg-[#185951] transition ease-in duration-250"
+                >
+                  shooping
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </section>
+    <!-- end in slider -->
+
+    <section id="categories" class="my-5">
+      <div class="container mx-auto px-4">
+        <h1 class="titleHeader caret-current">categories</h1>
+        <div class="my-5 flex flex-wrap justify-center items-center gap-4">
+          <div class="categore w-80">
+            <div class="box">
+              <a href="#">
+                <img src="puplic/images/catigories/catigores_1.jpg" alt="" />
+                <div class="box__title">
+                  <h6 class="capitalize">supplies travel</h6>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="categore w-80">
+            <div class="box">
+              <a href="#">
+                <img src="puplic/images/catigories/catigores_2.jpg" alt="" />
+                <div class="box__title">
+                  <h6 class="capitalize">supplies room</h6>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="categore w-80">
+            <div class="box">
+              <a href="#">
+                <img src="puplic/images/catigories/catigores_3.jpg" alt="" />
+                <div class="box__title">
+                  <h6 class="capitalize">supplies land</h6>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="categore w-80">
+            <div class="box">
+              <a href="#">
+                <img src="puplic/images/catigories/catigores_3.jpg" alt="" />
+                <div class="box__title">
+                  <h6 class="capitalize">supplies land</h6>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end in categories -->
+
+    <!-- strat in featured product -->
+    <section id="featured">
+      <div class="container mx-auto px-4">
+        <h1 class="titleHeader caret-current">featured product</h1>
+        <div class="grid grid-cols-4"></div>
+      </div>
+    </section>
+    <!-- end in featured product -->
+
+    <!-- start in splide -->
+    <script src="./node_modules/@splidejs/splide/dist/js/splide.min.js"></script>
+    <script src="./node_modules/@splidejs/splide-extension-auto-scroll/dist/js/splide-extension-auto-scroll.min.js"></script>
+    <!-- startt in bootstrap 5 -->
+    <script src="puplic/js/bootstrap.bundle.min.js"></script>
+    <!-- start in main js -->
+    <script src="puplic/js/main.js"></script>
+  </body>
+</html>
