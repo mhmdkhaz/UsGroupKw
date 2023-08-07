@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setting</title>
+    <!-- start in check code -->
+    <link rel="stylesheet" href="puplic/css/output.css" />
+    <!-- start in style css -->
+    <link rel="stylesheet" href="puplic/css/admin.css" />
+    <!-- start in fontawsome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- start in sidebar -->
+    <div
+      class="flex flex-row-reverse min-h-screen 2xl:border-x-2 2xl:border-indigo-50"
+    >
+      <!-- Sidebar -->
+      <aside
+        class="h-screen bg-white lg:w-1/5 py-10 min-w-min border-r border-indigo-900/20"
+      >
+        <div class="font-bold text-2xl text-center capitalize">group</div>
+
+        <!-- Menu -->
+        <div
+          class="mt-12 flex flex-col space-y-7 text-gray-500 font-medium px-5"
+        >
+          <a
+            class="flex flex-row-reverse items-center justify-start gap-2 py-1 group hover:border-r-2 hover:border-r-[#0074D9] hover:translate-x-[-4px] transition-all transition-delay-300 hover:text-[#0074D9]"
+            href="#"
+          >
+            <i class="fa-solid fa-house"></i>
+            <span>الرئيسية</span>
+          </a>
+
+          <div
+            class="optionSide cursor-pointer flex flex-col items-end justify-center group hover:border-r-2"
+          >
+            <div
+              class="flex flex-row-reverse items-center justify-between p-2 hover:translate-x-[-4px] text-[#0074D9]"
+            >
+              <div class="flex flex-row-reverse gap-2 items-center">
+                <i class="fas fa-calendar-alt"></i>
+                <span>المنتجات</span>
+              </div>
+              <i class="fas fa-chevron-down text-xs"></i>
+            </div>
+            <ul
+              class="desplegable flex flex-col justify-start items-start overflow-hidden hightAanimaton"
+            >
+              <li class="mt-3">
+                <a href="addProduct.html" class="items-center">
+                  اضافة منتج
+                  <i class="fa-regular fa-square-plus"></i>
+                </a>
+              </li>
+              <li class="mt-3 text-[#0074D9]">
+                <a href="#" class="p-2 items-center">
+                  عرض المنتج
+                  <i class="fa-regular fa-eye"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- category -->
+          <div
+            class="optionSide cursor-pointer flex flex-col items-end justify-center group hover:border-r-2"
+          >
+            <div
+              class="flex flex-row-reverse items-center justify-between text-[#0074D9] p-2 hover:translate-x-[-4px] transition-all transition-delay-300 hover:text-[#0074D9]"
+            >
+              <div class="flex flex-row-reverse gap-2 items-center">
+                <i class="fas fa-calendar-alt"></i>
+                <span>الاصناف</span>
+              </div>
+              <i class="fas fa-chevron-down text-xs"></i>
+            </div>
+            <ul
+              class="desplegable flex flex-col justify-start items-start overflow-hidden hightAanimaton"
+            >
+              <li class="mt-3 text-[#0074D9]">
+                <a href="addCategories.html" class="items-center">
+                  اضافة الصنف
+                  <i class="fa-regular fa-square-plus"></i>
+                </a>
+              </li>
+              <li class="mt-3">
+                <a href="categories.html" class="p-2 items-center">
+                  عرض الصنف
+                  <i class="fa-regular fa-eye"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <a
+            class="flex flex-row-reverse items-center justify-start gap-2 py-1 group hover:border-r-2 hover:border-r-[#0074D9] hover:translate-x-[-4px] transition-all transition-delay-300 hover:text-[#0074D9]"
+            href="imgSlider.html"
+          >
+            <i class="fa-regular fa-image"></i>
+            <span>صور الشريط</span>
+          </a>
+
+          <hr />
+          <a
+            class="flex flex-row-reverse items-center justify-start gap-2 py-1 group hover:border-r-2 hover:border-r-[#0074D9] hover:translate-x-[-4px] transition-all transition-delay-300 hover:text-[#0074D9]"
+            href="setting.html"
+          >
+            <i class="fa-solid fa-gear"></i>
+            <span>الاعدادات</span>
+          </a>
+          <a
+            class="flex flex-row-reverse items-center justify-start gap-2 py-1 group hover:border-r-2 hover:border-r-[#0074D9] hover:translate-x-[-4px] transition-all transition-delay-300 hover:text-[#0074D9]"
+            href="#"
+          >
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>تسجيل الخروج</span>
+          </a>
+        </div>
+        <!-- /Menu -->
+      </aside>
+      <!-- /Sidebar -->
+
+      <main
+        class="displayProduct w-full py-10 container sm:px-10 bg-[#f8f9fe]"
+        style="direction: rtl"
+      >
+        <h1 class="titleMain text-2xl text-right">اضافة</h1>
+        <!-- start in table  -->
+        <div class="p-8 rounded-md w-full">
+          <div
+            class="flex md:flex-row flex-col justify-center items-center md:justify-between"
+          >
+            <div class="relative">
+              <span>عدد المنتجات(2)</span>
+            </div>
+            <!-- select -->
+            <div class="relative h-10 w-72 min-w-[200px] md:mt-0 mt-3">
+              <select
+                class="peer h-full w-full rounded-[7px] border border-gray-500 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-500 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-500 placeholder-shown:border-t-gray-500 empty:!bg-red-500 focus:border-2 focus:border-[#0074D9] focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-500"
+              >
+                <option value="brazil"></option>
+                <option value="bucharest">Bucharest</option>
+                <option value="london">London</option>
+                <option value="washington">Washington</option>
+              </select>
+              <label
+                class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-gray-500 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-gray-500 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-gray-500 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-[#0074D9] peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-[#0074D9] peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-[#0074D9] peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-500"
+              >
+                تصفية
+              </label>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+              <div
+                class="inline-block min-w-full shadow rounded-lg overflow-hidden"
+              >
+                <table class="min-w-full leading-normal">
+                  <thead>
+                    <tr class="bg-gray-100">
+                      <th
+                        class="px-5 py-3 border-b-2 border-gray-200 text-right text-xs font-semibold text-black uppercase tracking-wider"
+                      >
+                        صورة المنتج
+                      </th>
+                      <th
+                        class="px-5 py-3 border-b-2 border-gray-200 text-right text-xs font-semibold text-black uppercase tracking-wider"
+                      >
+                        الصنف
+                      </th>
+                      <th
+                        class="px-5 py-3 border-b-2 border-gray-200 text-right text-xs font-semibold text-black uppercase tracking-wider"
+                      >
+                        الوصف
+                      </th>
+                      <th
+                        class="px-5 py-3 border-b-2 border-gray-200 text-right text-xs font-semibold text-black uppercase tracking-wider"
+                      >
+                        السعر
+                      </th>
+                      <th
+                        class="px-5 py-3 border-b-2 border-gray-200 text-right text-xs font-semibold text-black uppercase tracking-wider"
+                      >
+                        Status
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="infoProduct">
+                      <td
+                        class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
+                      >
+                        <div class="flex items-center">
+                          <div class="flex-shrink-0 w-24 h-20">
+                            <img
+                              class="w-full h-full rounded"
+                              src="puplic/images/slider/slide_1.jpg"
+                              alt=""
+                            />
+                          </div>
+                        </div>
+                      </td>
+                      <td
+                        class="px-5 text-gray-900 py-5 border-b border-r border-gray-200 bg-white text-sm"
+                      >
+                        <p class="whitespace-no-wrap">Admin</p>
+                      </td>
+                      <td
+                        class="px-5 text-gray-900 py-5 border-b border-r border-gray-200 bg-white text-sm"
+                      >
+                        <p class="whitespace-no-wrap">Jan 21, 2020</p>
+                      </td>
+                      <td
+                        class="px-5 text-gray-900 py-5 border-b border-r border-gray-200 bg-white text-sm"
+                      >
+                        <p class="whitespace-no-wrap">11:05</p>
+                      </td>
+                      <td
+                        class="py-5 border-b border-r border-gray-200 bg-white text-sm"
+                      >
+                        <div
+                          class="flex justify-start pr-5 gap-4 items-center text-[18px]"
+                        >
+                          <i
+                            class="deleteBtn fa-solid fa-trash-can text-[#FF0000]"
+                          ></i>
+                          <i
+                            class="fa-solid fa-pen-to-square text-[#FFA500]"
+                          ></i>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td
+                        class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
+                      >
+                        <div class="flex items-center">
+                          <div class="flex-shrink-0 w-24 h-20">
+                            <img
+                              class="w-full h-full rounded"
+                              src="puplic/images/slider/slide_2.jpg"
+                              alt=""
+                            />
+                          </div>
+                        </div>
+                      </td>
+                      <td
+                        class="px-5 text-gray-900 py-5 border-b border-r border-gray-200 bg-white text-sm"
+                      >
+                        <p class="whitespace-no-wrap">Admin</p>
+                      </td>
+                      <td
+                        class="px-5 text-gray-900 py-5 border-b border-r border-gray-200 bg-white text-sm"
+                      >
+                        <p class="whitespace-no-wrap">Jan 21, 2020</p>
+                      </td>
+                      <td
+                        class="px-5 text-gray-900 py-5 border-b border-r border-gray-200 bg-white text-sm"
+                      >
+                        <p class="whitespace-no-wrap">10:10</p>
+                      </td>
+                      <td
+                        class="py-5 border-b border-r border-gray-200 bg-white text-sm"
+                      >
+                        <div
+                          class="flex justify-start pr-5 gap-4 items-center text-[18px]"
+                        >
+                          <i
+                            class="deleteBtn fa-solid fa-trash-can text-[#FF0000]"
+                          ></i>
+                          <i
+                            class="fa-solid fa-pen-to-square text-[#FFA500]"
+                          ></i>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end in table  -->
+        <!-- start no data -->
+        <div class="noData flex flex-col justify-center items-center">
+          <img src="puplic/images/admin/noData.svg" class="w-2/4 h-96" />
+          <div class="flex flex-col justify-center items-center mt-5">
+            <h1 class="capitalize text-2xl text-center font-black">
+              لا توجد منتجات لعرضها
+            </h1>
+            <p class="capitalize mt-3">لاضافة المنتجات يرجى الضغط</p>
+            <a
+              href="addProduct.html"
+              class="bg-[#0074D9] mt-3 text-white rounded-md px-5 py-3 capitalize space-x-2 cursor-pointer"
+              >اضافة بيانات</a
+            >
+          </div>
+        </div>
+        <!-- end no data -->
+      </main>
+    </div>
+    <!-- end in sidebar -->
+    <!-- start in js -->
+    <script src="./puplic/js/admin.js"></script>
+  </body>
+</html>
