@@ -1,3 +1,29 @@
+// start in slider
+let btnCloseOpner = document.querySelector("#btn");
+let sideBar = document.querySelector("aside");
+let overlaySide = document.querySelector(".overlaySide");
+
+btnCloseOpner.addEventListener("click", () => {
+  sideBar.classList.toggle("openCloseAnimation");
+});
+
+overlaySide.addEventListener("click", () => {
+  sideBar.classList.toggle("openCloseAnimation");
+  btnCloseOpen.classList.remove("on");
+  overlaySide.classList.add("hideSideOverlay");
+});
+
+let btnCloseOpen = document.getElementById("btn");
+btnCloseOpen.addEventListener("click", function () {
+  if (this.className == "on") {
+    this.classList.remove("on");
+    overlaySide.classList.add("hideSideOverlay");
+  } else {
+    overlaySide.classList.remove("hideSideOverlay");
+    this.classList.add("on");
+  }
+});
+
 // startin remove row from table slider
 const deleteButtons = document.querySelectorAll(".deleteBtn");
 
@@ -20,6 +46,7 @@ opcionesCon.forEach(function (opcion) {
     // Obtener el desplegable asociado a la opción
     const desplegable = opcion.querySelector(".desplegable");
     // Alternar la clase "open" para mostrar u ocultar el desplegable con transición suave
+    console.log("ddd");
     desplegable.classList.toggle("open");
   });
 });

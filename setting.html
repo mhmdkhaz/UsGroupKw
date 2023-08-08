@@ -17,20 +17,32 @@
   <body>
     <!-- start in sidebar -->
     <div
-      class="flex flex-row-reverse min-h-screen 2xl:border-x-2 2xl:border-indigo-50"
+      class="sideBar flex flex-row-reverse min-h-screen 2xl:border-x-2 2xl:border-indigo-50"
     >
+      <!-- button close open sidebar -->
+      <div class="openClose fixed z-10 rounded left-8 top-14 px-3">
+        <button id="btn"><span></span><span></span><span></span></button>
+      </div>
+      <!-- button close open sidebar -->
+
+      <!-- overlay -->
+      <div
+        class="overlaySide hideSideOverlay fixed w-screen h-screen left-0 top-0 opacity-50"
+      ></div>
+      <!-- overlay -->
+
       <!-- Sidebar -->
       <aside
-        class="h-screen bg-white lg:w-1/5 py-10 min-w-min border-r border-indigo-900/20"
+        class="hideSide fixed lg:w-1/5 py-10 min-w-min border-r border-indigo-900/20"
       >
-        <div class="font-bold text-2xl text-center capitalize">group</div>
+        <div class="titleSide font-bold text-2xl text-center capitalize">
+          group
+        </div>
 
         <!-- Menu -->
-        <div
-          class="mt-12 flex flex-col space-y-7 text-gray-500 font-medium px-5"
-        >
+        <div class="menu mt-12 flex flex-col space-y-7 font-medium px-5">
           <a
-            class="flex flex-row-reverse items-center justify-start gap-2 py-1 group hover:border-r-2 hover:border-r-[#0074D9] hover:translate-x-[-4px] transition-all transition-delay-300 hover:text-[#0074D9]"
+            class="flex flex-row-reverse items-center justify-start gap-2 py-1 group hover:translate-x-[-4px] transition-all transition-delay-300"
             href="#"
           >
             <i class="fa-solid fa-house"></i>
@@ -38,10 +50,10 @@
           </a>
 
           <div
-            class="optionSide cursor-pointer flex flex-col items-end justify-center group hover:border-r-2"
+            class="optionSide cursor-pointer flex flex-col items-end justify-center group"
           >
             <div
-              class="flex flex-row-reverse items-center justify-between p-2 hover:translate-x-[-4px] text-[#0074D9]"
+              class="flex flex-row-reverse items-center justify-between p-2 hover:translate-x-[-4px]"
             >
               <div class="flex flex-row-reverse gap-2 items-center">
                 <i class="fas fa-calendar-alt"></i>
@@ -58,7 +70,7 @@
                   <i class="fa-regular fa-square-plus"></i>
                 </a>
               </li>
-              <li class="mt-3 text-[#0074D9]">
+              <li class="mt-3">
                 <a href="displayProduct.html" class="p-2 items-center">
                   عرض المنتج
                   <i class="fa-regular fa-eye"></i>
@@ -69,10 +81,10 @@
 
           <!-- category -->
           <div
-            class="optionSide cursor-pointer flex flex-col items-end justify-center group hover:border-r-2"
+            class="optionSide cursor-pointer flex flex-col items-end justify-center group"
           >
             <div
-              class="flex flex-row-reverse items-center justify-between text-[#0074D9] p-2 hover:translate-x-[-4px] transition-all transition-delay-300 hover:text-[#0074D9]"
+              class="flex flex-row-reverse items-center justify-between p-2 hover:translate-x-[-4px] transition-all transition-delay-300"
             >
               <div class="flex flex-row-reverse gap-2 items-center">
                 <i class="fas fa-calendar-alt"></i>
@@ -83,7 +95,7 @@
             <ul
               class="desplegable flex flex-col justify-start items-start overflow-hidden hightAanimaton"
             >
-              <li class="mt-3 text-[#0074D9]">
+              <li class="mt-3">
                 <a href="addCategories.html" class="items-center">
                   اضافة الصنف
                   <i class="fa-regular fa-square-plus"></i>
@@ -99,7 +111,7 @@
           </div>
 
           <a
-            class="flex flex-row-reverse items-center justify-start gap-2 py-1 group hover:border-r-2 hover:border-r-[#0074D9] hover:translate-x-[-4px] transition-all transition-delay-300 hover:text-[#0074D9]"
+            class="flex flex-row-reverse items-center justify-start gap-2 py-1 group hover:translate-x-[-4px] transition-all transition-delay-300"
             href="imgSlider.html"
           >
             <i class="fa-regular fa-image"></i>
@@ -108,14 +120,14 @@
 
           <hr />
           <a
-            class="flex flex-row-reverse items-center justify-start gap-2 py-1 group hover:border-r-2 hover:border-r-[#0074D9] hover:translate-x-[-4px] transition-all transition-delay-300 text-[#0074D9]"
+            class="flex flex-row-reverse items-center justify-start gap-2 py-1 group hover:translate-x-[-4px] transition-all transition-delay-300 text-[#3A4750]"
             href="setting.html"
           >
             <i class="fa-solid fa-gear"></i>
             <span>الاعدادات</span>
           </a>
           <a
-            class="flex flex-row-reverse items-center justify-start gap-2 py-1 group hover:border-r-2 hover:border-r-[#0074D9] hover:translate-x-[-4px] transition-all transition-delay-300 hover:text-[#0074D9]"
+            class="flex flex-row-reverse items-center justify-start gap-2 py-1 group hover:translate-x-[-4px] transition-all transition-delay-300"
             href="#"
           >
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -126,7 +138,7 @@
       </aside>
       <!-- /Sidebar -->
 
-      <main class="w-full py-10 sm:px-10 bg-[#f8f9fe]" style="direction: rtl">
+      <main class="setting w-full py-10 sm:px-10" style="direction: rtl">
         <div class="container mx-auto px-4">
           <!-- <h1 class="titleMain text-2xl">تعديل معلومات</h1> -->
           <div
@@ -137,13 +149,13 @@
                 <label for="">تعديل الاسم</label>
                 <div class="relative flex w-full flex-wrap items-stretch my-3">
                   <span
-                    class="bg-[#0070d9] z-10 h-full leading-snug font-normal text-center text-[#fff] absolute rounded text-base items-center justify-center w-8 py-3"
+                    class="icon z-10 h-full leading-snug font-normal text-center text-[#fff] absolute rounded-r text-base items-center justify-center w-8 py-3"
                   >
                     <i class="fa-regular fa-user"></i>
                   </span>
                   <input
                     type="text"
-                    class="px-10 py-3 relative bg-white rounded text-sm border-0 outline-none focus:outline-none focus:border-2 focus:border-[#0074d9] w-full pl-10"
+                    class="px-10 py-3 relative bg-white rounded text-sm border-0 outline-none focus:outline-none focus:border-2 w-full pl-10"
                   />
                 </div>
               </div>
@@ -152,19 +164,19 @@
                 <label for="">تعديل كلمة السر</label>
                 <div class="relative flex w-full flex-wrap items-stretch my-3">
                   <span
-                    class="bg-[#0070d9] z-10 h-full leading-snug font-normal text-center text-[#fff] absolute rounded text-base items-center justify-center w-8 py-3"
+                    class="icon z-10 h-full leading-snug font-normal text-center text-[#fff] absolute rounded-r text-base items-center justify-center w-8 py-3"
                   >
                     <i class="fa-solid fa-lock"></i>
                   </span>
                   <input
                     type="password"
-                    class="px-10 py-3 relative bg-white rounded text-sm border-0 outline-none focus:outline-none focus:border-2 focus:border-[#0074d9] w-full pl-10"
+                    class="px-10 py-3 relative bg-white rounded text-sm border-0 outline-none focus:outline-none focus:border-2 w-full pl-10"
                   />
                 </div>
               </div>
-              <div class="relative mt-10">
+              <div class="update relative mt-10">
                 <button
-                  class="bg-[#0074D9] text-white rounded-md px-5 py-3 capitalize space-x-2"
+                  class="text-white rounded-md px-5 py-3 capitalize space-x-2"
                 >
                   تحديث
                 </button>

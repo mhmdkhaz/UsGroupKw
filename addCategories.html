@@ -21,14 +21,14 @@
     >
       <!-- Sidebar -->
       <aside
-        class="h-screen bg-white w-1/5 py-10 min-w-min border-r border-indigo-900/20"
+        class="h-screen lg:w-1/5 py-10 min-w-min border-r border-indigo-900/20"
       >
-        <div class="font-bold text-2xl text-center capitalize">group</div>
+        <div class="titleSide font-bold text-2xl text-center capitalize">
+          group
+        </div>
 
         <!-- Menu -->
-        <div
-          class="mt-12 flex flex-col space-y-7 text-gray-500 font-medium px-5"
-        >
+        <div class="menu mt-12 flex flex-col space-y-7 font-medium px-5">
           <a
             class="flex flex-row-reverse items-center justify-start gap-2 py-1 group hover:border-r-2 hover:border-r-[#0074D9] hover:translate-x-[-4px] transition-all transition-delay-300 hover:text-[#0074D9]"
             href="#"
@@ -52,8 +52,8 @@
             <ul
               class="desplegable flex flex-col justify-start items-start overflow-hidden hightAanimaton"
             >
-              <li class="mt-3 text-[#0074D9]">
-                <a href="#" class="items-center">
+              <li class="mt-3">
+                <a href="addProduct.html" class="items-center">
                   اضافة منتج
                   <i class="fa-regular fa-square-plus"></i>
                 </a>
@@ -72,7 +72,7 @@
             class="optionSide cursor-pointer flex flex-col items-end justify-center group hover:border-r-2"
           >
             <div
-              class="flex flex-row-reverse items-center justify-between text-[#0074D9] p-2 hover:translate-x-[-4px] transition-all transition-delay-300 hover:text-[#0074D9]"
+              class="flex flex-row-reverse items-center justify-between text-[#3a4750] p-2 hover:translate-x-[-4px] transition-all transition-delay-300"
             >
               <div class="flex flex-row-reverse gap-2 items-center">
                 <i class="fas fa-calendar-alt"></i>
@@ -83,7 +83,7 @@
             <ul
               class="desplegable flex flex-col justify-start items-start overflow-hidden hightAanimaton"
             >
-              <li class="mt-3 text-[#0074D9]">
+              <li class="mt-3 text-[#3a4750]">
                 <a href="addCategories.html" class="items-center">
                   اضافة الصنف
                   <i class="fa-regular fa-square-plus"></i>
@@ -100,7 +100,7 @@
 
           <a
             class="flex flex-row-reverse items-center justify-start gap-2 py-1 group hover:border-r-2 hover:border-r-[#0074D9] hover:translate-x-[-4px] transition-all transition-delay-300 hover:text-[#0074D9]"
-            href="#"
+            href="imgSlider.html"
           >
             <i class="fa-regular fa-image"></i>
             <span>صور الشريط</span>
@@ -126,9 +126,18 @@
       </aside>
       <!-- /Sidebar -->
 
-      <main class="w-full py-10 sm:px-10 bg-[#f8f9fe]" style="direction: rtl">
-        <div class="bg-white border-2 border-t-[#0074D9] w-full p-5 rounded">
-          <h2>اضافة الصنف</h2>
+      <main
+        class="displayCategory w-full py-10 sm:px-10 px-5 flex items-center justify-center"
+        style="direction: rtl"
+      >
+        <div
+          class="boxCategory relative flex justify-start items-center max-w-fit bg-white border-2 border-t-[#2185d5] w-full p-5 rounded"
+        >
+          <div
+            class="absolute rounded inset-0 bg-gradient-to-r from-blue-300 to-[#2185d5] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"
+            style="z-index: -1"
+          ></div>
+          <!-- <h2>اضافة الصنف</h2> -->
           <form action="" class="mt-5">
             <div>
               <label for="">اسم الصنف</label>
@@ -136,7 +145,7 @@
             </div>
             <!-- choose image -->
             <div
-              class="flex flex-wrap justify-center md:justify-start items-center gap-8 mt-8"
+              class="flex flex-col flex-wrap justify-center md:justify-start items-center gap-8 my-12"
             >
               <div>
                 <input
@@ -161,9 +170,7 @@
               />
             </div>
             <!-- button add and show -->
-            <div
-              class="groupButton flex justify-center md:justify-start gap-4 mt-10"
-            >
+            <div class="groupButton flex justify-center gap-4 mt-10">
               <button
                 class="bg-[#0074D9] text-white rounded-md px-5 py-3 capitalize cursor-pointer"
               >
