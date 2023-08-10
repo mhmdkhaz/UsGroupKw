@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>setting</title>
-    <!-- start in check code -->
-    <link rel="stylesheet" href="puplic/css/output.css" />
+    <!-- start in tailwind -->
+    <link rel="stylesheet" href="puplic/css/tailwind.css" />
     <!-- start in style css -->
     <link rel="stylesheet" href="puplic/css/admin.css" />
     <!-- start in fontawsome -->
@@ -31,9 +31,7 @@
       ></div>
       <!-- overlay -->
       <!-- Sidebar -->
-      <aside
-        class="h-screen lg:w-1/5 py-10 min-w-min border-r border-indigo-900/20"
-      >
+      <aside class="lg:w-1/5 py-10 min-w-min border-r border-indigo-900/20">
         <div class="titleSide font-bold text-2xl text-center capitalize">
           group
         </div>
@@ -79,36 +77,13 @@
           </div>
 
           <!-- category -->
-          <div
-            class="optionSide cursor-pointer flex flex-col items-end justify-center group hover:border-r-2"
+          <a
+            class="flex flex-row-reverse items-center justify-start gap-2 py-1 group hover:translate-x-[-4px] transition-all transition-delay-300 text-[#3A4750]"
+            href="addCategories.html"
           >
-            <div
-              class="flex flex-row-reverse items-center justify-between text-[#3a4750] p-2 hover:translate-x-[-4px] transition-all transition-delay-300"
-            >
-              <div class="flex flex-row-reverse gap-2 items-center">
-                <i class="fas fa-calendar-alt"></i>
-                <span>الاصناف</span>
-              </div>
-              <i class="fas fa-chevron-down text-xs"></i>
-            </div>
-            <ul
-              class="desplegable flex flex-col justify-start items-start overflow-hidden hightAanimaton"
-            >
-              <li class="mt-3 text-[#3a4750]">
-                <a href="addCategories.html" class="items-center">
-                  اضافة الصنف
-                  <i class="fa-regular fa-square-plus"></i>
-                </a>
-              </li>
-              <li class="mt-3">
-                <a href="categories.html" class="p-2 items-center">
-                  عرض الصنف
-                  <i class="fa-regular fa-eye"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-
+            <i class="fa-regular fa-image"></i>
+            <span> الاصناف</span>
+          </a>
           <a
             class="flex flex-row-reverse items-center justify-start gap-2 py-1 group hover:translate-x-[-4px] transition-all transition-delay-300"
             href="imgSlider.html"
@@ -137,63 +112,218 @@
       </aside>
       <!-- /Sidebar -->
 
-      <main
-        class="displayCategory relative z-10 w-full py-10 sm:px-10 px-5 flex items-center justify-center"
-        style="direction: rtl"
-      >
+      <main>
+        <h1 class="text-white text-2xl bg-[#2185d5] p-3 relative z-10 w-full">
+          الاصناف
+        </h1>
         <div
-          class="boxCategory relative flex justify-start items-center max-w-fit bg-white border-2 border-t-[#2185d5] w-full p-5 rounded"
+          class="container displayCategory relative z-10 w-full py-10 sm:px-12 px-5"
+          style="direction: rtl"
         >
+          <h1 class="text-xl text-[#303841] font-black my-5">اضافة الاصناف</h1>
           <div
-            class="absolute rounded inset-0 bg-gradient-to-r from-blue-300 to-[#2185d5] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"
-            style="z-index: -1"
-          ></div>
-          <!-- <h2>اضافة الصنف</h2> -->
-          <form action="" class="mt-5">
-            <div>
-              <label for="">اسم الصنف</label>
-              <input type="text" class="border-2 rounded p-2" />
-            </div>
-            <!-- choose image -->
-            <div
-              class="flex flex-col flex-wrap justify-center md:justify-start items-center gap-8 my-12"
-            >
-              <div>
-                <input
-                  type="file"
-                  id="file-input"
-                  name="image"
-                  accept="image/*"
-                  class="hidden"
-                />
-                <label
-                  id="file-input-label"
-                  for="file-input"
-                  class="bg-white text-black border-2 border-gray-400 rounded-md px-5 py-3 capitalize cursor-pointer"
+            class="boxCategory relative bg-white border-2 border-t-[#2185d5] w-full p-5 rounded-md"
+          >
+            <!-- <h2>اضافة الصنف</h2> -->
+            <form action="" class="flex flex-wrap justify-between gap-10 mt-5">
+              <div class="flex flex-col justify-center gap-10">
+                <div>
+                  <label for="">اسم الصنف</label>
+                  <input type="text" class="border-2 rounded p-2" />
+                </div>
+                <div class="">
+                  <label for="" class=""> صورة الصنف</label>
+                  <input
+                    type="file"
+                    id="file-input"
+                    name="image"
+                    accept="image/*"
+                    class="hidden"
+                  />
+                  <label
+                    id="file-input-label"
+                    for="file-input"
+                    class="text-white bg-[#3a4750] rounded-md px-8 py-3 capitalize space-x-2"
+                  >
+                    اختيار
+                  </label>
+                </div>
+                <!-- add to table -->
+                <button
+                  class="bg-[#0074D9] text-white rounded-md px-5 py-3 capitalize cursor-pointer"
                 >
-                  اضافة صورة المنتج</label
-                >
+                  اضافة
+                </button>
               </div>
-              <img
-                src="puplic/images/admin/imageEmpty.png"
-                alt=""
-                class="placeImg h-40 w-44 bg-[#f8f9fe]"
-              />
+
+              <!-- choose image -->
+              <div class="w-96 h-auto">
+                <img
+                  src="puplic/images/admin/imageEmpty.png"
+                  alt=""
+                  class="placeImg bg-[#f8f9fe] w-full"
+                />
+              </div>
+            </form>
+          </div>
+
+          <!-- start in table -->
+          <div class="rounded-md w-full mt-10">
+            <h1 class="text-xl text-[#303841] font-black">عرض الاصناف</h1>
+            <div class="relative mt-4">
+              <span>عدد الاصناف (2)</span>
             </div>
-            <!-- button add and show -->
-            <div class="groupButton flex justify-center gap-4 mt-10">
-              <button
-                class="bg-[#0074D9] text-white rounded-md px-5 py-3 capitalize cursor-pointer"
-              >
-                اضافة
-              </button>
+            <div class="mt-2">
+              <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+                <div
+                  class="inline-block min-w-full shadow rounded-lg overflow-hidden"
+                >
+                  <table class="min-w-full leading-normal">
+                    <thead>
+                      <tr class="">
+                        <th
+                          class="px-5 py-3 border-b-2 border-gray-200 text-right text-xs font-semibold uppercase tracking-wider"
+                        >
+                          الصورة
+                        </th>
+                        <th
+                          class="px-5 py-3 border-b-2 border-gray-200 text-right text-xs font-semibold uppercase tracking-wider"
+                        >
+                          الاسم
+                        </th>
+                        <th
+                          class="px-5 py-3 border-b-2 border-gray-200 text-right text-xs font-semibold uppercase tracking-wider"
+                        >
+                          انشأت بتاريخ
+                        </th>
+                        <th
+                          class="px-5 py-3 border-b-2 border-gray-200 text-right text-xs font-semibold uppercase tracking-wider"
+                        >
+                          الساعة
+                        </th>
+                        <th
+                          class="px-5 py-3 border-b-2 border-gray-200 text-right text-xs font-semibold uppercase tracking-wider"
+                        >
+                          Status
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td
+                          class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
+                        >
+                          <div class="flex items-center">
+                            <div class="flex-shrink-0 w-24 h-20">
+                              <img
+                                class="w-full h-full rounded"
+                                src="puplic/images/slider/slide_1.jpg"
+                                alt=""
+                              />
+                            </div>
+                          </div>
+                        </td>
+                        <td
+                          class="px-5 py-5 border-b border-r border-gray-200 bg-white text-sm"
+                        >
+                          <p class="whitespace-no-wrap">travel</p>
+                        </td>
+                        <td
+                          class="px-5 py-5 border-b border-r border-gray-200 bg-white text-sm"
+                        >
+                          <p class="whitespace-no-wrap">Jan 21, 2020</p>
+                        </td>
+                        <td
+                          class="px-5 py-5 border-b border-r border-gray-200 bg-white text-sm"
+                        >
+                          <p class="whitespace-no-wrap">11:05</p>
+                        </td>
+                        <td
+                          class="py-5 border-b border-r border-gray-200 bg-white text-sm"
+                        >
+                          <div
+                            class="flex justify-start pr-5 gap-4 items-center text-[18px]"
+                          >
+                            <i
+                              class="deleteBtn fa-solid fa-trash-can text-[#FF0000]"
+                            ></i>
+                            <i
+                              class="fa-solid fa-pen-to-square text-[#FFA500]"
+                            ></i>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td
+                          class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
+                        >
+                          <div class="flex items-center">
+                            <div class="flex-shrink-0 w-24 h-20">
+                              <img
+                                class="w-full h-full rounded"
+                                src="puplic/images/slider/slide_2.jpg"
+                                alt=""
+                              />
+                            </div>
+                          </div>
+                        </td>
+                        <td
+                          class="px-5 py-5 border-b border-r border-gray-200 bg-white text-sm"
+                        >
+                          <p class="whitespace-no-wrap">Admin</p>
+                        </td>
+                        <td
+                          class="px-5 py-5 border-b border-r border-gray-200 bg-white text-sm"
+                        >
+                          <p class="whitespace-no-wrap">Jan 21, 2020</p>
+                        </td>
+                        <td
+                          class="px-5 py-5 border-b border-r border-gray-200 bg-white text-sm"
+                        >
+                          <p class="whitespace-no-wrap">10:10</p>
+                        </td>
+                        <td
+                          class="py-5 border-b border-r border-gray-200 bg-white text-sm"
+                        >
+                          <div
+                            class="flex justify-start pr-5 gap-4 items-center text-[18px]"
+                          >
+                            <i
+                              class="deleteBtn fa-solid fa-trash-can text-[#FF0000]"
+                            ></i>
+                            <i
+                              class="fa-solid fa-pen-to-square text-[#FFA500]"
+                            ></i>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end in table -->
+          <!-- start no data -->
+          <div class="noData flex flex-col justify-center items-center">
+            <img
+              src="puplic/images/admin/noData.svg"
+              class="w-full md:w-2/4 h-96"
+            />
+            <div class="flex flex-col justify-center items-center mt-5">
+              <h1 class="capitalize text-2xl text-center font-black">
+                لا توجد اصناف لعرضها
+              </h1>
+              <p class="capitalize mt-3">لاضافة المنتجات يرجى الضغط</p>
               <a
-                href="categories.html"
-                class="bg-[#f16a6f] text-white rounded-md px-5 py-3 capitalize cursor-pointer"
-                >عرض</a
+                href="addProduct.html"
+                class="bg-[#0074D9] mt-3 text-white rounded-md px-5 py-3 capitalize space-x-2 cursor-pointer"
+                >اضافة بيانات</a
               >
             </div>
-          </form>
+          </div>
+          <!-- end no data -->
         </div>
       </main>
     </div>

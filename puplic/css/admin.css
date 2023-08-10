@@ -1,10 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Lemonada", cursive;
+  font-family: "Cairo";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/cairo/v28/SLXgc1nY6HkvangtZmpQdkhzfH5lkSs2SgRjCAGMQ1z0hOA-a1biLD-H.woff2)
+    format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0898-08E1,
+    U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF,
+    U+FE70-FE74, U+FE76-FEFC;
 }
 
 :root {
@@ -72,6 +84,7 @@ aside {
 
 .openClose {
   display: none;
+  z-index: 200;
 }
 
 @media screen and (max-width: 992px) {
@@ -142,12 +155,12 @@ aside .titleSide {
 /* style close open sidebar */
 #btn {
   position: relative;
-  z-index: 10;
+
   width: 20px;
   height: 30px;
   transform: translate(-50%, -50%);
   cursor: pointer;
-  background: var(--blue);
+  background: var(--blackDark);
   border-radius: 6px;
   border: none;
   outline: none;
@@ -287,7 +300,7 @@ aside .titleSide {
 /* overlay */
 .overlaySide {
   position: fixed;
-  z-index: 1;
+  z-index: 100;
   background-color: var(--blackDark);
   transform: translateX(0);
   transition: transform 0.3s ease-in-out;
@@ -299,7 +312,7 @@ aside .titleSide {
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
   -o-transform: translateX(0);
-  opacity: 0.8  ;
+  opacity: 0.8;
 }
 .hideSideOverlay {
   position: fixed;
@@ -314,7 +327,8 @@ aside .titleSide {
 /*----------------------------------- start in main ---------------------------------------- */
 main {
   background-color: var(--gray);
-  z-index: -1;
+  direction: rtl;
+  width: 100%;
 }
 
 .titleMain {
@@ -367,6 +381,26 @@ table tbody tr:hover td {
 
 /*------------------------------- end in main ------------------------------  */
 
+/* ----------------------------- start in dashpord --------------------------- */
+.dashpord .cards .card {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+
+.dashpord .cards .card:hover {
+  transform: translateY(-0.2rem);
+  cursor: pointer;
+  -webkit-transform: translateY(-0.2rem);
+  -moz-transform: translateY(-0.2rem);
+  -ms-transform: translateY(-0.2rem);
+  -o-transform: translateY(-0.2rem);
+}
+/* ----------------------------- end in dashpord --------------------------- */
+
 /* start in setting  */
 .setting form .inputSetting label {
   color: var(--blackLight);
@@ -391,9 +425,6 @@ table tbody tr:hover td {
   background-color: var(--blackLight);
 }
 
-.setting form .update button {
-  background-color: var(--blackLight);
-}
 /* end in setting  */
 
 /* start in slider */
