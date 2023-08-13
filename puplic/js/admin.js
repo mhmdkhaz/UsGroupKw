@@ -46,7 +46,43 @@ opcionesCon.forEach(function (opcion) {
     // Obtener el desplegable asociado a la opción
     const desplegable = opcion.querySelector(".desplegable");
     // Alternar la clase "open" para mostrar u ocultar el desplegable con transición suave
-    console.log("ddd");
     desplegable.classList.toggle("open");
+  });
+});
+
+//
+
+const productFilterInput = document.querySelectorAll(".select");
+
+productFilterInput.forEach((select) => {
+  select.addEventListener("input", () => {
+    const filterValue = select.value.trim().toLocaleLowerCase();
+
+    // العثور على العنصر الأب الفوري لـ select
+    const itemParent = select.parentElement.parentElement;
+
+    let categoriesFilterItems = itemParent.querySelectorAll(
+      ".categoriesFilter a"
+    );
+    let listSelect = itemParent.querySelector(".listSelect");
+
+    categoriesFilterItems.forEach((item) => {
+      const itemName = item.innerText.trim().toLocaleLowerCase();
+
+      if (filterValue.length > 0) {
+        listSelect.setAttribute("checked", "");
+      } else {
+        listSelect.removeAttribute("checked");
+      }
+
+      // العثور على العنصر الأب الفوري لـ item
+      const itemParent = item.parentElement;
+
+      if (itemName.includes(filterValue)) {
+        itemParent.style.display = "block"; // عرض العنصر المطابق
+      } else {
+        itemParent.style.display = "none"; // إخفاء العنصر غير المطابق
+      }
+    });
   });
 });
