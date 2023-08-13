@@ -118,94 +118,206 @@
           اضافة منتج
         </h1>
 
-        <div
-          class="addProduct w-full py-10 sm:px-10 bg-[#f8f9fe]"
-          style="direction: rtl"
-        >
-          <h1 class="titleMain text-2xl text-right">اضافة</h1>
-          <div class="flex flex-row-reverse items-center">
-            <figure>
-              <img src="puplic/images/admin/addProduct.svg" alt="" />
-            </figure>
+        <div class="addProduct w-full py-10 sm:px-10" style="direction: rtl">
+          <h1 class="text-xl text-[#303841] font-black my-5">اضافة المنتجات</h1>
+          <div
+            class="boxCategory relative bg-white border-2 border-t-[#2185d5] w-full p-5 rounded-md"
+          >
+            <!-- <h2>اضافة الصنف</h2> -->
+            <form action="" class="flex flex-wrap justify-between gap-10 mt-5">
+              <div
+                class="flex flex-col justify-start items-center gap-10 w-full"
+              >
+                <!-- name product -->
+                <div
+                  class="flex md:flex-row flex-col items-center gap-x-5 w-full"
+                >
+                  <div class="flex items-center justify-center gap-2 w-full">
+                    <label for="" class="w-1/4"> اسم المنتج بالعربي</label>
+                    <input type="text" class="border-2 rounded w-3/4 p-2" />
+                  </div>
 
-            <div class="">
-              <div class="flex gap-4">
-                <!-- start in title product -->
-                <div class="flex flex-col">
-                  <label for="">اسم المنتج</label>
-                  <input
-                    type="text"
-                    class="px-10 py-3 relative bg-white rounded text-sm border-0 outline-none focus:outline-none w-full pl-10 mt-3"
-                  />
+                  <div class="flex items-center justify-center gap-2 w-full">
+                    <label for="" class="w-1/4">اسم المنتج بالانكليزي</label>
+                    <input
+                      type="text"
+                      class="border-2 rounded w-3/4 p-2 text-left"
+                    />
+                  </div>
                 </div>
-                <!-- start in categories a -->
-                <div class="flex flex-col">
-                  <label for="">اسم الصنف</label>
-                  <input
-                    type="text"
-                    class="px-10 py-3 relative bg-white rounded text-sm border-0 outline-none focus:outline-none w-full pl-10 mt-3"
-                  />
+                <!-- price -->
+                <div
+                  class="flex md:flex-row flex-col items-center gap-x-5 w-full"
+                >
+                  <div class="flex items-center justify-center gap-2 w-full">
+                    <label for="" class="w-1/4"> سعر المنتج بدون خصم</label>
+                    <input
+                      type="text"
+                      class="border-2 rounded w-3/4 p-2 text-left"
+                    />
+                  </div>
+
+                  <div class="flex items-center justify-center gap-2 w-full">
+                    <label for="" class="w-1/4">سعر المنتج بعد الخصم</label>
+                    <input
+                      type="text"
+                      class="border-2 rounded w-3/4 p-2 text-left"
+                    />
+                  </div>
+                </div>
+                <!-- category -->
+                <div
+                  class="flex md:flex-row flex-col items-center gap-x-5 w-full"
+                >
+                  <div class="flex items-center justify-center gap-2 w-full">
+                    <label for="countries" class="w-1/4">اختيار الصنف</label>
+                    <select
+                      id="countries"
+                      class="bg-gray-100 border-2 w-3/4 p-2.5"
+                    >
+                      <option selected>Choose a country</option>
+                      <option value="US">United States</option>
+                      <option value="CA">Canada</option>
+                      <option value="FR">France</option>
+                      <option value="DE">Germany</option>
+                    </select>
+                  </div>
+
+                  <div class="flex items-center justify-center gap-2 w-full">
+                    <label for="countries" class="w-1/4">اختيار الماركة</label>
+                    <select
+                      id="countries"
+                      class="bg-gray-100 border-2 w-3/4 p-2.5"
+                    >
+                      <option selected>Choose a country</option>
+                      <option value="US">United States</option>
+                      <option value="CA">Canada</option>
+                      <option value="FR">France</option>
+                      <option value="DE">Germany</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- info -->
+                <div
+                  class="flex md:flex-row flex-col items-center gap-x-5 w-full"
+                >
+                  <div class="flex items-center justify-center gap-2 w-full">
+                    <label for="" class="w-1/4"> الوصف بالعربي</label>
+                    <textarea name="" id="" class="w-3/4" rows="5"></textarea>
+                  </div>
+
+                  <div class="flex items-center justify-center gap-2 w-full">
+                    <label for="" class="w-1/4">الوصف بالانكليزي</label>
+                    <textarea name="" id="" class="w-3/4" rows="5"></textarea>
+                  </div>
                 </div>
               </div>
-              <!-- start in price -->
-              <div class="flex gap-4 lg:mt-12 mt-5">
-                <!-- start in title product -->
-                <div class="flex flex-col">
-                  <label for="">السعر قبل التخفيض</label>
-                  <input
-                    type="number"
-                    class="px-10 py-3 relative bg-white rounded text-sm border-0 outline-none focus:outline-none w-full pl-10 mt-3"
-                  />
-                </div>
-                <!-- start in categories a -->
-                <div class="flex flex-col">
-                  <label for="">السعر بعد التخفيض</label>
-                  <input
-                    type="number"
-                    class="px-10 py-3 relative bg-white rounded text-sm border-0 outline-none focus:outline-none w-full pl-10 mt-3"
-                  />
-                </div>
-              </div>
-              <!-- start in image product -->
-              <div class="lg:mt-12 mt-5 grid grid-cols-3 gap-4">
-                <div class="flex flex-col col-span-1">
-                  <span> صورة المنتج </span>
+            </form>
+            <!-- images -->
+            <div class="p-8 rounded-md w-full">
+              <div class="relative mt-10">
+                <form
+                  method="POST"
+                  enctype="multipart/form-data"
+                  class="chooseImage"
+                >
                   <input
                     type="file"
                     id="file-input"
                     name="image"
                     accept="image/*"
-                    class="hidden mt-5"
+                    class="hidden"
                   />
                   <label
                     id="file-input-label"
                     for="file-input"
-                    class="bg-[#3a4750] mt-3 text-white rounded-md px-5 py-3 capitalize space-x-2 cursor-pointer"
-                    >اختر صورة</label
+                    class="rounded-md px-5 py-3 capitalize space-x-2 cursor-pointer"
+                    >اضافة صورة</label
                   >
-                </div>
-                <!-- img -->
-                <div
-                  class="boxImg bg-white w-full rounded col-span-2 h-36 border-2 border-gray-50"
-                >
-                  <img src="" alt="" />
+                </form>
+              </div>
+              <div class="mt-5">
+                <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+                  <div
+                    class="inline-block min-w-full shadow rounded-lg overflow-hidden"
+                  >
+                    <table class="min-w-full leading-normal">
+                      <thead>
+                        <tr class="">
+                          <th
+                            class="px-5 py-3 border-b-2 border-gray-200 text-right text-xs font-semibold uppercase tracking-wider"
+                          >
+                            الصورة
+                          </th>
+
+                          <th
+                            class="px-5 py-3 border-b-2 border-gray-200 text-right text-xs font-semibold uppercase tracking-wider"
+                          >
+                            انشأت بتاريخ
+                          </th>
+                          <th
+                            class="px-5 py-3 border-b-2 border-gray-200 text-right text-xs font-semibold uppercase tracking-wider"
+                          >
+                            الساعة
+                          </th>
+                          <th
+                            class="px-5 py-3 border-b-2 border-gray-200 text-right text-xs font-semibold uppercase tracking-wider"
+                          >
+                            Status
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td
+                            class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
+                          >
+                            <div class="flex items-center">
+                              <div class="flex-shrink-0 w-24 h-20">
+                                <img
+                                  class="w-full h-full rounded"
+                                  src="puplic/images/slider/slide_1.jpg"
+                                  alt=""
+                                />
+                              </div>
+                            </div>
+                          </td>
+
+                          <td
+                            class="px-5 py-5 border-b border-r border-gray-200 bg-white text-sm"
+                          >
+                            <p class="whitespace-no-wrap">Jan 21, 2020</p>
+                          </td>
+                          <td
+                            class="px-5 py-5 border-b border-r border-gray-200 bg-white text-sm"
+                          >
+                            <p class="whitespace-no-wrap">11:05</p>
+                          </td>
+                          <td
+                            class="py-5 border-b border-r border-gray-200 bg-white text-sm"
+                          >
+                            <div
+                              class="flex justify-start pr-5 gap-4 items-center text-[18px]"
+                            >
+                              <i
+                                class="deleteBtn fa-solid fa-trash-can text-[#FF0000]"
+                              ></i>
+                              <i
+                                class="fa-solid fa-pen-to-square text-[#FFA500]"
+                              ></i>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
-              <!-- start in discrtipn -->
-              <div class="mt-12">
-                <span> وصف المنتج </span>
-                <textarea
-                  name=""
-                  id=""
-                  rows="10"
-                  class="mt-3 w-full rounded p-5"
-                ></textarea>
-              </div>
-              <!-- send dataa -->
               <button
+                href="addProduct.html"
                 class="bg-[#0074D9] mt-3 text-white rounded-md px-5 py-3 capitalize space-x-2 cursor-pointer"
               >
-                اضافة
+                اضافة بيانات
               </button>
             </div>
           </div>

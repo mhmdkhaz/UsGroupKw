@@ -126,10 +126,13 @@
           >
             <!-- <h2>اضافة الصنف</h2> -->
             <form action="" class="flex flex-wrap justify-between gap-10 mt-5">
-              <div class="flex flex-col justify-center gap-10">
-                <div>
-                  <label for="">اسم الصنف</label>
+              <div class="flex flex-row justify-center items-center gap-10">
+                <div class="flex items-center gap-2">
+                  <label for=""> اسم الصنف بالعربي</label>
                   <input type="text" class="border-2 rounded p-2" />
+
+                  <label for="">اسم الصنف بالانكليزي</label>
+                  <input type="text" class="border-2 rounded p-2 text-left" />
                 </div>
                 <div class="">
                   <label for="" class=""> صورة الصنف</label>
@@ -157,7 +160,7 @@
               </div>
 
               <!-- choose image -->
-              <div class="w-96 h-auto">
+              <div class="w-36 h-auto">
                 <img
                   src="puplic/images/admin/imageEmpty.png"
                   alt=""

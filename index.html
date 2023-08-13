@@ -3,197 +3,358 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!-- start css -->
-    <link rel="stylesheet" href="../puplic/css/style.css" />
+    <title>idnex</title>
+    <!-- start in css -->
+    <link rel="stylesheet" href="puplic/css/style.css" />
+    <!-- start in tailwind css -->
+    <link rel="stylesheet" href="puplic/css/tailwind.css" />
+    <!-- start in carsoule -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
     <!-- start in fontawsome -->
-    <link rel="stylesheet" href="../puplic/FontAwesome/css/all.min.css" />
-    <!-- start tawilwind -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-    <!-- start in google font -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <!-- start in google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;300;700&family=Inter:wght@600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400&family=Montserrat&display=swap"
       rel="stylesheet"
-    />
-    <!-- start in splide js -->
-    <link
-      rel="stylesheet"
-      href="./node_modules/@splidejs/splide/dist/css/splide-core.min.css"
     />
   </head>
   <body>
     <!-- start in navbar -->
-
-    <nav class="fixed z-10 w-screen">
-      <div
-        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
-      >
-        <a href="https://flowbite.com/" class="flex items-center">
-          <h1 class="capitalize text-2xl font-bold logo">us group kw</h1>
-        </a>
-        <div class="flex">
-          <div class="relative hidden md:block">
-            <div
-              class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
-            >
-              <svg
-                class="w-4 h-4 text-gray-500 dark:text-gray-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                />
-              </svg>
-              <span class="sr-only">Search icon</span>
-            </div>
-            <input
-              type="text"
-              id="search-navbar"
-              class="block w-full p-2 pl-10 text-sm text-gray-900 border"
-              placeholder="Search..."
-            />
-          </div>
+    <!-- component -->
+    <header class="bg-white">
+      <div class="container mx-auto px-4 py-8 flex items-center">
+        <!-- logo -->
+        <div class="mr-auto md:w-16 flex-shrink-0">
+          <h1 class="text-3xl font-bold capitalize">logo</h1>
         </div>
-        <div class="hidden w-full md:flex md:w-auto">
-          <i class="fa-solid fa-cart-shopping"></i>
+
+        <!-- search -->
+        <div
+          class="w-full max-w-xs xl:max-w-lg 2xl:max-w-2xl bg-gray-100 rounded-md hidden xl:flex items-center"
+        >
+          <select
+            class="bg-transparent uppercase font-bold text-sm p-4 mr-4"
+            name=""
+            id=""
+          >
+            <option>all categories</option>
+          </select>
+          <input
+            class="w-full h-auto border-l outline-none border-gray-300 bg-transparent font-semibold text-sm pl-4"
+            type="text"
+            placeholder="I'm searching for ..."
+          />
+
+          <i
+            class="fa-solid fa-magnifying-glass ml-auto h-5 px-4 text-[#3c3b6e]"
+          ></i>
         </div>
-      </div>
-    </nav>
 
-    <!-- end in navbar -->
+        <!-- phone number -->
+        <div
+          class="ml-auto md:w-48 hidden sm:flex flex-col place-items-end text-[#3c3b6e]"
+        >
+          <span class="font-bold md:text-xl">8 800 332 65-66</span>
+          <span class="font-semibold text-sm text-gray-400">Support 24/7</span>
+        </div>
 
-    <!-- start in slider -->
-
-    <section class="h-screen">
-      <section
-        class="splide sliderHeader"
-        aria-label="Splide Basic HTML Example"
-      >
-        <div class="splide__track">
-          <ul class="splide__list">
-            <li class="splide__slide h-screen w-scree relative">
-              <img
-                src="../puplic/images/slider/slide_1.jpg "
-                class="w-screen h-screen"
-                alt=""
-              />
-              <div class="w-2/4 absolute top-2/4 left-10 z-10 text-white">
-                <h1 class="capitalize text-4xl">offers</h1>
-                <p class="opacity-70 my-5">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Laudantium, recusandae doloremque? Maxime fuga, quas vero
-                  temporibus corrupti, iste voluptatem tempore, itaque quasi
-                  dolorum illo odit? Officiis itaque labore voluptates
-                  reprehenderit?
-                </p>
-                <button
-                  class="capitalize border-2 border-white py-2 px-4 rounded-sm hover:bg-[#185951] transition ease-in duration-250"
-                >
-                  shooping
-                </button>
-              </div>
+        <!-- buttons -->
+        <nav class="contents">
+          <ul class="ml-4 xl:w-48 flex items-center justify-end">
+            <li class="ml-2 lg:ml-4 relative inline-block">
+              <a class="uppercase text-[#3c3b6e]" href="#">english</a>
             </li>
-            <li class="splide__slide h-screen w-scree relative">
-              <img
-                src="../puplic/images/slider/slide_2.jpg "
-                class="w-screen h-screen"
-                alt=""
-              />
-              <div class="w-2/4 absolute top-2/4 left-10 z-10 text-white">
-                <h1 class="capitalize text-4xl">black friday</h1>
-                <p class="opacity-70 my-5">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Laudantium, recusandae doloremque? Maxime fuga, quas vero
-                  temporibus corrupti, iste voluptatem tempore, itaque quasi
-                  dolorum illo odit? Officiis itaque labore voluptates
-                  reprehenderit?
-                </p>
-                <button
-                  class="capitalize border-2 border-white py-2 px-4 rounded-sm hover:bg-[#185951] transition ease-in duration-250"
+            <li class="ml-2 lg:ml-4 relative inline-block">
+              <a class="" href="">
+                <div
+                  class="absolute -top-1 right-0 z-10 bg-yellow-400 text-xs font-bold px-1 py-0.5 rounded-sm"
                 >
-                  shooping
-                </button>
-              </div>
+                  12
+                </div>
+                <svg
+                  class="h-9 lg:h-10 p-2 text-[#3c3b6e]"
+                  aria-hidden="true"
+                  focusable="false"
+                  data-prefix="far"
+                  data-icon="shopping-cart"
+                  role="img"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 576 512"
+                  class="svg-inline--fa fa-shopping-cart fa-w-18 fa-9x"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M551.991 64H144.28l-8.726-44.608C133.35 8.128 123.478 0 112 0H12C5.373 0 0 5.373 0 12v24c0 6.627 5.373 12 12 12h80.24l69.594 355.701C150.796 415.201 144 430.802 144 448c0 35.346 28.654 64 64 64s64-28.654 64-64a63.681 63.681 0 0 0-8.583-32h145.167a63.681 63.681 0 0 0-8.583 32c0 35.346 28.654 64 64 64 35.346 0 64-28.654 64-64 0-18.136-7.556-34.496-19.676-46.142l1.035-4.757c3.254-14.96-8.142-29.101-23.452-29.101H203.76l-9.39-48h312.405c11.29 0 21.054-7.869 23.452-18.902l45.216-208C578.695 78.139 567.299 64 551.991 64zM208 472c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm256 0c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm23.438-200H184.98l-31.31-160h368.548l-34.78 160z"
+                  ></path>
+                </svg>
+              </a>
             </li>
           </ul>
+        </nav>
+
+        <!-- cart count -->
+        <div class="ml-4 hidden sm:flex flex-col font-bold text-[#3c3b6e]">
+          <span class="text-xs">Your Cart</span>
+          <span>$2,650,59</span>
         </div>
-      </section>
-    </section>
-    <!-- end in slider -->
+      </div>
 
-    <section id="categories" class="my-5">
-      <div class="container mx-auto px-4">
-        <h1 class="titleHeader caret-current">categories</h1>
-        <div class="my-5 flex flex-wrap justify-center items-center gap-4">
-          <div class="categore w-80">
-            <div class="box">
+      <hr />
+    </header>
+    <!-- end in navbar -->
+    <!-- start in carsoule -->
+    <div class="main-carousel heroSlider mt-5" data-flickity>
+      <div class="carousel-cell">
+        <img
+          src="puplic/images/slider/slide_1.jpg"
+          class="h-full w-full"
+          alt=""
+        />
+      </div>
+
+      <div class="carousel-cell">
+        <img
+          src="puplic/images/slider/slide_2.jpg"
+          class="h-full w-full"
+          alt=""
+        />
+      </div>
+
+      <div class="carousel-cell">
+        <img
+          src="puplic/images/slider/slide_2.jpg"
+          class="h-full w-full"
+          alt=""
+        />
+      </div>
+    </div>
+    <!-- end in carsoule -->
+
+    <!-- start in category -->
+    <div class="container mx-auto px-8 mt-10">
+      <h1 class="titleMain">Shop By Category</h1>
+      <div class="main-carousel carouselCategory">
+        <div class="carousel-cell flex items-center justify-start">
+          <div class="flex flex-col justify-center items-center gap-4">
+            <figure class="relative">
+              <img
+                src="puplic/images/catigories/catigores_1.jpg"
+                class="rounded-lg"
+                alt=""
+              />
+            </figure>
+            <h1
+              class="cursor-pointer text-center capitalize text-[#3c3b6e] font-semibold text-xl"
+            >
+              travel
+            </h1>
+          </div>
+        </div>
+
+        <div class="carousel-cell flex items-center justify-start">
+          <div class="flex flex-col justify-center items-center gap-4">
+            <figure class="relative">
+              <img
+                src="puplic/images/catigories/catigores_2.jpg"
+                class="rounded-lg"
+                alt=""
+              />
+            </figure>
+            <h1
+              class="cursor-pointer text-center capitalize text-[#3c3b6e] font-semibold text-xl"
+            >
+              travel
+            </h1>
+          </div>
+        </div>
+
+        <div class="carousel-cell flex items-center justify-start">
+          <div class="flex flex-col justify-center items-center gap-4">
+            <figure class="relative">
+              <img
+                src="puplic/images/catigories/catigores_3.jpg"
+                class="rounded-lg"
+                alt=""
+              />
+            </figure>
+            <h1
+              class="cursor-pointer text-center capitalize text-[#3c3b6e] font-semibold text-xl"
+            >
+              travel
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end in category -->
+
+    <section class="py-5 mt-5">
+      <div class="container mx-auto px-8">
+        <div class="flex justify-between items-center">
+          <h1 class="titleMain">product</h1>
+          <a href="" class="text-[#3c3b6e] text-xl">view all</a>
+        </div>
+        <div
+          class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1-4 gap-8"
+        >
+          <div
+            class="relative w-full overflow-hidden rounded-lg bg-white shadow-md transition-all transition-delay-400 hover:translate-y-[-8px]"
+          >
+            <a href="#">
+              <img
+                class="w-full object-fill h-60 rounded-t-lg"
+                src="puplic/images/WhatsApp Image 2023-08-10 at 11.43.22 PM.jpeg"
+                alt="product image"
+              />
+            </a>
+            <span
+              class="absolute top-0 left-0 w-28 translate-y-4 -translate-x-6 -rotate-45 bg-[#b22234] text-center text-sm text-white"
+              >Sale</span
+            >
+            <div class="mt-4 px-5 pb-5">
               <a href="#">
-                <img src="puplic/images/catigories/catigores_1.jpg" alt="" />
-                <div class="box__title">
-                  <h6 class="capitalize">supplies travel</h6>
-                </div>
+                <h5 class="text-xl font-semibold tracking-tight text-[#3c3b6e]">
+                  Nike Air MX Super 5000
+                </h5>
               </a>
+              <div class="flex items-center justify-between mt-2.5">
+                <p>
+                  <span class="text-3xl font-bold text-[#b22234]">$249</span>
+                  <span class="text-sm text-[#b22234] line-through">$299</span>
+                </p>
+                <a
+                  href="#"
+                  class="flex items-center rounded-md bg-[#3c3b6e] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                >
+                  <i class="fa-solid fa-cart-plus mr-2"></i>
+                  Add to cart</a
+                >
+              </div>
             </div>
           </div>
 
-          <div class="categore w-80">
-            <div class="box">
+          <div
+            class="relative w-full overflow-hidden rounded-lg bg-white shadow-md transition-all transition-delay-400 hover:translate-y-[-8px]"
+          >
+            <a href="#">
+              <img
+                class="w-full object-fill h-60 rounded-t-lg"
+                src="puplic/images/bugs_4.jpeg"
+                alt="product image"
+              />
+            </a>
+            <span
+              class="absolute top-0 left-0 w-28 translate-y-4 -translate-x-6 -rotate-45 bg-[#b22234] text-center text-sm text-white"
+              >Sale</span
+            >
+            <div class="mt-4 px-5 pb-5">
               <a href="#">
-                <img src="puplic/images/catigories/catigores_2.jpg" alt="" />
-                <div class="box__title">
-                  <h6 class="capitalize">supplies room</h6>
-                </div>
+                <h5 class="text-xl font-semibold tracking-tight text-[#3c3b6e]">
+                  Nike Air MX Super 5000
+                </h5>
               </a>
+              <div class="flex items-center justify-between mt-2.5">
+                <p>
+                  <span class="text-3xl font-bold text-[#b22234]">$249</span>
+                  <span class="text-sm text-[#b22234] line-through">$299</span>
+                </p>
+                <a
+                  href="#"
+                  class="flex items-center rounded-md bg-[#3c3b6e] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                >
+                  <i class="fa-solid fa-cart-plus mr-2"></i>
+                  Add to cart</a
+                >
+              </div>
             </div>
           </div>
 
-          <div class="categore w-80">
-            <div class="box">
+          <div
+            class="relative w-full overflow-hidden rounded-lg bg-white shadow-md transition-all transition-delay-400 hover:translate-y-[-8px]"
+          >
+            <a href="#">
+              <img
+                class="w-full object-fill h-60 rounded-t-lg"
+                src="puplic/images/bugs_3.jpeg"
+                alt="product image"
+              />
+            </a>
+            <span
+              class="absolute top-0 left-0 w-28 translate-y-4 -translate-x-6 -rotate-45 bg-[#b22234] text-center text-sm text-white"
+              >Sale</span
+            >
+            <div class="mt-4 px-5 pb-5">
               <a href="#">
-                <img src="puplic/images/catigories/catigores_3.jpg" alt="" />
-                <div class="box__title">
-                  <h6 class="capitalize">supplies land</h6>
-                </div>
+                <h5 class="text-xl font-semibold tracking-tight text-[#3c3b6e]">
+                  Nike Air MX Super 5000
+                </h5>
               </a>
+              <div class="flex items-center justify-between mt-2.5">
+                <p>
+                  <span class="text-3xl font-bold text-[#b22234]">$249</span>
+                  <span class="text-sm text-[#b22234] line-through">$299</span>
+                </p>
+                <a
+                  href="#"
+                  class="flex items-center rounded-md bg-[#3c3b6e] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                >
+                  <i class="fa-solid fa-cart-plus mr-2"></i>
+                  Add to cart</a
+                >
+              </div>
             </div>
           </div>
-          <div class="categore w-80">
-            <div class="box">
+
+          <div
+            class="relative w-full overflow-hidden rounded-lg bg-white shadow-md transition-all transition-delay-400 hover:translate-y-[-8px]"
+          >
+            <a href="#">
+              <img
+                class="w-full object-fill h-60 rounded-t-lg"
+                src="puplic/images/WhatsApp Image 2023-08-10 at 11.43.27 PM.jpeg"
+                alt="product image"
+              />
+            </a>
+            <span
+              class="absolute top-0 left-0 w-28 translate-y-4 -translate-x-6 -rotate-45 bg-[#b22234] text-center text-sm text-white"
+              >Sale</span
+            >
+            <div class="mt-4 px-5 pb-5">
               <a href="#">
-                <img src="puplic/images/catigories/catigores_3.jpg" alt="" />
-                <div class="box__title">
-                  <h6 class="capitalize">supplies land</h6>
-                </div>
+                <h5 class="text-xl font-semibold tracking-tight text-[#3c3b6e]">
+                  Nike Air MX Super 5000
+                </h5>
               </a>
+              <div class="flex items-center justify-between mt-2.5">
+                <p>
+                  <span class="text-3xl font-bold text-[#b22234]">$249</span>
+                  <span class="text-sm text-[#b22234] line-through">$299</span>
+                </p>
+                <a
+                  href="#"
+                  class="flex items-center rounded-md bg-[#3c3b6e] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                >
+                  <i class="fa-solid fa-cart-plus mr-2"></i>
+                  Add to cart</a
+                >
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- end in categories -->
 
-    <!-- strat in featured product -->
-    <section id="featured">
-      <div class="container mx-auto px-4">
-        <h1 class="titleHeader caret-current">featured product</h1>
-        <div class="grid grid-cols-4"></div>
-      </div>
-    </section>
-    <!-- end in featured product -->
-
-    <!-- start in splide -->
-    <script src="./node_modules/@splidejs/splide/dist/js/splide.min.js"></script>
-    <script src="./node_modules/@splidejs/splide-extension-auto-scroll/dist/js/splide-extension-auto-scroll.min.js"></script>
-    <!-- start in main js -->
+    <!-- start splide carsoule -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <!-- start main js -->
     <script src="puplic/js/main.js"></script>
   </body>
 </html>

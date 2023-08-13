@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap");
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 body {
   margin: 0;
   padding: 0;
@@ -374,7 +370,6 @@ table tbody tr td {
 }
 
 table tbody tr:hover td {
-  /* color: var(--blackDark); */
   background-color: var(--gray);
   cursor: pointer;
 }
