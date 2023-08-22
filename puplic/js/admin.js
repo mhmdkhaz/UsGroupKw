@@ -55,7 +55,7 @@ opcionesCon.forEach(function (opcion) {
 const productFilterInput = document.querySelectorAll(".select");
 
 productFilterInput.forEach((select) => {
-  select.addEventListener("input", () => {
+  select.addEventListener(["input"], () => {
     const filterValue = select.value.trim().toLocaleLowerCase();
 
     // العثور على العنصر الأب الفوري لـ select
@@ -83,6 +83,10 @@ productFilterInput.forEach((select) => {
       } else {
         itemParent.style.display = "none"; // إخفاء العنصر غير المطابق
       }
+
+      item.addEventListener("click", () => {
+        select.value = item.textContent;
+      });
     });
   });
 });
