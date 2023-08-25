@@ -109,24 +109,81 @@ function addToCart(button) {
   localStorage.setItem("cart", cartJson);
 }
 // slider header
-let elem = document.querySelector(".main-carousel");
-let itemMain = document.querySelectorAll(".heroSlider .carousel-cell");
+const slides = document.querySelectorAll("[data-slide]");
+const buttons = document.querySelectorAll("[data-button]");
 
-if (elem) {
-  let = new Flickity(elem, {
-    cellAlign: "center",
-    contain: true,
-    autoPlay: 5500,
-    freeScroll: true,
-    wrapAround: true,
-  });
-}
+let currSlide = 0;
+let maxSlide = slides.length - 1;
+let isDragging = false;
+let startPos = 0;
+let currentTranslate = 0;
+let prevTranslate = 0;
 
-if (itemMain.length <= 2) {
-  itemMain.forEach((cellSlider) => {
-    cellSlider.style.width = "100%";
+const updateCarousel = () => {
+  slides.forEach((slide, index) => {
+    slide.style.transform = `translateX(${index * 100 - currSlide * 100}%)`;
   });
-}
+};
+
+const touchStart = (index) => (e) => {
+  isDragging = true;
+  startPos = getPositionX(e);
+  currentTranslate = prevTranslate;
+};
+
+const touchMove = (e) => {
+  if (!isDragging) return;
+  const currentPosition = getPositionX(e);
+  const move = currentPosition - startPos;
+  prevTranslate = currentTranslate + move;
+  slides.forEach((slide, index) => {
+    slide.style.transform = `translateX(${
+      index * 100 - currSlide * 100 + prevTranslate
+    }%)`;
+  });
+};
+
+const touchEnd = () => {
+  isDragging = false;
+  const movedBy = prevTranslate - currentTranslate;
+  if (movedBy < -100 && currSlide < maxSlide) {
+    currSlide++;
+  }
+  if (movedBy > 100 && currSlide > 0) {
+    currSlide--;
+  }
+  updateCarousel();
+};
+
+const getPositionX = (e) => {
+  return e.type.includes("touch") ? e.touches[0].clientX : e.clientX;
+};
+
+slides.forEach((slide, index) => {
+  slide.addEventListener("touchstart", touchStart(index));
+  slide.addEventListener("mousedown", touchStart(index));
+  slide.addEventListener("touchmove", touchMove);
+  slide.addEventListener("mousemove", touchMove);
+  slide.addEventListener("touchend", touchEnd);
+  slide.addEventListener("mouseup", touchEnd);
+  slide.addEventListener("mouseleave", touchEnd);
+});
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    button.dataset.button === "next" ? ++currSlide : --currSlide;
+
+    if (currSlide > maxSlide) {
+      currSlide = 0;
+    } else if (currSlide < 0) {
+      currSlide = maxSlide;
+    }
+
+    updateCarousel();
+  });
+});
+
+updateCarousel();
 
 // end in slider header
 
@@ -279,11 +336,11 @@ if (fixedElement) {
       fixedElement.style.top = "";
       fixedElement.style.bottom = "";
     }
-        if (scrollPosition === 0) {
-          fixedElement.style.position = "absolute";
-          fixedElement.style.top = "0";
-          fixedElement.style.bottom = "";
-        }
+    if (scrollPosition === 0) {
+      fixedElement.style.position = "absolute";
+      fixedElement.style.top = "0";
+      fixedElement.style.bottom = "";
+    }
   });
 }
 //filter element close and open in mopile
@@ -292,13 +349,15 @@ let closeFilter = document.querySelector(".closeFilter i");
 let opneFilter = document.querySelector(".opneFilter span");
 let overlayShowProduct = document.querySelector(".overlayShowProduct");
 
-opneFilter.addEventListener("click", () => {
-  open(filterElement, "bottom", 0, overlayShowProduct);
-  console.log("dd");
-});
+if (filterElement) {
+  opneFilter.addEventListener("click", () => {
+    open(filterElement, "bottom", 0, overlayShowProduct);
+    console.log("dd");
+  });
 
-closeFilter.addEventListener("click", () => {
-  close(filterElement, "bottom", -100, overlayShowProduct);
-});
+  closeFilter.addEventListener("click", () => {
+    close(filterElement, "bottom", -100, overlayShowProduct);
+  });
+}
 
 //---------------------------------------  end in show all proudct ---------------------------------------
