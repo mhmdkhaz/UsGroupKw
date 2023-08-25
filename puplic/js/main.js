@@ -1,5 +1,23 @@
 // ---------------------------------------------------- start shared functions -------------------------------------------------------
 
+// function main
+function close(element, direction, valueDirection, overlay) {
+  element.style[direction] = `${valueDirection}%`;
+  overlay.style.opacity = "0";
+  setTimeout(() => {
+    overlay.style.display = "none";
+  }, 500);
+}
+
+function open(element, direction, valueDirection, overlay) {
+  element.style[direction] = `${valueDirection}%`;
+  overlay.style.display = "block";
+  setTimeout(() => {
+    overlay.style.opacity = "1";
+  }, 200);
+}
+// function main
+
 // -------------------------------- back to top button -------------------------------
 var backToTop = document.querySelector(".backToTop");
 
@@ -24,19 +42,11 @@ let closeCart = document.querySelector(".clsoeCart");
 let overlay = document.querySelector(".overlay");
 
 openCart.addEventListener("click", () => {
-  detailsCart.style.right = "0";
-  overlay.style.display = "block";
-  setTimeout(() => {
-    overlay.style.opacity = "1";
-  }, 100);
+  open(detailsCart, "right", 0, overlay);
 });
 
 closeCart.addEventListener("click", () => {
-  detailsCart.style.right = "-100%";
-  overlay.style.opacity = "0";
-  setTimeout(() => {
-    overlay.style.display = "none";
-  }, 500);
+  close(detailsCart, "right", -100, overlay);
 });
 
 // ------------------------------------------------ end in cart ------------------------------------------------
@@ -49,7 +59,7 @@ if (borderBox) {
       borderBox.forEach((removeClassAll) => {
         removeClassAll.classList.remove("activeSize");
       });
-      selected.classList.add("activeSize"); 
+      selected.classList.add("activeSize");
     });
   });
 }
@@ -128,6 +138,7 @@ var flktyCategory = new Flickity(category, {
   freeScroll: true,
   wrapAround: true,
   groupCells: true,
+  groupCells: 4,
 });
 
 // start in details product
@@ -230,7 +241,7 @@ if (productDetails) {
     totalPrice = qtyProdcut * priceProduct;
 
     qtyElem.textContent = qtyProdcut;
-    totalPriceElem.textContent = `d.k${totalPrice}.00`;
+    totalPriceElem.textContent = `d.k${totalPrice}`;
   };
 
   addEventOnElem(qtyPlusBtn, "click", increaseProductQty);
@@ -240,9 +251,54 @@ if (productDetails) {
     totalPrice = qtyProdcut * priceProduct;
 
     qtyElem.textContent = qtyProdcut;
-    totalPriceElem.textContent = `$${totalPrice}.00`;
+    totalPriceElem.textContent = `d.k${totalPrice}`;
   };
 
   addEventOnElem(qtyMinusBtn, "click", decreaseProductQty);
 }
 // end in details product
+
+// --------------------------------------- start in show all proudct ---------------------------------------
+var fixedElement = document.getElementById("fixed-element");
+var filterElemetn = document.querySelector(".filterElement");
+if (fixedElement) {
+  window.addEventListener("scroll", function () {
+    var footer = document.querySelector("footer");
+    var fixedElementHeight = fixedElement.offsetHeight;
+    var footerOffset = footer.offsetTop;
+
+    var scrollPosition =
+      window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollPosition + fixedElementHeight + 100 >= footerOffset) {
+      fixedElement.style.position = "absolute";
+      fixedElement.style.top = "";
+      fixedElement.style.bottom = "0";
+    } else {
+      fixedElement.style.position = "fixed";
+      fixedElement.style.top = "";
+      fixedElement.style.bottom = "";
+    }
+        if (scrollPosition === 0) {
+          fixedElement.style.position = "absolute";
+          fixedElement.style.top = "0";
+          fixedElement.style.bottom = "";
+        }
+  });
+}
+//filter element close and open in mopile
+let filterElement = document.querySelector(".filterElement");
+let closeFilter = document.querySelector(".closeFilter i");
+let opneFilter = document.querySelector(".opneFilter span");
+let overlayShowProduct = document.querySelector(".overlayShowProduct");
+
+opneFilter.addEventListener("click", () => {
+  open(filterElement, "bottom", 0, overlayShowProduct);
+  console.log("dd");
+});
+
+closeFilter.addEventListener("click", () => {
+  close(filterElement, "bottom", -100, overlayShowProduct);
+});
+
+//---------------------------------------  end in show all proudct ---------------------------------------

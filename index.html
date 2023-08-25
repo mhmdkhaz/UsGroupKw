@@ -32,12 +32,12 @@
       <div class="container mx-auto px-4 py-8 flex items-center">
         <!-- logo -->
         <div class="mr-auto md:w-16 flex-shrink-0">
-          <h1 class="text-3xl font-bold capitalize">logo</h1>
+          <h1 class="text-3xl font-normal capitalize">logo</h1>
         </div>
 
         <!-- search -->
         <div class="w-full  xl:max-w-lg 2xl:max-w-2xl bg-gray-100 rounded-md hidden xl:flex items-center">
-          <select class="bg-transparent uppercase font-bold text-sm p-4 mr-4" name="" id="">
+          <select class="bg-transparent uppercase font-normal text-sm p-4 mr-4" name="" id="">
             <option>all categories</option>
           </select>
           <input class="w-full h-auto border-l outline-none border-gray-300 bg-transparent font-semibold text-sm pl-4"
@@ -48,7 +48,7 @@
 
         <!-- phone number -->
         <div class="ml-auto md:w-48 hidden sm:flex flex-col place-items-end text-[#3c3b6e]">
-          <span class="font-bold md:text-xl">8 800 332 65-66</span>
+          <span class="font-normal md:text-xl">8 800 332 65-66</span>
           <span class="font-semibold text-sm text-gray-400">Support 24/7</span>
         </div>
 
@@ -60,7 +60,7 @@
             </li>
             <li class="ml-2 lg:ml-4 relative inline-block">
               <div class="">
-                <div class="absolute -top-1 right-0 z-10 bg-yellow-400 text-xs font-bold px-1 py-0.5 rounded-sm">
+                <div class="absolute -top-1 right-0 z-10 bg-yellow-400 text-xs font-normal px-1 py-0.5 rounded-sm">
                   12
                 </div>
                 <svg class="openCart h-9 lg:h-10 p-2 text-[#3c3b6e]" aria-hidden="true" focusable="false"
@@ -76,7 +76,7 @@
         </nav>
 
         <!-- cart count -->
-        <div class="ml-4 hidden sm:flex flex-col font-bold text-[#3c3b6e]">
+        <div class="ml-4 hidden sm:flex flex-col font-normal text-[#3c3b6e]">
           <span class="text-xs">Your Cart</span>
           <span>$2,650,59</span>
         </div>
@@ -92,7 +92,7 @@
 
       <div class="detailsCart fixed top-0 right-0 z-30 p-5 h-screen w-[100vw] sm:w-[70vw] md:w-[50vw] lg:w-[30vw]">
         <div class="mainText flex justify-between items-center my-5 border-b pb-5">
-          <h1 class="capitalize m-0 text-xl font-bold md:text-2xl text-heading">
+          <h1 class="capitalize m-0 text-xl font-normal md:text-2xl text-heading">
             shooping cart
           </h1>
           <i class="fa-solid fa-xmark text-2xl clsoeCart"></i>
@@ -155,10 +155,32 @@
     <!-- end in carsoule -->
 
     <!-- start in category -->
-    <div class="container mx-auto px-8 mt-5">
-      <h1 class="titleMain">Shop By Category</h1>
+    <div class="container mx-auto px-8 mt-10">
+      <h1 class="titleMain text-center">Shop By Category</h1>
       <div class="main-carousel carouselCategory">
-        <div class="carousel-cell flex items-center justify-start">
+        <div class="carousel-cell">
+          <div class="flex flex-col justify-center items-center gap-4 md:mr-4 mr-2">
+            <figure class="relative rounded-lg">
+              <img src="puplic/images/catigories/catigores_1.jpg" class="rounded-lg object-fill" alt="" />
+            </figure>
+            <h1 class="cursor-pointer text-center capitalize text-[#b22234] font-semibold text-xl">
+              luggage
+            </h1>
+          </div>
+        </div>
+
+        <div class="carousel-cell">
+          <div class="flex flex-col justify-center items-center gap-4 md:mr-4 mr-2">
+            <figure class="relative rounded-lg">
+              <img src="puplic/images/catigories/catigores_1.jpg" class="rounded-lg object-fill" alt="" />
+            </figure>
+            <h1 class="cursor-pointer text-center capitalize text-[#b22234] font-semibold text-xl">
+              luggage
+            </h1>
+          </div>
+        </div>
+
+        <div class="carousel-cell">
           <div class="flex flex-col justify-center items-center gap-4 md:mr-4 mr-2">
             <figure class="relative rounded-lg">
               <img src="puplic/images/catigories/catigores_1.jpg" class="rounded-lg object-fill" alt="" />
@@ -194,6 +216,15 @@
     </div>
     <!-- end in category -->
 
+    <!-- start in featured product -->
+    <section>
+      <h1 class="titleMain text-center">featured product </h1>
+      <div class="container px-4 mx-auto">
+        
+      </div>
+    </section>
+    <!-- end in featured product -->
+
     <!-- start in  product bugs -->
     <section class="py-5 mt-5">
       <div class="container mx-auto px-8">
@@ -209,7 +240,8 @@
             <div
               class="productAll relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
               <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="detailsProduct.html">
-                <img class="img object-fill w-full h-full" src="puplic/images/land_tool/land_1.jpg" alt="product image" />
+                <img class="img object-fill w-full h-full" src="puplic/images/land_tool/land_1.jpg"
+                  alt="product image" />
                 <span
                   class="absolute top-0 left-0 m-2 rounded-full bg-[#b22234] px-2 text-center text-sm font-medium text-white">39%
                   OFF</span>
@@ -221,7 +253,7 @@
                   </div>
                   <div class="mt-2 mb-5 flex items-center justify-between">
                     <p>
-                      <span class="text-3xl font-bold text-[#504f85] product-price">$400</span>
+                      <span class="text-3xl font-normal text-[#504f85] product-price">$400</span>
                       <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
                     </p>
 
@@ -239,7 +271,8 @@
             <div
               class="productAll relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
               <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="detailsProduct.html">
-                <img class="img object-fill w-full h-full" src="puplic/images/land_tool/land_2.jpg" alt="product image" />
+                <img class="img object-fill w-full h-full" src="puplic/images/land_tool/land_2.jpg"
+                  alt="product image" />
                 <span
                   class="absolute top-0 left-0 m-2 rounded-full bg-[#b22234] px-2 text-center text-sm font-medium text-white">39%
                   OFF</span>
@@ -251,7 +284,7 @@
                   </div>
                   <div class="mt-2 mb-5 flex items-center justify-between">
                     <p>
-                      <span class="text-3xl font-bold text-[#504f85] product-price">$500</span>
+                      <span class="text-3xl font-normal text-[#504f85] product-price">$500</span>
                       <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
                     </p>
 
@@ -269,7 +302,8 @@
             <div
               class="productAll relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
               <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="detailsProduct.html">
-                <img class="img object-fill w-full h-full" src="puplic/images/land_tool/land_3.jpg" alt="product image" />
+                <img class="img object-fill w-full h-full" src="puplic/images/land_tool/land_3.jpg"
+                  alt="product image" />
                 <span
                   class="absolute top-0 left-0 m-2 rounded-full bg-[#b22234] px-2 text-center text-sm font-medium text-white">39%
                   OFF</span>
@@ -281,7 +315,7 @@
                   </div>
                   <div class="mt-2 mb-5 flex items-center justify-between">
                     <p>
-                      <span class="text-3xl font-bold text-[#504f85] product-price">$600</span>
+                      <span class="text-3xl font-normal text-[#504f85] product-price">$600</span>
                       <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
                     </p>
 
@@ -299,7 +333,8 @@
             <div
               class="productAll relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
               <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="detailsProduct.html">
-                <img class="img object-fill w-full h-full" src="puplic/images/land_tool/land_4.jpg" alt="product image" />
+                <img class="img object-fill w-full h-full" src="puplic/images/land_tool/land_4.jpg"
+                  alt="product image" />
                 <span
                   class="absolute top-0 left-0 m-2 rounded-full bg-[#b22234] px-2 text-center text-sm font-medium text-white">39%
                   OFF</span>
@@ -311,7 +346,7 @@
                   </div>
                   <div class="mt-2 mb-5 flex items-center justify-between">
                     <p>
-                      <span class="text-3xl font-bold text-[#504f85] product-price">$700</span>
+                      <span class="text-3xl font-normal text-[#504f85] product-price">$700</span>
                       <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
                     </p>
 
@@ -358,7 +393,7 @@
                   </div>
                   <div class="mt-2 mb-5 flex items-center justify-between">
                     <p>
-                      <span class="text-3xl font-bold text-[#504f85] product-price">$449</span>
+                      <span class="text-3xl font-normal text-[#504f85] product-price">$449</span>
                       <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
                     </p>
 
@@ -388,7 +423,7 @@
                   </div>
                   <div class="mt-2 mb-5 flex items-center justify-between">
                     <p>
-                      <span class="text-3xl font-bold text-[#504f85] product-price">$449</span>
+                      <span class="text-3xl font-normal text-[#504f85] product-price">$449</span>
                       <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
                     </p>
 
@@ -417,7 +452,7 @@
                   </div>
                   <div class="mt-2 mb-5 flex items-center justify-between">
                     <p>
-                      <span class="text-3xl font-bold text-[#504f85] product-price">$449</span>
+                      <span class="text-3xl font-normal text-[#504f85] product-price">$449</span>
                       <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
                     </p>
 
@@ -446,7 +481,7 @@
                   </div>
                   <div class="mt-2 mb-5 flex items-center justify-between">
                     <p>
-                      <span class="text-3xl font-bold text-[#504f85] product-price">$449</span>
+                      <span class="text-3xl font-normal text-[#504f85] product-price">$449</span>
                       <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
                     </p>
 

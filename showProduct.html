@@ -20,7 +20,7 @@
             rel="stylesheet" />
     </head>
 
-    <body>
+    <body class="pt-28">
 
         <!-- Back to top button -->
         <a
@@ -28,7 +28,7 @@
 
         <!-- start in navbar -->
         <!-- component -->
-        <header class="bg-white">
+        <header class="bg-white fixed top-0 w-full  z-50">
             <div class="container mx-auto px-4 py-8 flex items-center">
                 <!-- logo -->
                 <div class="mr-auto md:w-16 flex-shrink-0">
@@ -92,7 +92,6 @@
         <!-- start in cart -->
         <section id="cart" class="relative z-30">
             <div class="overlay w-screen h-screen fixed z-20 top-0"></div>
-
             <div
                 class="detailsCart fixed top-0 right-0 z-30 p-5 h-screen w-[100vw] sm:w-[70vw] md:w-[50vw] lg:w-[30vw]">
                 <div class="mainText flex justify-between items-center my-5 border-b pb-5">
@@ -143,13 +142,24 @@
         <!-- end in cart -->
 
         <!--  -->
-        <section>
-            <div class="grid grid-cols-5 relative lg:-mx-2">
-                <div class="col-span-1 space-y-3 px-6 py-4 lg:space-y-4 border-r-4 h-screen overflow-scroll">
-                    
+        <section class="flex showProduct relative">
+            <div class="overlayShowProduct w-screen h-screen fixed z-50 top-0"></div>
+            <!-- start open filter -->
+            <div
+                class="opneFilter hidden fixed top-1/4 bg-[#b22234] text-white  py-2 px-2 z-40 rounded-r cursor-pointer">
+                <span class="capitalize tracking-wide">filter</span>
+            </div>
+            <!-- end open filter -->
+            <div class="filterElement relative w-1/4 overflow-scroll ">
+                <!-- close filter -->
+                <div class="closeFilter hidden px-4 border-b-2 py-2">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <!-- close  filter -->
+                <div class="listFilter fixed z-10 border-r-4 transition-all duration-300" id="fixed-element">
                     <!-- categories -->
-                    <div class="categories gap-4">
-                        <h1 class="mb-2 capitalize font-bold text-xl text-[#3c3b6e]">categories</h1>
+                    <div class="categories gap-4 border-b-2  w-full px-4">
+                        <h1 class="mt-5 mb-2 capitalize font-bold text-xl text-[#3c3b6e]">categories</h1>
                         <ul>
                             <li class="px-1 py-2 cursor-pointer font-medium hover:text-[#b22234] capitalize">
                                 Luggage</li>
@@ -161,8 +171,8 @@
                     </div>
 
                     <!-- size -->
-                    <div class="size gap-4">
-                        <h1 class="mb-2 capitalize font-bold text-xl text-[#3c3b6e]">size</h1>
+                    <div class="size gap-4 border-b-2 px-4 pb-5">
+                        <h1 class="mt-5 mb-2  capitalize font-bold text-xl text-[#3c3b6e]">size</h1>
                         <div class="checkElement flex flex-wrap gap-2">
                             <a href="#"
                                 class="selectedItem  notActive px-2 py-2 rounded font-medium hover:text-[#b22234] capitalize">80</a>
@@ -171,185 +181,192 @@
                             </a>
                             <a href="#"
                                 class="selectedItem  notActive px-2 py-2 rounded font-medium hover:text-[#b22234] capitalize">100</a>
+                            <a href="#"
+                                class="selectedItem  notActive px-2 py-2 rounded font-medium hover:text-[#b22234] capitalize">100</a><a
+                                href="#"
+                                class="selectedItem  notActive px-2 py-2 rounded font-medium hover:text-[#b22234] capitalize">100</a>
+                            <a href="#"
+                                class="selectedItem  notActive px-2 py-2 rounded font-medium hover:text-[#b22234] capitalize">100</a>
                         </div>
                     </div>
                     <!-- color -->
-                    <h1 class="mb-2 capitalize font-bold text-xl text-[#3c3b6e]">color</h1>
-                    <select id="countries"
-                        class="bg-gray-50 border border-gray-300  text-sm rounded-lg text-[#3c3v6e]  block w-full p-2.5  dark:border-gray-600 dark:placeholder-[#3c3b6e] capitalize ">
-                        <option selected>white</option>
-                        <option value="red">red</option>
-                        <option value="blue">blue</option>
-                        <option value="yeloow">yellow</option>
-                    </select>
+                    <section class="px-4 pb-5 border-b-2">
+                        <h1 class="mt-5 mb-2 capitalize font-bold text-xl text-[#3c3b6e]">color</h1>
+                        <select id="countries"
+                            class="bg-gray-50 border border-gray-300  text-sm rounded-lg text-[#3c3v6e]  block w-full p-2.5  dark:border-gray-600 dark:placeholder-[#3c3b6e] capitalize ">
+                            <option selected>white</option>
+                            <option value="red">red</option>
+                            <option value="blue">blue</option>
+                            <option value="yeloow">yellow</option>
+                        </select>
+                    </section>
                     <!-- sort -->
-                    <h1 class="mb-2 capitalize font-bold text-xl text-[#3c3b6e]">sort by</h1>
-                    <select id="countries"
-                        class="bg-gray-50 border border-gray-300  text-sm rounded-lg text-[#3c3v6e]  block w-full p-2.5  dark:border-gray-600 dark:placeholder-[#3c3b6e] capitalize ">
-                        <option selected>default</option>
-                        <option value="red">price:low to high</option>
-                        <option value="blue">price:high to low</option>
-                        <option value="yeloow">name</option>
-                    </select>
+                    <section class="px-4 pb-5 border-b-2">
+                        <h1 class="mt-5 mb-2 capitalize font-bold text-xl text-[#3c3b6e]">sort by</h1>
+                        <select id="countries"
+                            class="bg-gray-50 border border-gray-300  text-sm rounded-lg text-[#3c3v6e]  block w-full p-2.5  dark:border-gray-600 dark:placeholder-[#3c3b6e] capitalize ">
+                            <option selected>default</option>
+                            <option value="red">price:low to high</option>
+                            <option value="blue">price:high to low</option>
+                            <option value="yeloow">name</option>
+                        </select>
+                    </section>
                     <!-- sale -->
-                    <h1 class="mb-2 capitalize font-bold text-xl text-[#3c3b6e]">sale</h1>
-                    <div class="flex items-center mb-4">
-                        <input checked id="default-radio-1" type="radio" value="" name="default-radio"
-                            class="relative w-4 h-4 text-[#b22234] bg-[#b22234] border-gray-300 custom-red-input">
-                        <label for="default-radio-1"
-                            class="ml-2 text-sm font-medium text-[#3c3b6e] capitalize">sale</label>
-                    </div>
-                    <div class="flex items-center mb-4">
-                        <input checked id="default-radio-1" type="radio" value="" name="default-radio"
-                            class="relative w-4 h-4 text-[#b22234] bg-[#b22234] border-gray-300 custom-red-input">
-                        <label for="default-radio-1" class="ml-2 text-sm font-medium text-[#3c3b6e] capitalize">not
-                            sale</label>
-                    </div>
+                    <section class="px-4 pb-5">
+                        <h1 class="mt-5 mb-2 capitalize font-bold text-xl text-[#3c3b6e]">sale</h1>
+                        <div class="flex items-center mb-4">
+                            <input checked id="default-radio-1" type="radio" value="" name="default-radio"
+                                class="relative w-4 h-4 text-[#b22234] bg-[#b22234] border-gray-300 custom-red-input">
+                            <label for="default-radio-1"
+                                class="ml-2 text-sm font-medium text-[#3c3b6e] capitalize">sale</label>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <input checked id="default-radio-1" type="radio" value="" name="default-radio"
+                                class="relative w-4 h-4 text-[#b22234] bg-[#b22234] border-gray-300 custom-red-input">
+                            <label for="default-radio-1" class="ml-2 text-sm font-medium text-[#3c3b6e] capitalize">not
+                                sale</label>
+                        </div>
+                    </section>
                 </div>
+            </div>
 
-                <div class="col-span-4 mt-6 lg:mt-0 lg:px-2  ">
-                    <div class="container mx-auto px-8 py-5">
-                        <div class="flex items-center justify-between text-sm tracking-widest uppercase ">
-                            <p class="text-[#3c3b6e] font-bold">6 Items</p>
+            <div class="showElement relative w-3/4  mt-6 lg:mt-0 lg:px-2  ">
+                <div class="container mx-auto px-2 md:px-8 py-5">
+                    <div class="flex items-center justify-between text-sm tracking-widest uppercase ">
+                        <p class="text-[#3c3b6e] font-bold">6 Items</p>
 
+                    </div>
+
+                    <div class="grid gap-2 md:gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 mt-8">
+
+                        <!-- 4 -->
+                        <div
+                            class="productAll relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
+                            <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
+                                href="detailsProduct.html">
+                                <img class="img object-fill w-full h-full" src="puplic/images/bugs_4.jpeg"
+                                    alt="product image" />
+                                <span
+                                    class="absolute top-0 left-0 m-2 rounded-full bg-[#b22234] px-2 text-center text-sm font-medium text-white">39%
+                                    OFF</span>
+                            </a>
+                            <div class="mt-4 px-5 pb-5">
+                                <a href="detailsProduct.html">
+                                    <div>
+                                        <h5 class="text-xl tracking-tight text-[#504f85] product-name">Nike Air MX
+                                            Super 2500 - Red</h5>
+                                    </div>
+                                    <div class="mt-2 mb-5 flex items-center justify-between">
+                                        <p>
+                                            <span class="text-3xl font-bold text-[#504f85] product-price">$449</span>
+                                            <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
+                                        </p>
+
+                                    </div>
+                                </a>
+                                <div
+                                    class="add-to-cart flex gap-2 items-center justify-center rounded-md bg-[#007a3d] cursor-pointer px-5 py-2.5 text-center text-sm font-medium text-white transition-all hover:bg-[#117a3d] focus:outline-none">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    Add to cart
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="grid grid-cols-1 gap-4 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                            <!-- 1 -->
-                            <div
-                                class="productAll relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
-                                <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
-                                    href="detailsProduct.html">
-                                    <img class="img object-fill w-full"
-                                        src="puplic/images/WhatsApp Image 2023-08-10 at 11.43.22 PM.jpeg"
-                                        alt="product image" />
-                                    <span
-                                        class="absolute top-0 left-0 m-2 rounded-full bg-[#b22234] px-2 text-center text-sm font-medium text-white">39%
-                                        OFF</span>
-                                </a>
-                                <div class="mt-4 px-5 pb-5">
-                                    <a href="detailsProduct.html">
-                                        <div>
-                                            <h5 class="text-xl tracking-tight text-[#504f85] product-name">Nike Air MX
-                                                Super 2500 - Red</h5>
-                                        </div>
-                                        <div class="mt-2 mb-5 flex items-center justify-between">
-                                            <p>
-                                                <span
-                                                    class="text-3xl font-bold text-[#504f85] product-price">$449</span>
-                                                <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
-                                            </p>
-
-                                        </div>
-                                    </a>
-                                    <div
-                                        class="add-to-cart flex gap-2 items-center justify-center rounded-md bg-[#007a3d] cursor-pointer px-5 py-2.5 text-center text-sm font-medium text-white transition-all hover:bg-[#117a3d] focus:outline-none">
-                                        <i class="fa-solid fa-cart-shopping"></i>
-                                        Add to cart
+                        <!-- 4 -->
+                        <div
+                            clas3="productAll relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
+                            <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
+                                href="detailsProduct.html">
+                                <img class="img object-fill w-full" src="puplic/images/bugs_3.jpeg"
+                                    alt="product image" />
+                                <span
+                                    class="absolute top-0 left-0 m-2 rounded-full bg-[#b22234] px-2 text-center text-sm font-medium text-white">39%
+                                    OFF</span>
+                            </a>
+                            <div class="mt-4 px-5 pb-5">
+                                <a href="detailsProduct.html">
+                                    <div>
+                                        <h5 class="text-xl tracking-tight text-[#504f85] product-name">Nike Air MX
+                                            Super 2500 - Red</h5>
                                     </div>
+                                    <div class="mt-2 mb-5 flex items-center justify-between">
+                                        <p>
+                                            <span class="text-3xl font-bold text-[#504f85] product-price">$449</span>
+                                            <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
+                                        </p>
+
+                                    </div>
+                                </a>
+                                <div
+                                    class="add-to-cart flex gap-2 items-center justify-center rounded-md bg-[#007a3d] cursor-pointer px-5 py-2.5 text-center text-sm font-medium text-white transition-all hover:bg-[#117a3d] focus:outline-none">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    Add to cart
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- 2 -->
-                            <div
-                                class="productAll relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
-                                <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
-                                    href="detailsProduct.html">
-                                    <img class="img object-fill w-full"
-                                        src="puplic/images/WhatsApp Image 2023-08-10 at 11.43.27 PM.jpeg"
-                                        alt="product image" />
-                                    <span
-                                        class="absolute top-0 left-0 m-2 rounded-full bg-[#b22234] px-2 text-center text-sm font-medium text-white">39%
-                                        OFF</span>
-                                </a>
-                                <div class="mt-4 px-5 pb-5">
-                                    <a href="detailsProduct.html">
-                                        <div>
-                                            <h5 class="text-xl tracking-tight text-[#504f85] product-name">Nike Air MX
-                                                Super 2500 - Red</h5>
-                                        </div>
-                                        <div class="mt-2 mb-5 flex items-center justify-between">
-                                            <p>
-                                                <span
-                                                    class="text-3xl font-bold text-[#504f85] product-price">$449</span>
-                                                <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
-                                            </p>
-
-                                        </div>
-                                    </a>
-                                    <div
-                                        class="add-to-cart flex gap-2 items-center justify-center rounded-md bg-[#007a3d] cursor-pointer px-5 py-2.5 text-center text-sm font-medium text-white transition-all hover:bg-[#117a3d] focus:outline-none">
-                                        <i class="fa-solid fa-cart-shopping"></i>
-                                        Add to cart
+                        <!-- 4 -->
+                        <div
+                            clas3="productAll relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
+                            <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
+                                href="detailsProduct.html">
+                                <img class="img object-fill w-full" src="puplic/images/bugs_4.jpeg"
+                                    alt="product image" />
+                                <span
+                                    class="absolute top-0 left-0 m-2 rounded-full bg-[#b22234] px-2 text-center text-sm font-medium text-white">39%
+                                    OFF</span>
+                            </a>
+                            <div class="mt-4 px-5 pb-5">
+                                <a href="detailsProduct.html">
+                                    <div>
+                                        <h5 class="text-xl tracking-tight text-[#504f85] product-name">Nike Air MX
+                                            Super 2500 - Red</h5>
                                     </div>
+                                    <div class="mt-2 mb-5 flex items-center justify-between">
+                                        <p>
+                                            <span class="text-3xl font-bold text-[#504f85] product-price">$449</span>
+                                            <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
+                                        </p>
+
+                                    </div>
+                                </a>
+                                <div
+                                    class="add-to-cart flex gap-2 items-center justify-center rounded-md bg-[#007a3d] cursor-pointer px-5 py-2.5 text-center text-sm font-medium text-white transition-all hover:bg-[#117a3d] focus:outline-none">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    Add to cart
                                 </div>
                             </div>
-
-                            <!-- 3 -->
-                            <div
-                                class="productAll relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
-                                <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
-                                    href="detailsProduct.html">
-                                    <img class="img object-fill w-full" src="puplic/images/bugs_3.jpeg"
-                                        alt="product image" />
-                                    <span
-                                        class="absolute top-0 left-0 m-2 rounded-full bg-[#b22234] px-2 text-center text-sm font-medium text-white">39%
-                                        OFF</span>
-                                </a>
-                                <div class="mt-4 px-5 pb-5">
-                                    <a href="detailsProduct.html">
-                                        <div>
-                                            <h5 class="text-xl tracking-tight text-[#504f85] product-name">Nike Air MX
-                                                Super 2500 - Red</h5>
-                                        </div>
-                                        <div class="mt-2 mb-5 flex items-center justify-between">
-                                            <p>
-                                                <span
-                                                    class="text-3xl font-bold text-[#504f85] product-price">$449</span>
-                                                <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
-                                            </p>
-
-                                        </div>
-                                    </a>
-                                    <div
-                                        class="add-to-cart flex gap-2 items-center justify-center rounded-md bg-[#007a3d] cursor-pointer px-5 py-2.5 text-center text-sm font-medium text-white transition-all hover:bg-[#117a3d] focus:outline-none">
-                                        <i class="fa-solid fa-cart-shopping"></i>
-                                        Add to cart
+                        </div>
+                        <!-- 4 -->
+                        <div
+                            clas3="productAll relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
+                            <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
+                                href="detailsProduct.html">
+                                <img class="img object-fill w-full"
+                                    src="puplic/images/WhatsApp Image 2023-08-10 at 11.43.22 PM.jpeg"
+                                    alt="product image" />
+                                <span
+                                    class="absolute top-0 left-0 m-2 rounded-full bg-[#b22234] px-2 text-center text-sm font-medium text-white">39%
+                                    OFF</span>
+                            </a>
+                            <div class="mt-4 px-5 pb-5">
+                                <a href="detailsProduct.html">
+                                    <div>
+                                        <h5 class="text-xl tracking-tight text-[#504f85] product-name">Nike Air MX
+                                            Super 2500 - Red</h5>
                                     </div>
-                                </div>
-                            </div>
+                                    <div class="mt-2 mb-5 flex items-center justify-between">
+                                        <p>
+                                            <span class="text-3xl font-bold text-[#504f85] product-price">$449</span>
+                                            <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
+                                        </p>
 
-                            <!-- 4 -->
-                            <div
-                                class="productAll relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
-                                <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
-                                    href="detailsProduct.html">
-                                    <img class="img object-fill w-full" src="puplic/images/bugs_4.jpeg"
-                                        alt="product image" />
-                                    <span
-                                        class="absolute top-0 left-0 m-2 rounded-full bg-[#b22234] px-2 text-center text-sm font-medium text-white">39%
-                                        OFF</span>
-                                </a>
-                                <div class="mt-4 px-5 pb-5">
-                                    <a href="detailsProduct.html">
-                                        <div>
-                                            <h5 class="text-xl tracking-tight text-[#504f85] product-name">Nike Air MX
-                                                Super 2500 - Red</h5>
-                                        </div>
-                                        <div class="mt-2 mb-5 flex items-center justify-between">
-                                            <p>
-                                                <span
-                                                    class="text-3xl font-bold text-[#504f85] product-price">$449</span>
-                                                <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
-                                            </p>
-
-                                        </div>
-                                    </a>
-                                    <div
-                                        class="add-to-cart flex gap-2 items-center justify-center rounded-md bg-[#007a3d] cursor-pointer px-5 py-2.5 text-center text-sm font-medium text-white transition-all hover:bg-[#117a3d] focus:outline-none">
-                                        <i class="fa-solid fa-cart-shopping"></i>
-                                        Add to cart
                                     </div>
+                                </a>
+                                <div
+                                    class="add-to-cart flex gap-2 items-center justify-center rounded-md bg-[#007a3d] cursor-pointer px-5 py-2.5 text-center text-sm font-medium text-white transition-all hover:bg-[#117a3d] focus:outline-none">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    Add to cart
                                 </div>
                             </div>
                         </div>
@@ -360,7 +377,7 @@
         <!--  -->
 
         <!-- start in footer -->
-        <section class="bg-gray-200">
+        <footer class="bg-gray-200">
             <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
                 <nav class="flex flex-wrap justify-center -mx-5 -my-2">
                     <div class="px-5 py-2">
@@ -414,7 +431,7 @@
                     © 2021 us_group_kw, Inc. All rights reserved.
                 </p>
             </div>
-        </section>
+        </footer>
         <!-- end in footer -->
         <!-- start splide carsoule -->
         <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
