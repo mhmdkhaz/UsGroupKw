@@ -16,6 +16,16 @@ function open(element, direction, valueDirection, overlay) {
     overlay.style.opacity = "1";
   }, 200);
 }
+
+function funMinsPlus(qytCount, operation) {
+  if (operation === "+") {
+    qytCount.textContent = parseInt(qytCount.textContent) + 1;
+  } else if (operation === "-") {
+    if (qytCount.textContent > 1) {
+      qytCount.textContent = parseInt(qytCount.textContent) - 1;
+    }
+  }
+}
 // function main
 
 // -------------------------------- back to top button -------------------------------
@@ -49,6 +59,192 @@ closeCart.addEventListener("click", () => {
   close(detailsCart, "right", -100, overlay);
 });
 
+//add to cart
+
+let addToCartButtons = document.querySelectorAll(
+  ".product-card-container .add-to-cart"
+);
+let selectedProducts = []; // مصفوفة تحتوي على العناصر التي تم الضغط عليها
+
+addToCartButtons.forEach((button) => {
+  button.addEventListener("click", () => addToCart(button));
+});
+
+function addToCart(button) {
+  const productContainer = button.closest(".productElement");
+  const productName =
+    productContainer.querySelector(".product-name").textContent;
+  const productPrice = productContainer.querySelector(
+    ".product-price span"
+  ).textContent;
+  const productImg = productContainer.querySelector(".img").src;
+
+  // function add id to element to filter elements
+  addIdToProduct();
+  const dataId = productContainer.dataset.id;
+  // add element if exists or not
+  filterProdcut(dataId, productName, productPrice, productImg);
+
+  minsPlusNumberCount(productPrice);
+  TotalpricePrduct(productPrice, dataId);
+  deletElementCart();
+  counterCart();
+}
+
+function minsPlusNumberCount(productPrice) {
+  let minsCart = document.querySelectorAll(".infoProduct .mins");
+  let plusCart = document.querySelectorAll(".infoProduct .plus");
+
+  plusCart.forEach((plusBtn) => {
+    plusBtn.addEventListener("click", () => {
+      let qty = plusBtn.parentNode.querySelector(".numberQty");
+      let apperentElement = plusBtn.closest(".elementCart");
+      let newPrice = apperentElement.querySelector(".priceFromCart span");
+      newPrice.textContent = qty.textContent * parseFloat(productPrice);
+      funMinsPlus(qty, "+");
+    });
+  });
+
+  minsCart.forEach((minsBtn) => {
+    minsBtn.addEventListener("click", () => {
+      let qty = minsBtn.parentNode.querySelector(".numberQty");
+      let apperentElement = minsBtn.closest(".elementCart");
+      let newPrice = apperentElement.querySelector(".priceFromCart span");
+      newPrice.textContent = qty.textContent * parseFloat(productPrice);
+      funMinsPlus(qty, "-");
+    });
+  });
+}
+
+function TotalpricePrduct(productPrice, dataId) {
+  let idElements = document.querySelectorAll(".elementCart");
+  idElements.forEach((element) => {
+    if (element.dataset.id === dataId) {
+      let newPrice = element.querySelector(".priceFromCart span");
+      let newQty = element.querySelector(".numberQty").textContent;
+
+      newPrice.textContent = newQty * parseFloat(productPrice);
+    }
+  });
+}
+TotalpricePrduct();
+
+// function totalPriceOperation() {
+//   let qtyElements = document.querySelectorAll(".TotalPriceprice");
+//   let totalPrice = 0;
+
+//   qtyElements.forEach((qtyElement) => {
+//     let numberQty = parseInt(qtyElement.textContent);
+//     let unitPrice = parseFloat(priceElement.textContent);
+//     // console.log(priceElement.textContent);
+//     let productPrice = numberQty * unitPrice;
+//     totalPrice += productPrice;
+//   });
+
+//   console.log("Total price: " + totalPrice);
+// }
+
+// totalPriceOperation();
+
+function deletElementCart() {
+  let deleteButtons = document.querySelectorAll(".elementCart .delete");
+
+  deleteButtons.forEach((deleteBtn) => {
+    deleteBtn.addEventListener("click", () => {
+      let elementCart = deleteBtn.closest(".elementCart");
+      elementCart.style.opacity = "0";
+      elementCart.style.height = "0";
+      elementCart.style.padding = "0";
+      elementCart.style.margin = "0";
+      setTimeout(() => {
+        elementCart.remove();
+      }, 500);
+
+      // check count element
+      deleteIdToArray(elementCart);
+      counterCart();
+      // console.log("d");
+    });
+  });
+}
+deletElementCart();
+
+function counterCart() {
+  let apperentCart = document.querySelector(".infoProduct");
+  let emptyCart = document.querySelector(".emptyCart");
+
+  if (selectedProducts.length === 0) {
+    emptyCart.style.display = "block";
+    apperentCart.style.display = "none";
+  } else {
+    emptyCart.style.display = "none";
+    apperentCart.style.display = "block";
+  }
+}
+
+function addIdToProduct() {
+  let productElement = document.querySelectorAll(".productElement");
+  productElement.forEach((product, index) => {
+    product.setAttribute("data-id", index);
+  });
+}
+
+function deleteIdToArray(elementCart) {
+  selectedProducts = selectedProducts.filter(
+    (p) => p !== elementCart.dataset.id
+  );
+}
+
+function filterProdcut(dataId, productName, productPrice, productImg) {
+  let arrayFilterIndex = selectedProducts.includes(dataId);
+  let infoProductCart = document.querySelectorAll(".infoProduct");
+  let elementFromCart = document.querySelectorAll(".elementCart");
+
+  if (arrayFilterIndex === true) {
+    elementFromCart.forEach((product) => {
+      if (product.dataset.id === dataId) {
+        let numberQtyInput = product.querySelector(".numberQty");
+        numberQtyInput.textContent = parseInt(numberQtyInput.textContent) + 1;
+      }
+    });
+  } else {
+    selectedProducts.push(dataId);
+
+    infoProductCart.forEach((cart) => {
+      cart.innerHTML += `
+        <div class="elementCart flex mt-2" data-id="${dataId}">
+          <figure class="relative lg:w-1/4 w-[40%] mr-4">
+            <img src="${productImg}" class="rounded h-full w-full" alt="" />
+            <span class="delete flex justify-center items-center absolute top-0 left-0 w-full h-full text-white">
+              <i class="fa-solid fa-xmark"></i>
+            </span>
+          </figure>
+          <div class="info w-3/5 lg:w-3/4">
+            <h2 class="capitalize truncate text-sm text-hea mt-1">
+              ${productName}
+            </h2>
+            <p class="priceFromCart capitalize text-sm text-gray-400 mb-2.5">
+              unit price: <span>${productPrice}</span>
+            </p>
+            <div class="flex justify-between items-center mt-4">
+              <div class="flex qty h-9">
+                <button class="px-2 py-1 rounded-l-md mins">-</button>
+                <span class="flex justify-center items-center w-11 text-center numberQty">1</span>
+                <button class="px-2 py-1 rounded-r-md plus">+</button>
+              </div>
+              <div class="TotalPriceprice">
+                <h2 class="text-sm font-semibold leading-5 md:text-base text-heading">
+                  $60.00
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+  }
+}
+
 // ------------------------------------------------ end in cart ------------------------------------------------
 
 // ------------------------------------------------ start in choose filter ------------------------------------------------
@@ -67,47 +263,6 @@ if (borderBox) {
 
 // ----------------------------------------------------end shared functions -------------------------------------------------------
 
-// استمع إلى النقر على زر "Add to Cart" على كل منتج
-const addToCartButtons = document.querySelectorAll(
-  ".product-card-container .add-to-cart"
-);
-addToCartButtons.forEach((button) => {
-  button.addEventListener("click", () => addToCart(button));
-});
-
-function addToCart(button) {
-  const productContainer = button.closest(".productAll");
-  const productName =
-    productContainer.querySelector(".product-name").textContent;
-  const productPrice =
-    productContainer.querySelector(".product-price").textContent;
-  const productImg = productContainer.querySelector(".img").src;
-
-  const product = {
-    nameProduct: "",
-    price: "",
-    img: "",
-  };
-
-  product.nameProduct = productName;
-  product.price = productPrice;
-  product.img = productImg;
-
-  console.log(product);
-
-  let cart = localStorage.getItem("cart");
-  if (!cart) {
-    cart = [];
-  } else {
-    cart = JSON.parse(cart);
-  }
-
-  cart.push(product);
-
-  const cartJson = JSON.stringify(cart);
-
-  localStorage.setItem("cart", cartJson);
-}
 // slider header
 const slides = document.querySelectorAll("[data-slide]");
 const buttons = document.querySelectorAll("[data-button]");
@@ -206,17 +361,7 @@ let mins = document.querySelector(".mins");
 let qty = document.querySelector(".numberQty");
 
 if (productDetails) {
-  plus.addEventListener("click", () => {
-    qty.value = parseInt(qty.value) + 1;
-  });
-
-  mins.addEventListener("click", () => {
-    if (qty.value > 1) {
-      qty.value = parseInt(qty.value) - 1;
-    }
-  });
-
-  /**
+  /*
    * add event on element
    */
 
@@ -352,7 +497,6 @@ let overlayShowProduct = document.querySelector(".overlayShowProduct");
 if (filterElement) {
   opneFilter.addEventListener("click", () => {
     open(filterElement, "bottom", 0, overlayShowProduct);
-    console.log("dd");
   });
 
   closeFilter.addEventListener("click", () => {

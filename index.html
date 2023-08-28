@@ -59,13 +59,13 @@
               <a class="uppercase text-[#3c3b6e]" href="#">english</a>
             </li>
             <li class="ml-2 lg:ml-4 relative inline-block">
-              <div class="">
-                <div class="absolute -top-1 right-0 z-10 bg-yellow-400 text-xs font-normal px-1 py-0.5 rounded-sm">
+              <div class="cursor-pointer openCart">
+                <div class=" absolute -top-1 right-0 z-10 bg-yellow-400 text-xs font-normal px-1 py-0.5 rounded-sm">
                   12
                 </div>
-                <svg class="openCart h-9 lg:h-10 p-2 text-[#3c3b6e]" aria-hidden="true" focusable="false"
-                  data-prefix="far" data-icon="shopping-cart" role="img" xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 576 512" class="svg-inline--fa fa-shopping-cart fa-w-18 fa-9x">
+                <svg class=" h-9 lg:h-10 p-2 text-[#3c3b6e]" aria-hidden="true" focusable="false" data-prefix="far"
+                  data-icon="shopping-cart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                  class="svg-inline--fa fa-shopping-cart fa-w-18 fa-9x">
                   <path fill="currentColor"
                     d="M551.991 64H144.28l-8.726-44.608C133.35 8.128 123.478 0 112 0H12C5.373 0 0 5.373 0 12v24c0 6.627 5.373 12 12 12h80.24l69.594 355.701C150.796 415.201 144 430.802 144 448c0 35.346 28.654 64 64 64s64-28.654 64-64a63.681 63.681 0 0 0-8.583-32h145.167a63.681 63.681 0 0 0-8.583 32c0 35.346 28.654 64 64 64 35.346 0 64-28.654 64-64 0-18.136-7.556-34.496-19.676-46.142l1.035-4.757c3.254-14.96-8.142-29.101-23.452-29.101H203.76l-9.39-48h312.405c11.29 0 21.054-7.869 23.452-18.902l45.216-208C578.695 78.139 567.299 64 551.991 64zM208 472c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm256 0c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm23.438-200H184.98l-31.31-160h368.548l-34.78 160z">
                   </path>
@@ -95,36 +95,16 @@
           <h1 class="capitalize m-0 text-xl font-normal md:text-2xl text-heading">
             shooping cart
           </h1>
-          <i class="fa-solid fa-xmark text-2xl clsoeCart"></i>
+          <i class="fa-solid fa-xmark text-2xl clsoeCart cursor-pointer"></i>
+        </div>
+        <!-- cart empty -->
+        <div class="emptyCart flex flex-col justify-center items-center h-[80%]">
+          <img src="puplic/images/cartEmpty.png" alt="">
+          <h3 class="capitalize text-center">your cart is empty</h3>
         </div>
         <!-- info product -->
         <div class="infoProduct pr-3 overflow-y-scroll">
-          <div class="flex mt-2">
-            <figure class="relative lg:w-1/4 w-[40%] mr-4">
-              <img src="puplic/images/catigories/catigores_1.jpg" class="rounded h-full" alt="" />
-              <span class="absolute top-0 left-0 w-full h-full">x</span>
-            </figure>
-            <div class="info w-3/5 lg:w-3/4">
-              <h2 class="capitalize truncate text-sm text-hea mt-1">
-                Armani Wide-Leg Trousers - Pink, S
-              </h2>
-              <p class="capitalize text-sm text-gray-400 mb-2.5">
-                unit price: $60.00
-              </p>
-              <div class="flex justify-between items-center mt-4">
-                <div class="flex qty h-9">
-                  <button class="px-2 py-1 rounded-l-md mins">-</button>
-                  <input type="number" value="1" class="w-11 text-center numberQty" />
-                  <button class="px-2 py-1 rounded-r-md plus">+</button>
-                </div>
-                <div class="price">
-                  <h2 class="text-sm font-semibold leading-5 md:text-base text-heading">
-                    $60.00
-                  </h2>
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
 
         <!-- check out cart -->
@@ -140,26 +120,28 @@
 
     <!-- start in carsoule header -->
     <div class="contaier px-8 mx-auto">
-      <div class="carousel-wrapper">
+      <div class="carousel-wrapper w-full h-full overflow-hidden relative">
         <!-- Slides -->
-        <div class="slide" data-slide>
-          <img src="puplic/images/slider/slide_1.jpg" class="w-full h-full object-cover ">
+        <div class="slide w-full h-full rounded-xl absolute transition-all duration-500" data-slide>
+          <img src="puplic/images/slider/slide_1.jpg" class="w-full h-full  object-cover md:object-fill">
         </div>
-        <div class="slide" data-slide>
-          <img src="puplic/images/slider/slide_2.jpg" class="w-full h-full object-cover ">
+        <div class="slide w-full h-full rounded-xl absolute transition-all duration-500" data-slide>
+          <img src="puplic/images/slider/slide_2.jpg" class="w-full h-full  object-cover md:object-fill">
         </div>
-        <div class="slide" data-slide>
-          <img src="puplic/images/slider/slide_1.jpg" class="w-full h-full object-cover ">
+        <div class="slide w-full h-full rounded-xl absolute transition-all duration-500" data-slide>
+          <img src="puplic/images/slider/slide_1.jpg" class="w-full h-full  object-cover md:object-fill">
         </div>
-        <div class="slide" data-slide>
-          <img src="puplic/images/slider/slide_2.jpg" class="w-full h-full object-cover ">
+        <div class="slide w-full h-full rounded-xl absolute transition-all duration-500" data-slide>
+          <img src="puplic/images/slider/slide_2.jpg" class="w-full h-full  object-cover md:object-fill">
         </div>
         <!-- Next and Previous Buttons -->
-        <button class="btn previous" data-button="previous">
-          <i class="bi bi-chevron-left"></i>
+        <button class="btn previous cursor-pointer rounded-lg py-2 px-3 m-3 absolute top-2/4 left-0 border-none"
+          data-button="previous">
+          <i class="fa-solid fa-angle-left"></i>
         </button>
-        <button class="btn next" data-button="next">
-          <i class="bi bi-chevron-right"></i>
+        <button class="btn next cursor-pointer rounded-lg py-2 px-3 m-3 absolute top-2/4 right-0 border-none"
+          data-button="next">
+          <i class="fa-solid fa-chevron-right"></i>
         </button>
       </div>
     </div>
@@ -249,7 +231,7 @@
             class="product-card-container pt-4 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 justify-start items-center gap-4 transition-all delay-150 ease-in">
             <!-- 1 -->
             <div
-              class="productAll relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
+              class="productElement relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
               <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="detailsProduct.html">
                 <img class="img object-fill w-full h-full" src="puplic/images/land_tool/land_1.jpg"
                   alt="product image" />
@@ -264,7 +246,7 @@
                   </div>
                   <div class="mt-2 mb-5 flex items-center justify-between">
                     <p>
-                      <span class="text-3xl font-normal text-[#504f85] product-price">$400</span>
+                      <span class="text-3xl font-normal text-[#504f85] product-price">$ <span>400</span> </span>
                       <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
                     </p>
 
@@ -280,7 +262,7 @@
 
             <!-- 2 -->
             <div
-              class="productAll relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
+              class="productElement relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
               <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="detailsProduct.html">
                 <img class="img object-fill w-full h-full" src="puplic/images/land_tool/land_2.jpg"
                   alt="product image" />
@@ -295,7 +277,7 @@
                   </div>
                   <div class="mt-2 mb-5 flex items-center justify-between">
                     <p>
-                      <span class="text-3xl font-normal text-[#504f85] product-price">$500</span>
+                      <span class="text-3xl font-normal text-[#504f85] product-price">$ <span>500</span> </span>
                       <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
                     </p>
 
@@ -311,7 +293,7 @@
 
             <!-- 3 -->
             <div
-              class="productAll relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
+              class="productElement relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
               <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="detailsProduct.html">
                 <img class="img object-fill w-full h-full" src="puplic/images/land_tool/land_3.jpg"
                   alt="product image" />
@@ -326,7 +308,7 @@
                   </div>
                   <div class="mt-2 mb-5 flex items-center justify-between">
                     <p>
-                      <span class="text-3xl font-normal text-[#504f85] product-price">$600</span>
+                      <span class="text-3xl font-normal text-[#504f85] product-price">$ <span>600</span> </span>
                       <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
                     </p>
 
@@ -342,7 +324,7 @@
 
             <!-- 4 -->
             <div
-              class="productAll relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
+              class="productElement relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
               <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="detailsProduct.html">
                 <img class="img object-fill w-full h-full" src="puplic/images/land_tool/land_4.jpg"
                   alt="product image" />
@@ -357,7 +339,7 @@
                   </div>
                   <div class="mt-2 mb-5 flex items-center justify-between">
                     <p>
-                      <span class="text-3xl font-normal text-[#504f85] product-price">$700</span>
+                      <span class="text-3xl font-normal text-[#504f85] product-price">$ <span>700</span> </span>
                       <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
                     </p>
 
@@ -389,7 +371,7 @@
             class="product-card-container pt-4 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 justify-start items-center gap-4 transition-all delay-150 ease-in">
             <!-- 1 -->
             <div
-              class="productAll relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
+              class="productElement relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
               <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="detailsProduct.html">
                 <img class="img object-fill w-full" src="puplic/images/WhatsApp Image 2023-08-10 at 11.43.22 PM.jpeg"
                   alt="product image" />
@@ -404,7 +386,7 @@
                   </div>
                   <div class="mt-2 mb-5 flex items-center justify-between">
                     <p>
-                      <span class="text-3xl font-normal text-[#504f85] product-price">$449</span>
+                      <span class="text-3xl font-normal text-[#504f85] product-price">$ <span>449</span> </span>
                       <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
                     </p>
 
@@ -419,7 +401,7 @@
             </div>
             <!-- 2 -->
             <div
-              class="productAll relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
+              class="productElement relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
               <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="detailsProduct.html">
                 <img class="img object-fill w-full" src="puplic/images/WhatsApp Image 2023-08-10 at 11.43.27 PM.jpeg"
                   alt="product image" />
@@ -434,7 +416,7 @@
                   </div>
                   <div class="mt-2 mb-5 flex items-center justify-between">
                     <p>
-                      <span class="text-3xl font-normal text-[#504f85] product-price">$449</span>
+                      <span class="text-3xl font-normal text-[#504f85] product-price">$ <span>449</span> </span>
                       <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
                     </p>
 
@@ -449,7 +431,7 @@
             </div>
             <!-- 3 -->
             <div
-              class="productAll relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
+              class="productElement relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
               <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="detailsProduct.html">
                 <img class="img object-fill w-full" src="puplic/images/bugs_3.jpeg" alt="product image" />
                 <span
@@ -463,7 +445,7 @@
                   </div>
                   <div class="mt-2 mb-5 flex items-center justify-between">
                     <p>
-                      <span class="text-3xl font-normal text-[#504f85] product-price">$449</span>
+                      <span class="text-3xl font-normal text-[#504f85] product-price">$ <span>449</span> </span>
                       <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
                     </p>
 
@@ -478,7 +460,7 @@
             </div>
             <!-- 4 -->
             <div
-              class="productAll relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
+              class="productElement relative  flex w-full  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
               <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="detailsProduct.html">
                 <img class="img object-fill w-full" src="puplic/images/bugs_4.jpeg" alt="product image" />
                 <span
@@ -492,7 +474,7 @@
                   </div>
                   <div class="mt-2 mb-5 flex items-center justify-between">
                     <p>
-                      <span class="text-3xl font-normal text-[#504f85] product-price">$449</span>
+                      <span class="text-3xl font-normal text-[#504f85] product-price">$ <span>449</span> </span>
                       <span class="salePrice text-sm text-[#504f85] line-through">$699</span>
                     </p>
 
