@@ -21,6 +21,29 @@
   </head>
 
   <body>
+
+    <!-- start in loader -->
+    <section id="global">
+
+      <div class="relative w-full h-full">
+        <div class="absolute top-2/4 left-2/4">
+          <div id="top" class="mask">
+            <div class="plane"></div>
+          </div>
+          <div id="middle" class="mask">
+            <div class="plane"></div>
+          </div>
+
+          <div id="bottom" class="mask">
+            <div class="plane"></div>
+          </div>
+
+          <p class="titlleLoading"><i>LOADING...</i></p>
+        </div>
+      </div>
+
+    </section>
+    <!-- end in loader -->
     <!-- Back to top button -->
     <a
       class="backToTop fixed bottom-4 right-6 bg-[#3c3b6e] w-12 h-12 rounded-md text-white text-center transition duration-300 opacity-0 invisible z-50 hover:bg-[#222143] focus:outline-none"></a>
@@ -97,31 +120,7 @@
         </div>
         <!-- info product -->
         <div class="infoProduct pr-3 overflow-y-scroll">
-          <div class="flex mt-2">
-            <figure class="lg:w-1/4 w-[40%] mr-4">
-              <img src="puplic/images/catigories/catigores_1.jpg" class="rounded h-full" alt />
-            </figure>
-            <div class="info w-3/5 lg:w-3/4">
-              <h2 class="capitalize truncate text-sm text-hea mt-1">
-                Armani Wide-Leg Trousers - Pink, S
-              </h2>
-              <p class="capitalize text-sm text-gray-400 mb-2.5">
-                unit price: $60.00
-              </p>
-              <div class="flex justify-between items-center mt-4">
-                <div class="flex qty h-9">
-                  <button class="px-2 py-1 rounded-l-md mins">-</button>
-                  <input type="number" value="1" class="w-11 text-center numberQty" />
-                  <button class="px-2 py-1 rounded-r-md plus">+</button>
-                </div>
-                <div class="price">
-                  <h2 class="text-sm font-semibold leading-5 md:text-base text-heading">
-                    $60.00
-                  </h2>
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
 
         <!-- check out cart -->
@@ -138,13 +137,13 @@
     <!-- start in details -->
     <main>
       <article>
-        <section class="section product sectionProduct productDetails" aria-label="product">
+        <section class="section product sectionProduct productDetails productElement" aria-label="product" data-id="10">
           <div class="container px-4 mx-auto">
             <div class="product-slides relative overflow-hidden">
               <div class="slider-banner flex" data-slider>
                 <figure class="product-banner min-w-full rounded-2xl">
                   <img src="puplic/images/WhatsApp Image 2023-08-10 at 11.43.22 PM.jpeg" loading="lazy" alt=""
-                    class="img-cover w-full h-full rounded-2xl" />
+                    class="imgProduct img-cover w-full h-full rounded-2xl" />
                 </figure>
 
                 <figure class="product-banner min-w-full rounded-2xl">
@@ -175,7 +174,7 @@
             <div class="product-content">
               <p class="text-xs product-subtitle">brand name</p>
 
-              <h1 class="text-3xl product-title">Fall Limited Edition Sneakers</h1>
+              <h1 class="text-3xl product-title product-name">Fall Limited Edition Sneakers</h1>
 
               <p class="product-text text-[18px]">
                 These low-profile sneakers are your perfect casual wear
@@ -212,7 +211,7 @@
               </div>
 
               <div class="wrapper">
-                <span class="price" data-total-price>d.k <span class="spanPrice">300</span>
+                <span class="price product-price" data-total-price>d.k <span class="spanPrice">300</span>
                 </span>
 
                 <span class="badge">50%</span>
@@ -233,7 +232,7 @@
                   </button>
                 </div>
 
-                <button class="cart-btn">
+                <button class="cart-btn add-to-cart">
                   <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
                   <span class="span">Add to cart</span>
                 </button>

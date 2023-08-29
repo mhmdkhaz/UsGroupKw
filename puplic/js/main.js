@@ -1,6 +1,11 @@
 // ---------------------------------------------------- start shared functions -------------------------------------------------------
 
 // function main
+window.onload = () => {
+  let loader = document.getElementById("global");
+  loader.style.display="none";
+}
+
 function close(element, direction, valueDirection, overlay) {
   element.style[direction] = `${valueDirection}%`;
   overlay.style.opacity = "0";
@@ -17,14 +22,27 @@ function open(element, direction, valueDirection, overlay) {
   }, 200);
 }
 
-function funMinsPlus(qytCount, operation) {
+function funMinsPlusPriceChange(btnOperation, operation) {
+  let apperentElement = btnOperation.closest(".elementCart");
+  let totalPriceCount = apperentElement.querySelector(
+    ".suptotalTotalPrice h2 span"
+  );
+  let price = apperentElement.querySelector(".priceFromCart span");
+  let qty = apperentElement.querySelector(".numberQty");
+
   if (operation === "+") {
-    qytCount.textContent = parseInt(qytCount.textContent) + 1;
+    qty.textContent = parseInt(qty.textContent) + 1;
   } else if (operation === "-") {
-    if (qytCount.textContent > 1) {
-      qytCount.textContent = parseInt(qytCount.textContent) - 1;
+    if (parseInt(qty.textContent) > 1) {
+      qty.textContent = parseInt(qty.textContent) - 1;
     }
   }
+
+  totalPriceCount.textContent =
+    parseInt(qty.textContent) * parseFloat(price.textContent);
+
+  // suptotal
+  SuptotalPrice();
 }
 // function main
 
@@ -61,9 +79,7 @@ closeCart.addEventListener("click", () => {
 
 //add to cart
 
-let addToCartButtons = document.querySelectorAll(
-  ".product-card-container .add-to-cart"
-);
+let addToCartButtons = document.querySelectorAll(" .add-to-cart");
 let selectedProducts = []; // مصفوفة تحتوي على العناصر التي تم الضغط عليها
 
 addToCartButtons.forEach((button) => {
@@ -77,74 +93,68 @@ function addToCart(button) {
   const productPrice = productContainer.querySelector(
     ".product-price span"
   ).textContent;
-  const productImg = productContainer.querySelector(".img").src;
+  const productImg = productContainer.querySelector(".imgProduct").src;
 
   // function add id to element to filter elements
   addIdToProduct();
   const dataId = productContainer.dataset.id;
+
   // add element if exists or not
   filterProdcut(dataId, productName, productPrice, productImg);
 
-  minsPlusNumberCount(productPrice);
-  TotalpricePrduct(productPrice, dataId);
+  TotalpricePrduct(dataId);
   deletElementCart();
   counterCart();
 }
 
-function minsPlusNumberCount(productPrice) {
-  let minsCart = document.querySelectorAll(".infoProduct .mins");
-  let plusCart = document.querySelectorAll(".infoProduct .plus");
+function minsPlusNumberCount() {
+  let plusCart = document.querySelectorAll(".elementCart .plus");
+  let minsCart = document.querySelectorAll(".elementCart .mins");
 
   plusCart.forEach((plusBtn) => {
     plusBtn.addEventListener("click", () => {
-      let qty = plusBtn.parentNode.querySelector(".numberQty");
-      let apperentElement = plusBtn.closest(".elementCart");
-      let newPrice = apperentElement.querySelector(".priceFromCart span");
-      newPrice.textContent = qty.textContent * parseFloat(productPrice);
-      funMinsPlus(qty, "+");
+      funMinsPlusPriceChange(plusBtn, "+");
     });
   });
 
   minsCart.forEach((minsBtn) => {
     minsBtn.addEventListener("click", () => {
-      let qty = minsBtn.parentNode.querySelector(".numberQty");
-      let apperentElement = minsBtn.closest(".elementCart");
-      let newPrice = apperentElement.querySelector(".priceFromCart span");
-      newPrice.textContent = qty.textContent * parseFloat(productPrice);
-      funMinsPlus(qty, "-");
+      funMinsPlusPriceChange(minsBtn, "-");
     });
   });
 }
 
-function TotalpricePrduct(productPrice, dataId) {
+function TotalpricePrduct(dataId) {
   let idElements = document.querySelectorAll(".elementCart");
+
   idElements.forEach((element) => {
     if (element.dataset.id === dataId) {
-      let newPrice = element.querySelector(".priceFromCart span");
+      let totalPriceCountElement = element.querySelector(
+        ".suptotalTotalPrice h2 span"
+      );
+      let priceElement = element.querySelector(".priceFromCart span");
       let newQty = element.querySelector(".numberQty").textContent;
+      let price = parseFloat(priceElement.textContent);
 
-      newPrice.textContent = newQty * parseFloat(productPrice);
+      let totalPrice = newQty * price;
+      totalPriceCountElement.textContent = totalPrice;
     }
   });
 }
-TotalpricePrduct();
 
-// function totalPriceOperation() {
-//   let qtyElements = document.querySelectorAll(".TotalPriceprice");
-//   let totalPrice = 0;
+function SuptotalPrice() {
+  let totalPriceAll = document.querySelector(".subtotal");
+  let supTotalElement = document.querySelectorAll(
+    ".suptotalTotalPrice h2 span"
+  );
 
-//   qtyElements.forEach((qtyElement) => {
-//     let numberQty = parseInt(qtyElement.textContent);
-//     let unitPrice = parseFloat(priceElement.textContent);
-//     // console.log(priceElement.textContent);
-//     let productPrice = numberQty * unitPrice;
-//     totalPrice += productPrice;
-//   });
+  let total = Array.from(supTotalElement).reduce((acc, val) => {
+    let price = parseFloat(val.textContent);
+    return acc + price;
+  }, 0);
 
-//   console.log("Total price: " + totalPrice);
-// }
-
-// totalPriceOperation();
+  totalPriceAll.textContent = total;
+}
 
 function deletElementCart() {
   let deleteButtons = document.querySelectorAll(".elementCart .delete");
@@ -160,10 +170,8 @@ function deletElementCart() {
         elementCart.remove();
       }, 500);
 
-      // check count element
       deleteIdToArray(elementCart);
       counterCart();
-      // console.log("d");
     });
   });
 }
@@ -232,15 +240,17 @@ function filterProdcut(dataId, productName, productPrice, productImg) {
                 <span class="flex justify-center items-center w-11 text-center numberQty">1</span>
                 <button class="px-2 py-1 rounded-r-md plus">+</button>
               </div>
-              <div class="TotalPriceprice">
+              <div class="suptotalTotalPrice">
                 <h2 class="text-sm font-semibold leading-5 md:text-base text-heading">
-                  $60.00
+                  $ <span>${productPrice}</span>
                 </h2>
               </div>
             </div>
           </div>
         </div>
       `;
+      minsPlusNumberCount();
+      SuptotalPrice();
     });
   }
 }
