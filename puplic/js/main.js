@@ -3,8 +3,8 @@
 // function main
 window.onload = () => {
   let loader = document.getElementById("global");
-  loader.style.display="none";
-}
+  loader.style.display = "none";
+};
 
 function close(element, direction, valueDirection, overlay) {
   element.style[direction] = `${valueDirection}%`;
@@ -221,18 +221,18 @@ function filterProdcut(dataId, productName, productPrice, productImg) {
     infoProductCart.forEach((cart) => {
       cart.innerHTML += `
         <div class="elementCart flex mt-2" data-id="${dataId}">
-          <figure class="relative lg:w-1/4 w-[40%] mr-4">
+          <figure class="relative w-1/4 mr-4">
             <img src="${productImg}" class="rounded h-full w-full" alt="" />
             <span class="delete flex justify-center items-center absolute top-0 left-0 w-full h-full text-white">
               <i class="fa-solid fa-xmark"></i>
             </span>
           </figure>
-          <div class="info w-3/5 lg:w-3/4">
+          <div class="info w-3/4">
             <h2 class="capitalize truncate text-sm text-hea mt-1">
               ${productName}
             </h2>
             <p class="priceFromCart capitalize text-sm text-gray-400 mb-2.5">
-              unit price: <span>${productPrice}</span>
+              unit price: <span>${productPrice}</span> kd
             </p>
             <div class="flex justify-between items-center mt-4">
               <div class="flex qty h-9">
@@ -242,7 +242,7 @@ function filterProdcut(dataId, productName, productPrice, productImg) {
               </div>
               <div class="suptotalTotalPrice">
                 <h2 class="text-sm font-semibold leading-5 md:text-base text-heading">
-                  $ <span>${productPrice}</span>
+                  <span>${productPrice}</span> kd
                 </h2>
               </div>
             </div>
@@ -352,16 +352,18 @@ updateCarousel();
 
 // end in slider header
 
+// start in category
 var category = document.querySelector(".carouselCategory");
 var flktyCategory = new Flickity(category, {
-  cellAlign: "left",
+  // cellAlign: "left",
   contain: true,
   autoPlay: 5500,
   freeScroll: true,
   wrapAround: true,
   groupCells: true,
-  groupCells: 4,
+  groupCells: 1,
 });
+// end in category
 
 // start in details product
 
@@ -453,7 +455,7 @@ if (productDetails) {
     totalPrice = qtyProdcut * priceProduct;
 
     qtyElem.textContent = qtyProdcut;
-    totalPriceElem.textContent = `d.k${totalPrice}`;
+    totalPriceElem.textContent = `kd${totalPrice}`;
   };
 
   addEventOnElem(qtyPlusBtn, "click", increaseProductQty);
@@ -463,11 +465,22 @@ if (productDetails) {
     totalPrice = qtyProdcut * priceProduct;
 
     qtyElem.textContent = qtyProdcut;
-    totalPriceElem.textContent = `d.k${totalPrice}`;
+    totalPriceElem.textContent = `kd${totalPrice}`;
   };
 
   addEventOnElem(qtyMinusBtn, "click", decreaseProductQty);
 }
+
+// start in shared product
+var category = document.querySelector(".carouselShared");
+var flktyCategory = new Flickity(category, {
+  cellAlign: "left",
+  contain: true,
+  wrapAround: true,
+  groupCells: 2,
+});
+// end in shared product
+
 // end in details product
 
 // --------------------------------------- start in show all proudct ---------------------------------------
