@@ -69,13 +69,19 @@ let openCart = document.querySelector(".openCart");
 let closeCart = document.querySelector(".clsoeCart");
 let overlay = document.querySelector(".overlay");
 
-openCart.addEventListener("click", () => {
-  open(detailsCart, "right", 0, overlay);
-});
+function openCartFun() {
+  openCart.addEventListener("click", () => {
+    open(detailsCart, "right", 0, overlay);
+  });
+}
+openCartFun();
 
-closeCart.addEventListener("click", () => {
-  close(detailsCart, "right", -100, overlay);
-});
+function closeCartFun() {
+  closeCart.addEventListener("click", () => {
+    close(detailsCart, "right", -100, overlay);
+  });
+}
+closeCartFun();
 
 //add to cart
 
@@ -172,21 +178,24 @@ function deletElementCart() {
 
       deleteIdToArray(elementCart);
       counterCart();
+      setTimeout(() => {
+        SuptotalPrice();
+      }, 400);
     });
   });
 }
 deletElementCart();
 
 function counterCart() {
-  let apperentCart = document.querySelector(".infoProduct");
+  let displayProduct = document.querySelector(".infoProduct");
   let emptyCart = document.querySelector(".emptyCart");
 
   if (selectedProducts.length === 0) {
     emptyCart.style.display = "block";
-    apperentCart.style.display = "none";
+    displayProduct.style.display = "none";
   } else {
     emptyCart.style.display = "none";
-    apperentCart.style.display = "block";
+    displayProduct.style.display = "block";
   }
 }
 
@@ -256,6 +265,25 @@ function filterProdcut(dataId, productName, productPrice, productImg) {
 }
 
 // ------------------------------------------------ end in cart ------------------------------------------------
+
+// ------------------------------------------------ start in checkout ------------------------------------------------
+let btnCheckout = document.querySelector(".btnCheckout");
+let closeCheckout = document.querySelector(".closeCheckout");
+let containerCheckout = document.querySelector(".Sectioncheckout");
+let overlayCheckout = document.querySelector(".overlayCheckout");
+
+function chekcoutFun() {
+  btnCheckout.addEventListener("click", () => {
+    open(containerCheckout, "scale", 100, overlayCheckout);
+    containerCheckout.style.display = "block";
+    close(detailsCart, "right", -100, overlay);
+  });
+  closeCheckout.addEventListener("click", () => {
+    close(containerCheckout, "scale", 0, overlayCheckout);
+  });
+}
+chekcoutFun();
+// ------------------------------------------------ end in checkout ------------------------------------------------
 
 // ------------------------------------------------ start in choose filter ------------------------------------------------
 let borderBox = document.querySelectorAll(".checkElement .selectedItem");
