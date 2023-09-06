@@ -20,7 +20,7 @@
       rel="stylesheet" />
   </head>
 
-  <body>
+  <body class="lg:pt-32 pt-28">
     <!-- start in loader -->
     <section id="global">
 
@@ -50,7 +50,7 @@
 
     <!-- start in navbar -->
     <!-- component -->
-    <header class="bg-white">
+    <header class="bg-white fixed top-0 w-full z-50">
       <div class="container mx-auto px-4 py-8 flex items-center">
         <!-- logo -->
         <div class="mr-auto md:w-16 flex-shrink-0">
@@ -58,7 +58,7 @@
         </div>
 
         <!-- search -->
-        <div class="w-full  xl:max-w-lg 2xl:max-w-2xl bg-gray-100 rounded-md hidden xl:flex items-center">
+        <div class="w-full xl:max-w-lg 2xl:max-w-2xl bg-gray-100 rounded-md hidden xl:flex items-center">
           <select class="bg-transparent uppercase font-normal text-sm p-4 mr-4" name="" id="">
             <option>all categories</option>
           </select>
@@ -82,9 +82,6 @@
             </li>
             <li class="ml-2 lg:ml-4 relative inline-block">
               <div class="cursor-pointer openCart">
-                <div class=" absolute -top-1 right-0 z-10 bg-yellow-400 text-xs font-normal px-1 py-0.5 rounded-sm">
-                  12
-                </div>
                 <svg class=" h-9 lg:h-10 p-2 text-[#3c3b6e]" aria-hidden="true" focusable="false" data-prefix="far"
                   data-icon="shopping-cart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
                   class="svg-inline--fa fa-shopping-cart fa-w-18 fa-9x">
@@ -163,7 +160,7 @@
     <!-- end in checkout -->
 
     <!-- start in carsoule header -->
-    <div class="contaier px-8 mx-auto">
+    <div class="contaier px-8 mx-auto lg:mt-0 mt-4">
       <div class="carousel-wrapper w-full h-full overflow-hidden relative">
         <!-- Slides -->
         <div class="slide w-full h-full rounded-xl absolute transition-all duration-500" data-slide>
@@ -183,6 +180,7 @@
     <!-- end in carsoule header -->
 
     <!-- start in category -->
+
     <div class="container mx-auto px-8 mt-10">
       <h1 class="titleMain text-center mb-5">Shop By Category</h1>
       <div class="main-carousel carouselCategory">
@@ -197,6 +195,41 @@
             </h1>
           </div>
         </div>
+
+        <div class="carousel-cell">
+          <div class="flex flex-col justify-center items-center gap-4 md:mr-4 mr-2">
+            <figure class="relative rounded-lg">
+              <img src="puplic/images/catigories/catigores_1.jpg" class="rounded-lg object-fill" alt="" />
+            </figure>
+            <h1 class="cursor-pointer text-center capitalize text-[#b22234] font-semibold text-xl">
+              luggage
+            </h1>
+          </div>
+        </div>
+
+        <div class="carousel-cell">
+          <div class="flex flex-col justify-center items-center gap-4 md:mr-4 mr-2">
+            <figure class="relative rounded-lg">
+              <img src="puplic/images/catigories/catigores_1.jpg" class="rounded-lg object-fill" alt="" />
+            </figure>
+            <h1 class="cursor-pointer text-center capitalize text-[#b22234] font-semibold text-xl">
+              luggage
+            </h1>
+          </div>
+        </div>
+
+        <div class="carousel-cell">
+          <div class="flex flex-col justify-center items-center gap-4 md:mr-4 mr-2">
+            <figure class="relative rounded-lg">
+              <img src="puplic/images/catigories/catigores_1.jpg" class="rounded-lg object-fill" alt="" />
+            </figure>
+            <h1 class="cursor-pointer text-center capitalize text-[#b22234] font-semibold text-xl">
+              luggage
+            </h1>
+          </div>
+        </div>
+
+
 
       </div>
     </div>
@@ -251,7 +284,7 @@
       <div class="container mx-auto px-8">
         <div class="flex justify-between items-center">
           <h1 class="titleMain">tool land </h1>
-          <a href="#" class="text-[#3c3b6e] text-xl">view all</a>
+          <a href="showProduct.html" class="text-[#3c3b6e] text-xl">view all</a>
         </div>
         <div class="product-card-container-outer">
 
@@ -302,7 +335,7 @@
       <div class="container mx-auto px-8">
         <div class="flex justify-between items-center">
           <h1 class="titleMain">luggage</h1>
-          <a href="#" class="text-[#3c3b6e] text-xl">view all</a>
+          <a href="showProduct.html" class="text-[#3c3b6e] text-xl">view all</a>
         </div>
         <div class="product-card-container-outer">
           <div
@@ -383,13 +416,15 @@
           </div>
         </nav>
         <div class="flex justify-center mt-8 space-x-6">
-          <a href="#" class="text-[#d62976] text-xl hover:text-gray-500">
+          <a href="https://instagram.com/us_group_kw?igshid=NTc4MTIwNjQ2YQ=="
+            class="text-[#d62976] text-xl hover:text-gray-500">
             <i class="fa-brands fa-instagram"></i>
           </a>
-          <a href="#" class="text-[#3b5998] text-xl hover:text-gray-500">
+          <a href="https://www.facebook.com/merai89?mibextid=ZbWKwL" class="text-[#3b5998] text-xl hover:text-gray-500">
             <i class="fa-brands fa-facebook-f"></i>
           </a>
-          <a href="https://api.whatsapp.com/send?phone=0112409654" class="text-[#25D366] text-xl hover:text-gray-500">
+          <a href="https://api.whatsapp.com/send?phone=+965 9798 3633"
+            class="text-[#25D366] text-xl hover:text-gray-500">
             <i class="fa-brands fa-whatsapp"></i>
           </a>
           <a href="tel:123-456-7890" class="text-[#19a7a4] text-xl hover:text-gray-500">

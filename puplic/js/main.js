@@ -101,15 +101,22 @@ function addToCart(button) {
   ).textContent;
   const productImg = productContainer.querySelector(".imgProduct").src;
 
+  // details product page count
+  const productCount = document.querySelector(".coountProduct");
+
   // function add id to element to filter elements
   addIdToProduct();
   const dataId = productContainer.dataset.id;
 
   // add element if exists or not
-  filterProdcut(dataId, productName, productPrice, productImg);
-
+  filterProdcut(dataId, productName, productPrice, productImg, productCount);
+  // مجموع المنتج الواحد  فقط
   TotalpricePrduct(dataId);
+  // حذف المنتج
   deletElementCart();
+  // مجموع جميع المنتجات
+  SuptotalPrice();
+  // لمعرفة ان كان هناك منتجات ام لا
   counterCart();
 }
 
@@ -174,13 +181,11 @@ function deletElementCart() {
       elementCart.style.margin = "0";
       setTimeout(() => {
         elementCart.remove();
+        SuptotalPrice();
       }, 500);
 
       deleteIdToArray(elementCart);
       counterCart();
-      setTimeout(() => {
-        SuptotalPrice();
-      }, 400);
     });
   });
 }
@@ -191,8 +196,10 @@ function counterCart() {
   let emptyCart = document.querySelector(".emptyCart");
 
   if (selectedProducts.length === 0) {
-    emptyCart.style.display = "block";
-    displayProduct.style.display = "none";
+    setTimeout(() => {
+      emptyCart.style.display = "block";
+      displayProduct.style.display = "none";
+    }, 500);
   } else {
     emptyCart.style.display = "none";
     displayProduct.style.display = "block";
@@ -212,7 +219,13 @@ function deleteIdToArray(elementCart) {
   );
 }
 
-function filterProdcut(dataId, productName, productPrice, productImg) {
+function filterProdcut(
+  dataId,
+  productName,
+  productPrice,
+  productImg,
+  productCount
+) {
   let arrayFilterIndex = selectedProducts.includes(dataId);
   let infoProductCart = document.querySelectorAll(".infoProduct");
   let elementFromCart = document.querySelectorAll(".elementCart");
@@ -221,7 +234,12 @@ function filterProdcut(dataId, productName, productPrice, productImg) {
     elementFromCart.forEach((product) => {
       if (product.dataset.id === dataId) {
         let numberQtyInput = product.querySelector(".numberQty");
-        numberQtyInput.textContent = parseInt(numberQtyInput.textContent) + 1;
+
+        productCount
+          ? (numberQtyInput.textContent = parseInt(productCount.textContent))
+          : (numberQtyInput.textContent =
+              parseInt(numberQtyInput.textContent) + 1);
+
       }
     });
   } else {
@@ -246,7 +264,9 @@ function filterProdcut(dataId, productName, productPrice, productImg) {
             <div class="flex justify-between items-center mt-4">
               <div class="flex qty h-9">
                 <button class="px-2 py-1 rounded-l-md mins">-</button>
-                <span class="flex justify-center items-center w-11 text-center numberQty">1</span>
+                <span class="flex justify-center items-center w-11 text-center numberQty">${
+                  productCount ? productCount.textContent : "1"
+                }</span>
                 <button class="px-2 py-1 rounded-r-md plus">+</button>
               </div>
               <div class="suptotalTotalPrice">
@@ -383,7 +403,7 @@ updateCarousel();
 // start in category
 var category = document.querySelector(".carouselCategory");
 var flktyCategory = new Flickity(category, {
-  // cellAlign: "left",
+  cellAlign: "left",
   contain: true,
   autoPlay: 5500,
   freeScroll: true,
@@ -466,7 +486,7 @@ if (productDetails) {
    * product quantity functionality
    */
 
-  const totalPriceElem = document.querySelector("[data-total-price]");
+  const totalPriceElem = document.querySelector("[data-total-price] span");
   const qtyElem = document.querySelector("[data-qty]");
   const qtyMinusBtn = document.querySelector("[data-qty-minus]");
   const qtyPlusBtn = document.querySelector("[data-qty-plus]");
@@ -483,7 +503,7 @@ if (productDetails) {
     totalPrice = qtyProdcut * priceProduct;
 
     qtyElem.textContent = qtyProdcut;
-    totalPriceElem.textContent = `kd${totalPrice}`;
+    totalPriceElem.textContent = `${totalPrice}`;
   };
 
   addEventOnElem(qtyPlusBtn, "click", increaseProductQty);
@@ -493,7 +513,7 @@ if (productDetails) {
     totalPrice = qtyProdcut * priceProduct;
 
     qtyElem.textContent = qtyProdcut;
-    totalPriceElem.textContent = `kd${totalPrice}`;
+    totalPriceElem.textContent = `${totalPrice}`;
   };
 
   addEventOnElem(qtyMinusBtn, "click", decreaseProductQty);

@@ -20,7 +20,7 @@
       rel="stylesheet" />
   </head>
 
-  <body>
+  <body class="lg:pt-32 pt-28">
     <!-- start in loader -->
     <section id="global">
 
@@ -49,7 +49,7 @@
       class="backToTop fixed bottom-4 right-6 bg-[#3c3b6e] w-12 h-12 rounded-md text-white text-center transition duration-300 opacity-0 invisible z-50 hover:bg-[#222143] focus:outline-none"></a>
     <!-- start in navbar -->
     <!-- component -->
-    <header class="bg-white">
+    <header class="bg-white fixed top-0 w-full z-50">
       <div class="container mx-auto px-4 py-8 flex items-center">
         <!-- logo -->
         <div class="mr-auto md:w-16 flex-shrink-0">
@@ -81,9 +81,6 @@
             </li>
             <li class="ml-2 lg:ml-4 relative inline-block">
               <div class>
-                <div class="absolute -top-1 right-0 z-10 bg-yellow-400 text-xs font-bold px-1 py-0.5 rounded-sm">
-                  12
-                </div>
                 <svg class="openCart h-9 lg:h-10 p-2 text-[#3c3b6e]" aria-hidden="true" focusable="false"
                   data-prefix="far" data-icon="shopping-cart" role="img" xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 576 512" class="svg-inline--fa fa-shopping-cart fa-w-18 fa-9x">
@@ -118,6 +115,11 @@
           </h1>
           <i class="fa-solid fa-xmark text-2xl clsoeCart"></i>
         </div>
+        <!-- cart empty -->
+        <div class="emptyCart flex flex-col justify-center items-center h-[80%]">
+          <img src="puplic/images/cartEmpty.png" alt="">
+          <h3 class="capitalize text-center">your cart is empty</h3>
+        </div>
         <!-- info product -->
         <div class="infoProduct pr-3 overflow-y-scroll">
 
@@ -126,13 +128,33 @@
         <!-- check out cart -->
         <div
           class="checkout relative bottom-0 mb-5 w-full px-5 py-3 md:py-4 flex items-center justify-between gap-x-5 rounded-md text-sm sm:text-base text-white focus:outline-none transition duration-300 bg-heading hover:bg-gray-600">
-          <button>Proceed To Checkout</button>
+          <button class="btnCheckout">Proceed To Checkout</button>
           <div class="bg-white w-[2px] h-full"></div>
           <div class="subtotal">$160.00</div>
         </div>
       </div>
     </section>
     <!-- end in cart -->
+
+    <!-- start in checkout -->
+    <section class="Sectioncheckout fixed top-0 w-full h-full z-50">
+      <div class="overlayCheckout "></div>
+      <i class="fa-solid fa-xmark text-2xl cursor-pointer closeCheckout absolute top-4 right-4 text-white"></i>
+      <div class="boxCheckout absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4">
+        <h1 class="capitalize text-white mb-2 text-2xl">checkout</h1>
+        <form action="">
+          <div class="flex gap-2">
+            <input type="text" placeholder="Name" class="w-full rounded-md px-2 py-2 outline-none mb-3">
+            <input type="number" placeholder="number" class="w-full rounded-md px-2 py-2 outline-none mb-3">
+          </div>
+          <input type="text" placeholder="Address" class="w-full rounded-md px-2 py-2 outline-none mb-3">
+          <input type="text" placeholder="Street" class="w-full rounded-md px-2 py-2 outline-none mb-3">
+          <input type="text" placeholder="landmark" class="w-full rounded-md px-2 py-2 outline-none mb-3">
+          <input type="submit" value="send">
+        </form>
+      </div>
+    </section>
+    <!-- end in checkout -->
 
     <!-- start in details -->
     <main>
@@ -211,8 +233,10 @@
               </div>
 
               <div class="wrapper">
-                <span class="price product-price" data-total-price>d.k <span class="spanPrice">300</span>
-                </span>
+                <div class="flex flex-col">
+                  <span class="product-price text-gray-400 capitalize">unit price: d.k <span class="spanPrice">300</span></span>
+                  <span class="price" data-total-price>d.k <span>300</span> </span>
+                </div>
 
                 <span class="badge">50%</span>
 
@@ -225,7 +249,7 @@
                     <i class="fa-solid fa-minus"></i>
                   </button>
 
-                  <span class="span" data-qty>1</span>
+                  <span class="coountProduct span" data-qty>1</span>
 
                   <button class="counter-btn" data-qty-plus>
                     <i class="fa-solid fa-plus"></i>
@@ -435,19 +459,20 @@
           </div>
         </nav>
         <div class="flex justify-center mt-8 space-x-6">
-          <a href="#" class="text-[#d62976] text-xl hover:text-gray-500">
+          <a href="https://instagram.com/us_group_kw?igshid=NTc4MTIwNjQ2YQ=="
+            class="text-[#d62976] text-xl hover:text-gray-500">
             <i class="fa-brands fa-instagram"></i>
           </a>
-          <a href="#" class="text-[#3b5998] text-xl hover:text-gray-500">
+          <a href="https://www.facebook.com/merai89?mibextid=ZbWKwL" class="text-[#3b5998] text-xl hover:text-gray-500">
             <i class="fa-brands fa-facebook-f"></i>
           </a>
-          <a href="https://api.whatsapp.com/send?phone=0112409654" class="text-[#25D366] text-xl hover:text-gray-500">
+          <a href="https://api.whatsapp.com/send?phone=+965 9798 3633"
+            class="text-[#25D366] text-xl hover:text-gray-500">
             <i class="fa-brands fa-whatsapp"></i>
           </a>
           <a href="tel:123-456-7890" class="text-[#19a7a4] text-xl hover:text-gray-500">
             <i class="fa-solid fa-phone"></i>
           </a>
-
         </div>
         <p class="mt-8 text-base leading-6 text-center text-gray-400">
           © 2021 us_group_kw, Inc. All rights reserved.
