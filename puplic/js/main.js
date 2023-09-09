@@ -239,7 +239,6 @@ function filterProdcut(
           ? (numberQtyInput.textContent = parseInt(productCount.textContent))
           : (numberQtyInput.textContent =
               parseInt(numberQtyInput.textContent) + 1);
-
       }
     });
   } else {
@@ -436,19 +435,33 @@ if (productDetails) {
   };
 
   const slider = document.querySelector("[data-slider]");
+  const sliderImg = document.querySelectorAll("[data-slider] figure");
   const nextBtn = document.querySelector("[data-next]");
   const prevBtn = document.querySelector("[data-prev]");
 
   // set the slider default position
   let sliderPos = 0;
 
-  // set the number of total slider items
-  const totalSliderItems = 4;
+  // hide button next and prev if length img is 1
+  if (sliderImg.length === 1) {
+    nextBtn.style.display = "none";
+    prevBtn.style.display = "none";
+  }
+
+  // الوصول إلى العنصر <html>
+  const htmlElement = document.documentElement;
+
+  // الحصول على قيمة خاصية "lang"
+  const langAttributeValue = htmlElement.getAttribute("lang");
 
   // make next slide btn workable
   const slideToNext = function () {
     sliderPos++;
-    slider.style.transform = `translateX(-${sliderPos}00%)`;
+    if (langAttributeValue === "en") {
+      slider.style.transform = `translateX(-${sliderPos}00%)`;
+    } else {
+      slider.style.transform = `translateX(${sliderPos}00%)`;
+    }
 
     sliderEnd();
   };
@@ -458,7 +471,11 @@ if (productDetails) {
   // make prev slide btn workable
   const slideToPrev = function () {
     sliderPos--;
-    slider.style.transform = `translateX(-${sliderPos}00%)`;
+    if (langAttributeValue === "en") {
+      slider.style.transform = `translateX(-${sliderPos}00%)`;
+    } else {
+      slider.style.transform = `translateX(${sliderPos}00%)`;
+    }
 
     sliderEnd();
   };
@@ -467,7 +484,7 @@ if (productDetails) {
 
   // check when slider is end then what should slider btn do
   function sliderEnd() {
-    if (sliderPos >= totalSliderItems - 1) {
+    if (sliderPos >= sliderImg.length - 1) {
       nextBtn.classList.add("disabled");
     } else {
       nextBtn.classList.remove("disabled");
@@ -499,7 +516,10 @@ if (productDetails) {
   let totalPrice = 125;
 
   const increaseProductQty = function () {
-    qtyProdcut++;
+    // عدد المنتجات من قاعدة البيانات الا يزيد عن عددهم
+    if (qtyProdcut < 4) {
+      qtyProdcut++;
+    }
     totalPrice = qtyProdcut * priceProduct;
 
     qtyElem.textContent = qtyProdcut;

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>idnex</title>
+        <!-- start in css -->
+        <link rel="stylesheet" href="puplic/css/style.css" />
+        <!-- start in tailwind css -->
+        <link rel="stylesheet" href="puplic/css/tailwind.css" />
+        <!-- start in carsoule -->
+        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
+        <!-- start in fontawsome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+        <!-- start in google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400&family=Montserrat&display=swap"
+            rel="stylesheet" />
+    </head>
+
+    <body class="lg:pt-32 pt-28">
+        <!-- start in loader -->
+        <section id="global">
+
+            <div class="relative w-full h-full">
+                <div class="absolute top-2/4 left-2/4">
+                    <div id="top" class="mask">
+                        <div class="plane"></div>
+                    </div>
+                    <div id="middle" class="mask">
+                        <div class="plane"></div>
+                    </div>
+
+                    <div id="bottom" class="mask">
+                        <div class="plane"></div>
+                    </div>
+
+                    <p class="titlleLoading"><i>LOADING...</i></p>
+                </div>
+            </div>
+
+        </section>
+        <!-- end in loader -->
+
+        <!-- Back to top button -->
+        <a
+            class="backToTop fixed bottom-4 right-6 bg-[#3c3b6e] w-12 h-12 rounded-md text-white text-center transition duration-300 opacity-0 invisible z-50 hover:bg-[#222143] focus:outline-none"></a>
+        <!-- start in navbar -->
+        <!-- component -->
+        <header class="bg-white fixed top-0 w-full z-50">
+            <div class="container mx-auto px-4 py-8 flex items-center">
+                <!-- logo -->
+                <div class="md:w-16 flex-shrink-0">
+                    <a href="index.html">
+                        <img src="puplic/images/logoTwo.png" class="w-12" alt="">
+                    </a>
+                </div>
+        
+                <!-- search -->
+                <div class="w-full mx-auto xl:max-w-lg 2xl:max-w-2xl bg-gray-100 rounded-md hidden xl:flex items-center">
+                    <select class="bg-transparent uppercase font-normal text-sm p-4 mr-4" name="" id="">
+                        <option>كل العناصر</option>
+                    </select>
+                    <input class="w-full h-auto border-l outline-none border-gray-300 bg-transparent font-semibold text-sm pl-4"
+                        type="text" placeholder="البحث" />
+        
+                    <i class="fa-solid fa-magnifying-glass ml-auto h-5 px-4 text-[#3c3b6e]"></i>
+                </div>
+        
+                <!-- buttons -->
+                <nav class="contents">
+                    <ul class="ml-4 xl:w-48 flex items-center justify-end">
+                        <li class="ml-2 lg:ml-4 relative inline-block">
+                            <a class="uppercase text-[#3c3b6e]" href="#">english</a>
+                        </li>
+                        <li class="ml-2 lg:ml-4 relative inline-block">
+                            <div class="cursor-pointer openCart">
+                                <svg class=" h-9 lg:h-10 p-2 text-[#3c3b6e]" aria-hidden="true" focusable="false"
+                                    data-prefix="far" data-icon="shopping-cart" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 576 512" class="svg-inline--fa fa-shopping-cart fa-w-18 fa-9x">
+                                    <path fill="currentColor"
+                                        d="M551.991 64H144.28l-8.726-44.608C133.35 8.128 123.478 0 112 0H12C5.373 0 0 5.373 0 12v24c0 6.627 5.373 12 12 12h80.24l69.594 355.701C150.796 415.201 144 430.802 144 448c0 35.346 28.654 64 64 64s64-28.654 64-64a63.681 63.681 0 0 0-8.583-32h145.167a63.681 63.681 0 0 0-8.583 32c0 35.346 28.654 64 64 64 35.346 0 64-28.654 64-64 0-18.136-7.556-34.496-19.676-46.142l1.035-4.757c3.254-14.96-8.142-29.101-23.452-29.101H203.76l-9.39-48h312.405c11.29 0 21.054-7.869 23.452-18.902l45.216-208C578.695 78.139 567.299 64 551.991 64zM208 472c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm256 0c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm23.438-200H184.98l-31.31-160h368.548l-34.78 160z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+        
+                <!-- cart count -->
+                <div class="ml-4 hidden sm:flex flex-col font-normal text-[#3c3b6e]">
+                    <span class="text-xs">السلة </span>
+                    <span>kd2,650,59</span>
+                </div>
+            </div>
+        
+            <hr />
+        </header>
+        <!-- end in navbar -->
+
+        <!-- start in cart -->
+        <section id="cart" class="relative z-30">
+            <div class="overlay w-screen h-screen fixed z-20 top-0"></div>
+
+            <div
+                class="detailsCart fixed top-0 right-0 z-30 p-5 h-screen w-[100vw] sm:w-[70vw] md:w-[50vw] lg:w-[30vw]">
+                <div class="mainText flex justify-between items-center my-5 border-b pb-5">
+                    <h1 class="capitalize m-0 text-xl font-bold md:text-2xl text-heading">
+                        shooping cart
+                    </h1>
+                    <i class="fa-solid fa-xmark text-2xl clsoeCart"></i>
+                </div>
+                <!-- cart empty -->
+                <div class="emptyCart flex flex-col justify-center items-center h-[80%]">
+                    <img src="puplic/images/cartEmpty.png" alt="">
+                    <h3 class="capitalize text-center">your cart is empty</h3>
+                </div>
+                <!-- info product -->
+                <div class="infoProduct pr-3 overflow-y-scroll">
+
+                </div>
+
+                <!-- check out cart -->
+                <div
+                    class="checkout relative bottom-0 mb-5 w-full px-5 py-3 md:py-4 flex items-center justify-between gap-x-5 rounded-md text-sm sm:text-base text-white focus:outline-none transition duration-300 bg-heading hover:bg-gray-600">
+                    <button class="btnCheckout">Proceed To Checkout</button>
+                    <div class="bg-white w-[2px] h-full"></div>
+                    <div class="subtotal">$160.00</div>
+                </div>
+            </div>
+        </section>
+        <!-- end in cart -->
+
+        <!-- start in checkout -->
+        <section class="Sectioncheckout fixed top-0 w-full h-full z-50">
+            <div class="overlayCheckout "></div>
+            <i class="fa-solid fa-xmark text-2xl cursor-pointer closeCheckout absolute top-4 right-4 text-white"></i>
+            <div class="boxCheckout absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4">
+                <h1 class="capitalize text-white mb-2 text-2xl">checkout</h1>
+                <form action="">
+                    <div class="flex gap-2">
+                        <input type="text" placeholder="Name" class="w-full rounded-md px-2 py-2 outline-none mb-3">
+                        <input type="number" placeholder="number" class="w-full rounded-md px-2 py-2 outline-none mb-3">
+                    </div>
+                    <input type="text" placeholder="Address" class="w-full rounded-md px-2 py-2 outline-none mb-3">
+                    <input type="text" placeholder="Street" class="w-full rounded-md px-2 py-2 outline-none mb-3">
+                    <input type="text" placeholder="landmark" class="w-full rounded-md px-2 py-2 outline-none mb-3">
+                    <input type="submit" value="send">
+                </form>
+            </div>
+        </section>
+        <!-- end in checkout -->
+
+        <!-- start in details -->
+        <main>
+            <article>
+                <section class="section product sectionProduct productDetails productElement" aria-label="product"
+                    data-id="10">
+                    <div class="container px-4 mx-auto">
+                        <div class="product-slides relative overflow-hidden">
+                            <div class="slider-banner flex" data-slider>
+                                <figure class="product-banner min-w-full rounded-2xl">
+                                    <img src="puplic/images/WhatsApp Image 2023-08-10 at 11.43.22 PM.jpeg"
+                                        loading="lazy" alt="" class="imgProduct img-cover w-full h-full rounded-2xl" />
+                                </figure>
+                                <figure class="product-banner min-w-full rounded-2xl">
+                                    <img src="puplic/images/bugs_3.jpeg" loading="lazy" alt=""
+                                        class="imgProduct img-cover w-full h-full rounded-2xl" />
+                                </figure>
+                            </div>
+
+                            <button class="slide-btn rounded prev absolute p-3 top-2/4 left-4"
+                                aria-label="Previous image" data-prev>
+                                <i class="fa-solid fa-angle-left"></i>
+                            </button>
+
+                            <button class="slide-btn rounded next absolute p-3 top-2/4 right-4" aria-label="Next image"
+                                data-next>
+                                <i class="fa-solid fa-angle-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="product-content">
+                            <p class="text-xs product-subtitle">brand name</p>
+
+                            <h1 class="text-3xl product-title product-name">Fall Limited Edition Sneakers</h1>
+
+                            <p class="product-text text-[18px]">
+                                These low-profile sneakers are your perfect casual wear
+                                companion. Featuring a durable rubber outer sole, they’ll
+                                withstand everything the weather can offer.
+                            </p>
+
+                            <div class="size">
+                                <h1 class="text-xl capitalize text-[#3c3b6e] my-4">
+                                    select size
+                                </h1>
+                                <div class="checkElement flex gap-4">
+                                    <p class="selectedItem border-2 border-[#3c3b6e] py-2 px-4 rounded cursor-pointer">
+                                        71
+                                    </p>
+                                    <p class="selectedItem border-2 border-[#3c3b6e] py-2 px-4 rounded cursor-pointer">
+                                        71
+                                    </p>
+                                    <p class="selectedItem border-2 border-[#3c3b6e] py-2 px-4 rounded cursor-pointer">
+                                        71
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="color">
+                                <h1 class="text-xl capitalize text-[#3c3b6e] my-4">color</h1>
+                                <select id="countries"
+                                    class="bg-gray-50 border border-gray-300  text-sm rounded-lg text-[#3c3v6e]  block w-full p-2.5  dark:border-gray-600 dark:placeholder-[#3c3b6e] capitalize ">
+                                    <option selected>white</option>
+                                    <option value="red">red</option>
+                                    <option value="blue">blue</option>
+                                    <option value="yeloow">yellow</option>
+                                </select>
+                            </div>
+
+                            <div class="wrapper">
+                                <div class="flex flex-col">
+                                    <span class="product-price text-gray-400 capitalize">unit price: d.k <span
+                                            class="spanPrice">300</span></span>
+                                    <span class="price" data-total-price>d.k <span>300</span> </span>
+                                </div>
+
+                                <span class="badge">50%</span>
+
+                                <del class="del">$250.00</del>
+                            </div>
+
+                            <div class="btn-group">
+                                <div class="counter-wrapper">
+                                    <button class="counter-btn" data-qty-plus>
+                                        <i class="fa-solid fa-plus"></i>
+                                    </button>
+
+                                    <span class="coountProduct span" data-qty>1</span>
+
+                                    <button class="counter-btn" data-qty-minus>
+                                        <i class="fa-solid fa-minus"></i>
+                                    </button>
+                                </div>
+
+                                <button class="cart-btn add-to-cart">
+                                    <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                                    <span class="span">اضافة الى السلة</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </main>
+        <!-- end in details -->
+
+        <!-- start in  -->
+        <section class="container mx-auto px-8 mt-10">
+            <div class="grid lg:grid-cols-2 grid-cols-1">
+                <!-- element 1 -->
+                <figure class="lg:flex justify-center items-center h-3/4 hidden ">
+                    <img src="puplic/images/detailsProduct/undraw_empty_cart_co35.svg" class="h-full" alt="">
+                </figure>
+                <!-- element 2 -->
+                <div>
+                    <h1 class="titleMain text-center mb-5">frequently bought together</h1>
+                    <div class="main-carousel carouselShared">
+
+                        <div class="carousel-cell w-2/4">
+                            <!-- 1 -->
+                            <div
+                                class="productElement  relative  flex flex-col w-[95%] overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
+                                <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
+                                    href="detailsProduct.html">
+                                    <img class="imgProduct object-fill w-full h-full" src="puplic/images/bugs_4.jpeg"
+                                        alt="product image" />
+                                    <span
+                                        class="absolute top-0 right-0 m-2 rounded-full bg-[#b22234] px-2 text-center text-sm font-medium text-white">39%
+                                        OFF</span>
+                                </a>
+                                <div class="mt-4 px-5 pb-5">
+                                    <a href="detailsProduct.html">
+                                        <div>
+                                            <h5 class="text-xl tracking-tight text-[#504f85] product-name">Nike Air MX
+                                                Super 2500 - Red</h5>
+                                        </div>
+                                        <div class="mt-2 mb-5 flex items-center justify-between">
+                                            <p>
+                                                <span
+                                                    class="text-xl font-normal text-[#504f85] product-price uppercase">kd
+                                                    <span>400</span>
+                                                </span>
+                                                <span
+                                                    class="salePrice text-sm text-[#504f85] line-through uppercase">kd699</span>
+                                            </p>
+
+                                        </div>
+                                    </a>
+                                    <div
+                                        class="add-to-cart flex gap-2 items-center justify-center rounded-md bg-[#007a3d] cursor-pointer px-5 py-2.5 text-center text-sm font-medium text-white transition-all hover:bg-[#117a3d] focus:outline-none">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                        Add to cart
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="carousel-cell w-2/4">
+                            <!-- 1 -->
+                            <div
+                                class="productElement  relative  flex flex-col w-[95%] overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
+                                <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
+                                    href="detailsProduct.html">
+                                    <img class="imgProduct object-fill w-full h-full" src="puplic/images/bugs_4.jpeg"
+                                        alt="product image" />
+                                    <span
+                                        class="absolute top-0 right-0 m-2 rounded-full bg-[#b22234] px-2 text-center text-sm font-medium text-white">39%
+                                        OFF</span>
+                                </a>
+                                <div class="mt-4 px-5 pb-5">
+                                    <a href="detailsProduct.html">
+                                        <div>
+                                            <h5 class="text-xl tracking-tight text-[#504f85] product-name">Nike Air MX
+                                                Super 2500 - Red</h5>
+                                        </div>
+                                        <div class="mt-2 mb-5 flex items-center justify-between">
+                                            <p>
+                                                <span
+                                                    class="text-xl font-normal text-[#504f85] product-price uppercase">kd
+                                                    <span>400</span>
+                                                </span>
+                                                <span
+                                                    class="salePrice text-sm text-[#504f85] line-through uppercase">kd699</span>
+                                            </p>
+
+                                        </div>
+                                    </a>
+                                    <div
+                                        class="add-to-cart flex gap-2 items-center justify-center rounded-md bg-[#007a3d] cursor-pointer px-5 py-2.5 text-center text-sm font-medium text-white transition-all hover:bg-[#117a3d] focus:outline-none">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                        Add to cart
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-cell w-2/4">
+                            <!-- 1 -->
+                            <div
+                                class="productElement  relative  flex flex-col w-[95%] overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
+                                <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
+                                    href="detailsProduct.html">
+                                    <img class="imgProduct object-fill w-full h-full" src="puplic/images/bugs_4.jpeg"
+                                        alt="product image" />
+                                    <span
+                                        class="absolute top-0 right-0 m-2 rounded-full bg-[#b22234] px-2 text-center text-sm font-medium text-white">39%
+                                        OFF</span>
+                                </a>
+                                <div class="mt-4 px-5 pb-5">
+                                    <a href="detailsProduct.html">
+                                        <div>
+                                            <h5 class="text-xl tracking-tight text-[#504f85] product-name">Nike Air MX
+                                                Super 2500 - Red</h5>
+                                        </div>
+                                        <div class="mt-2 mb-5 flex items-center justify-between">
+                                            <p>
+                                                <span
+                                                    class="text-xl font-normal text-[#504f85] product-price uppercase">kd
+                                                    <span>400</span>
+                                                </span>
+                                                <span
+                                                    class="salePrice text-sm text-[#504f85] line-through uppercase">kd699</span>
+                                            </p>
+
+                                        </div>
+                                    </a>
+                                    <div
+                                        class="add-to-cart flex gap-2 items-center justify-center rounded-md bg-[#007a3d] cursor-pointer px-5 py-2.5 text-center text-sm font-medium text-white transition-all hover:bg-[#117a3d] focus:outline-none">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                        Add to cart
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="carousel-cell w-2/4">
+                            <!-- 1 -->
+                            <div
+                                class="productElement  relative  flex flex-col w-[95%] overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ">
+                                <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
+                                    href="detailsProduct.html">
+                                    <img class="imgProduct object-fill w-full h-full" src="puplic/images/bugs_4.jpeg"
+                                        alt="product image" />
+                                    <span
+                                        class="absolute top-0 right-0 m-2 rounded-full bg-[#b22234] px-2 text-center text-sm font-medium text-white">39%
+                                        OFF</span>
+                                </a>
+                                <div class="mt-4 px-5 pb-5">
+                                    <a href="detailsProduct.html">
+                                        <div>
+                                            <h5 class="text-xl tracking-tight text-[#504f85] product-name">Nike Air MX
+                                                Super 2500 - Red</h5>
+                                        </div>
+                                        <div class="mt-2 mb-5 flex items-center justify-between">
+                                            <p>
+                                                <span
+                                                    class="text-xl font-normal text-[#504f85] product-price uppercase">kd
+                                                    <span>400</span>
+                                                </span>
+                                                <span
+                                                    class="salePrice text-sm text-[#504f85] line-through uppercase">kd699</span>
+                                            </p>
+
+                                        </div>
+                                    </a>
+                                    <div
+                                        class="add-to-cart flex gap-2 items-center justify-center rounded-md bg-[#007a3d] cursor-pointer px-5 py-2.5 text-center text-sm font-medium text-white transition-all hover:bg-[#117a3d] focus:outline-none">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                        Add to cart
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end in  -->
+
+        <!-- start in footer -->
+        <section class="bg-gray-200">
+            <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
+                <nav class="flex flex-wrap justify-center -mx-5 -my-2">
+                    <div class="px-5 py-2">
+                        <a href="#" class="text-base leading-6 text-[#3c3b6e]">
+                            About
+                        </a>
+                    </div>
+                    <div class="px-5 py-2">
+                        <a href="#" class="text-base leading-6 text-[#3c3b6e]">
+                            Blog
+                        </a>
+                    </div>
+                    <div class="px-5 py-2">
+                        <a href="#" class="text-base leading-6 text-[#3c3b6e]">
+                            Team
+                        </a>
+                    </div>
+                    <div class="px-5 py-2">
+                        <a href="#" class="text-base leading-6 text-[#3c3b6e]">
+                            Pricing
+                        </a>
+                    </div>
+                    <div class="px-5 py-2">
+                        <a href="#" class="text-base leading-6 text-[#3c3b6e]">
+                            Contact
+                        </a>
+                    </div>
+                    <div class="px-5 py-2">
+                        <a href="#" class="text-base leading-6 text-[#3c3b6e]">
+                            Terms
+                        </a>
+                    </div>
+                </nav>
+                <div class="flex flex-row-reverse justify-center mt-8 space-x-6">
+                    <a href="https://instagram.com/us_group_kw?igshid=NTc4MTIwNjQ2YQ=="
+                        class="text-[#d62976] text-xl hover:text-gray-500">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/merai89?mibextid=ZbWKwL"
+                        class="text-[#3b5998] text-xl hover:text-gray-500">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://api.whatsapp.com/send?phone=+965 9798 3633"
+                        class="text-[#25D366] text-xl hover:text-gray-500">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="tel:123-456-7890" class="text-[#19a7a4] text-xl hover:text-gray-500">
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                </div>
+                <p class="mt-8 text-base leading-6 text-center text-gray-400">
+                    © 2023 us_group_kw, Inc. All rights reserved.
+                </p>
+            </div>
+        </section>
+        <!-- end in footer -->
+        <!-- start splide carsoule -->
+        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+        <!-- start main js -->
+        <script src="puplic/js/main.js"></script>
+    </body>
+
+</html>
