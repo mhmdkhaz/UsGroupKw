@@ -363,9 +363,13 @@ if (borderBox) {
 
 // ----------------------------------------------------end shared functions -------------------------------------------------------
 
-// slider header
+// Define your slide interval in milliseconds (e.g., 3000ms for 3 seconds)
+
+const slideInterval = 5000;
+
 const slides = document.querySelectorAll("[data-slide]");
-const buttons = document.querySelectorAll("[data-button]");
+const prevButton = document.querySelector("[data-button='previous']");
+const nextButton = document.querySelector("[data-button='next']");
 
 let currSlide = 0;
 let maxSlide = slides.length - 1;
@@ -373,6 +377,7 @@ let isDragging = false;
 let startPos = 0;
 let currentTranslate = 0;
 let prevTranslate = 0;
+let slideTimer;
 
 const updateCarousel = () => {
   slides.forEach((slide, index) => {
@@ -380,10 +385,12 @@ const updateCarousel = () => {
   });
 };
 
-const touchStart = (index) => (e) => {
+const touchStart = (e) => {
   isDragging = true;
   startPos = getPositionX(e);
   currentTranslate = prevTranslate;
+  clearInterval(slideTimer);
+  e.preventDefault(); // Add this line
 };
 
 const touchMove = (e) => {
@@ -396,6 +403,7 @@ const touchMove = (e) => {
       index * 100 - currSlide * 100 + prevTranslate
     }%)`;
   });
+  e.preventDefault(); // Add this line
 };
 
 const touchEnd = () => {
@@ -408,15 +416,45 @@ const touchEnd = () => {
     currSlide--;
   }
   updateCarousel();
+  startSlideTimer();
 };
 
 const getPositionX = (e) => {
   return e.type.includes("touch") ? e.touches[0].clientX : e.clientX;
 };
 
-slides.forEach((slide, index) => {
-  slide.addEventListener("touchstart", touchStart(index));
-  slide.addEventListener("mousedown", touchStart(index));
+const startSlideTimer = () => {
+  clearInterval(slideTimer); // Clear existing interval
+  slideTimer = setInterval(() => {
+    currSlide++;
+    if (currSlide > maxSlide) {
+      currSlide = 0;
+    }
+    updateCarousel();
+  }, slideInterval);
+};
+
+startSlideTimer();
+
+prevButton.addEventListener("click", () => {
+  currSlide--;
+  if (currSlide < 0) {
+    currSlide = maxSlide;
+  }
+  updateCarousel();
+});
+
+nextButton.addEventListener("click", () => {
+  currSlide++;
+  if (currSlide > maxSlide) {
+    currSlide = 0;
+  }
+  updateCarousel();
+});
+
+slides.forEach((slide) => {
+  slide.addEventListener("touchstart", touchStart);
+  slide.addEventListener("mousedown", touchStart);
   slide.addEventListener("touchmove", touchMove);
   slide.addEventListener("mousemove", touchMove);
   slide.addEventListener("touchend", touchEnd);
@@ -424,23 +462,7 @@ slides.forEach((slide, index) => {
   slide.addEventListener("mouseleave", touchEnd);
 });
 
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    button.dataset.button === "next" ? ++currSlide : --currSlide;
-
-    if (currSlide > maxSlide) {
-      currSlide = 0;
-    } else if (currSlide < 0) {
-      currSlide = maxSlide;
-    }
-
-    updateCarousel();
-  });
-});
-
 updateCarousel();
-
-// end in slider header
 
 // start in category
 var category = document.querySelector(".carouselCategory");
