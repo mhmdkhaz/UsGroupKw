@@ -297,8 +297,12 @@ function filterProdcut(
             </p>
             
             <div class="flex justify-between my-2">
-              <p class="capitalize text-[#3c3b6e]">color :<span class="text-gray-400"> ${productColor}</span></p>
-              <p class="capitalize text-[#3c3b6e]">size :<span class="text-gray-400"> ${productSize}</span></p>
+              <p class="capitalizetext-[#3c3b6e]">${
+                langAttributeValue === "en" ? "color" : "اللون"
+              } :<span class="text-gray-400"> ${productColor}</span></p>
+              <p class="capitalize text-[#3c3b6e]">${
+                langAttributeValue === "en" ? "size" : "القياس"
+              } :<span class="text-gray-400"> ${productSize}</span></p>
             </div>
 
             <div class="flex justify-between items-center mt-4">
