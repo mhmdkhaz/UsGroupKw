@@ -37,7 +37,9 @@ function funMinsPlusPriceChange(btnOperation, operation) {
   let qty = apperentElement.querySelector(".numberQty");
 
   if (operation === "+") {
-    qty.textContent = parseInt(qty.textContent) + 1;
+    if (parseInt(qty.textContent) < 4) {
+      qty.textContent = parseInt(qty.textContent) + 1;
+    }
   } else if (operation === "-") {
     if (parseInt(qty.textContent) > 1) {
       qty.textContent = parseInt(qty.textContent) - 1;
@@ -108,7 +110,7 @@ function addToCart(button) {
   const productImg = productContainer.querySelector(".imgProduct").src;
 
   // details product page count
-  const productCount = document.querySelector(".coountProduct");
+  const productCount = document.querySelector(".  ");
 
   // function add id to element to filter elements
   addIdToProduct();
@@ -240,6 +242,8 @@ function filterProdcut(
     elementFromCart.forEach((product) => {
       if (product.dataset.id === dataId) {
         let numberQtyInput = product.querySelector(".numberQty");
+
+        console.log(productCount);
 
         productCount
           ? (numberQtyInput.textContent = parseInt(productCount.textContent))
