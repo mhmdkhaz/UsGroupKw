@@ -50,17 +50,18 @@
     <!-- start in navbar -->
     <!-- component -->
     <header class="bg-white fixed top-0 w-full z-50">
-      <div class="container mx-auto px-4 py-8 flex items-center">
+      <div class="container mx-auto px-8 py-2 md:py-4 flex items-center">
         <!-- logo -->
         <div class="mr-auto md:w-16 flex-shrink-0">
           <a href="indexEn.html">
-            <img src="puplic/images/logoTwo.png" alt="">
+            <img src="puplic/images/logoTwo.png" class="w-12" alt="">
           </a>
         </div>
 
         <!-- search -->
-        <div class="w-full mx-auto xl:max-w-lg 2xl:max-w-2xl bg-gray-100 rounded-md hidden xl:flex items-center">
-          <select class="bg-transparent uppercase font-normal text-sm p-4 mr-4" name="" id="">
+        <div
+          class="md:w-full mx-auto xl:max-w-lg 2xl:max-w-2xl bg-gray-100 rounded-md flex items-center fixed top-[90px] left-2/4 w-11/12 -translate-x-2/4 -translate-y-2/4  sm:relative sm:top-0 sm:left-0 sm:-translate-x-0 sm:-translate-y-0 ">
+          <select class="bg-transparent uppercase font-normal text-sm p-4 mr-4 w-auto" name="" id="">
             <option>all categories</option>
           </select>
           <input class="w-full h-auto border-l outline-none border-gray-300 bg-transparent font-semibold text-sm pl-4"
@@ -73,7 +74,7 @@
         <nav class="contents">
           <ul class="ml-4 xl:w-48 flex items-center justify-end">
             <li class="ml-2 lg:ml-4 relative inline-block">
-              <a class="uppercase text-[#3c3b6e]" href="#">english</a>
+              <a class="uppercase text-[#3c3b6e] text-2xl" href="#">عربي</a>
             </li>
             <li class="ml-2 lg:ml-4 relative inline-block">
               <div class="cursor-pointer openCart">
@@ -141,12 +142,11 @@
         <form action="">
           <div class="flex gap-2">
             <input type="text" placeholder="Name" class="w-full rounded-md px-2 py-2 outline-none mb-3">
-            <input type="number" placeholder="number" class="w-full rounded-md px-2 py-2 outline-none mb-3">
+            <input type="number" placeholder="phone" class="w-full rounded-md px-2 py-2 outline-none mb-3">
           </div>
           <input type="text" placeholder="Address" class="w-full rounded-md px-2 py-2 outline-none mb-3">
-          <input type="text" placeholder="Street" class="w-full rounded-md px-2 py-2 outline-none mb-3">
-          <input type="text" placeholder="landmark" class="w-full rounded-md px-2 py-2 outline-none mb-3">
-          <input type="submit" value="send">
+          <input type="submit" value="send"
+            class="capitalize tracking-widest rounded-md bg-[#007a3d] cursor-pointer px-5 py-2.5 text-center text-sm font-medium text-white transition-all hover:bg-[#117a3d] focus:outline-none">
         </form>
       </div>
     </section>

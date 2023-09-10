@@ -6,6 +6,12 @@ window.onload = () => {
   loader.style.display = "none";
 };
 
+// الوصول إلى العنصر <html>
+const htmlElement = document.documentElement;
+
+// الحصول على قيمة خاصية "lang"
+const langAttributeValue = htmlElement.getAttribute("lang");
+
 function close(element, direction, valueDirection, overlay) {
   element.style[direction] = `${valueDirection}%`;
   overlay.style.opacity = "0";
@@ -247,7 +253,9 @@ function filterProdcut(
     infoProductCart.forEach((cart) => {
       cart.innerHTML += `
         <div class="elementCart flex mt-2" data-id="${dataId}">
-          <figure class="relative w-1/4 mr-4">
+          <figure class="relative w-1/4  ${
+            langAttributeValue === "en" ? "mr-4" : "ml-4"
+          }  ">
             <img src="${productImg}" class="rounded h-full w-full" alt="" />
             <span class="delete flex justify-center items-center absolute top-0 left-0 w-full h-full text-white">
               <i class="fa-solid fa-xmark"></i>
@@ -258,7 +266,11 @@ function filterProdcut(
               ${productName}
             </h2>
             <p class="priceFromCart capitalize text-sm text-gray-400 mb-2.5">
-              unit price: <span>${productPrice}</span> kd
+             ${
+               langAttributeValue === "en" ? "unit price" : "سعر الوحدة"
+             }: <span>${productPrice}</span> ${
+        langAttributeValue === "en" ? " kd" : "د.ك"
+      }
             </p>
             <div class="flex justify-between items-center mt-4">
               <div class="flex qty h-9">
@@ -270,7 +282,9 @@ function filterProdcut(
               </div>
               <div class="suptotalTotalPrice">
                 <h2 class="text-sm font-semibold leading-5 md:text-base text-heading">
-                  <span>${productPrice}</span> kd
+                  <span>${productPrice}</span> ${
+        langAttributeValue === "en" ? " kd" : "د.ك"
+      }
                 </h2>
               </div>
             </div>
@@ -402,11 +416,10 @@ updateCarousel();
 // start in category
 var category = document.querySelector(".carouselCategory");
 var flktyCategory = new Flickity(category, {
-  cellAlign: "left",
+  cellAlign: "center",
   contain: true,
   autoPlay: 5500,
   freeScroll: true,
-  wrapAround: true,
   groupCells: true,
   groupCells: 1,
 });
@@ -447,12 +460,6 @@ if (productDetails) {
     nextBtn.style.display = "none";
     prevBtn.style.display = "none";
   }
-
-  // الوصول إلى العنصر <html>
-  const htmlElement = document.documentElement;
-
-  // الحصول على قيمة خاصية "lang"
-  const langAttributeValue = htmlElement.getAttribute("lang");
 
   // make next slide btn workable
   const slideToNext = function () {
