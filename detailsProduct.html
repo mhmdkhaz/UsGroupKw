@@ -22,28 +22,10 @@
 
   <body class="lg:pt-32 pt-28">
     <!-- start in loader -->
-    <section id="global">
-
-      <div class="relative w-full h-full">
-        <div class="absolute top-2/4 left-2/4">
-          <div id="top" class="mask">
-            <div class="plane"></div>
-          </div>
-          <div id="middle" class="mask">
-            <div class="plane"></div>
-          </div>
-
-          <div id="bottom" class="mask">
-            <div class="plane"></div>
-          </div>
-
-          <p class="titlleLoading"><i>LOADING...</i></p>
-        </div>
-      </div>
-
-    </section>
+    <div class="containerLoader" id="containerLoader">
+      <span class="loader"></span>
+    </div>
     <!-- end in loader -->
-
     <!-- Back to top button -->
     <a
       class="backToTop fixed bottom-4 right-6 bg-[#3c3b6e] w-12 h-12 rounded-md text-white text-center transition duration-300 opacity-0 invisible z-50 hover:bg-[#222143] focus:outline-none"></a>
@@ -105,7 +87,7 @@
     <section id="cart" class="relative z-30">
       <div class="overlay w-screen h-screen fixed z-20 top-0"></div>
 
-      <div class="detailsCart fixed top-0 right-0 z-30 p-5 h-screen w-[100vw] sm:w-[70vw] md:w-[50vw] lg:w-[30vw]">
+      <div class="detailsCartEn fixed top-0 right-0 z-30 p-5 h-screen w-[100vw] sm:w-[70vw] md:w-[50vw] lg:w-[30vw]">
         <div class="mainText flex justify-between items-center my-5 border-b pb-5">
           <h1 class="capitalize m-0 text-xl font-bold md:text-2xl text-heading">
             shooping cart
@@ -191,32 +173,10 @@
                 withstand everything the weather can offer.
               </p>
 
-              <div class="size">
-                <h1 class="text-xl capitalize text-[#3c3b6e] my-4">
-                  select size
+              <div class="flex justify-between items-center my-3">
+                <h1 class="color text-[#504f85] font-bold capitalize">color :<span class="text-gray-400 font-medium">red</span>
                 </h1>
-                <div class="checkElement flex gap-4">
-                  <p class="selectedItem border-2 border-[#3c3b6e] py-2 px-4 rounded cursor-pointer">
-                    71
-                  </p>
-                  <p class="selectedItem border-2 border-[#3c3b6e] py-2 px-4 rounded cursor-pointer">
-                    71
-                  </p>
-                  <p class="selectedItem border-2 border-[#3c3b6e] py-2 px-4 rounded cursor-pointer">
-                    71
-                  </p>
-                </div>
-              </div>
-
-              <div class="color">
-                <h1 class="text-xl capitalize text-[#3c3b6e] my-4">color</h1>
-                <select id="countries"
-                  class="bg-gray-50 border border-gray-300  text-sm rounded-lg text-[#3c3v6e]  block w-full p-2.5  dark:border-gray-600 dark:placeholder-[#3c3b6e] capitalize ">
-                  <option selected>white</option>
-                  <option value="red">red</option>
-                  <option value="blue">blue</option>
-                  <option value="yeloow">yellow</option>
-                </select>
+                <h1 class="size text-[#504f85] font-bold capitalize">size :<span class="text-gray-400 font-">70</span></h1>
               </div>
 
               <div class="wrapper">

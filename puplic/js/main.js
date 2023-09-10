@@ -2,7 +2,7 @@
 
 // function main
 window.onload = () => {
-  let loader = document.getElementById("global");
+  let loader = document.getElementById("containerLoader");
   loader.style.display = "none";
 };
 
@@ -71,22 +71,37 @@ backToTop.addEventListener("click", (e) => {
 });
 //----------------------------------------- end baxk to top ------------------------------------------------
 
+//----------------------------------------- start in search mobile ------------------------------------------------
+let iconSearchMobile = document.querySelector(".iconSearchMobile");
+let search = document.querySelector(".search");
+
+iconSearchMobile.addEventListener("click", (e) => {
+  search.style.display = "flex";
+  search.style.transform = "scale(1)";
+});
+//----------------------------------------- end in search mobile ------------------------------------------------
+
 // ------------------------------------------------ start in cart ------------------------------------------------
-let detailsCart = document.querySelector(".detailsCart");
+let detailsCartEn = document.querySelector(".detailsCartEn");
+let detailsCartAr = document.querySelector(".detailsCartAr");
 let openCart = document.querySelector(".openCart");
 let closeCart = document.querySelector(".clsoeCart");
 let overlay = document.querySelector(".overlay");
 
 function openCartFun() {
   openCart.addEventListener("click", () => {
-    open(detailsCart, "right", 0, overlay);
+    langAttributeValue === "en"
+      ? open(detailsCartEn, "right", 0, overlay)
+      : open(detailsCartAr, "left", 0, overlay);
   });
 }
 openCartFun();
 
 function closeCartFun() {
   closeCart.addEventListener("click", () => {
-    close(detailsCart, "right", -100, overlay);
+    langAttributeValue === "en"
+      ? close(detailsCartEn, "right", -100, overlay)
+      : close(detailsCartAr, "left", -100, overlay);
   });
 }
 closeCartFun();
@@ -154,7 +169,7 @@ function minsPlusNumberCount(dataCount) {
 
   minsCart.forEach((minsBtn) => {
     minsBtn.addEventListener("click", () => {
-      funMinsPlusPriceChangedataCount, (minsBtn, "-");
+      funMinsPlusPriceChange(minsBtn, "-");
     });
   });
 }
@@ -350,20 +365,6 @@ function chekcoutFun() {
 }
 chekcoutFun();
 // ------------------------------------------------ end in checkout ------------------------------------------------
-
-// ------------------------------------------------ start in choose filter ------------------------------------------------
-let borderBox = document.querySelectorAll(".checkElement .selectedItem");
-if (borderBox) {
-  borderBox.forEach((selected) => {
-    selected.addEventListener("click", () => {
-      borderBox.forEach((removeClassAll) => {
-        removeClassAll.classList.remove("activeSize");
-      });
-      selected.classList.add("activeSize");
-    });
-  });
-}
-// ------------------------------------------------ end in choose filter ------------------------------------------------
 
 // ----------------------------------------------------end shared functions -------------------------------------------------------
 

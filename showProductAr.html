@@ -23,26 +23,9 @@
     <body class="lg:pt-32 pt-28">
 
         <!-- start in loader -->
-        <section id="global">
-
-            <div class="relative w-full h-full">
-                <div class="absolute top-2/4 left-2/4">
-                    <div id="top" class="mask">
-                        <div class="plane"></div>
-                    </div>
-                    <div id="middle" class="mask">
-                        <div class="plane"></div>
-                    </div>
-
-                    <div id="bottom" class="mask">
-                        <div class="plane"></div>
-                    </div>
-
-                    <p class="titlleLoading"><i>LOADING...</i></p>
-                </div>
-            </div>
-
-        </section>
+        <div class="containerLoader" id="containerLoader">
+            <span class="loader"></span>
+        </div>
         <!-- end in loader -->
 
         <!-- Back to top button -->
@@ -109,7 +92,7 @@
         <section id="cart" class="relative z-30">
             <div class="overlay w-screen h-screen fixed z-20 top-0"></div>
             <div
-                class="detailsCart fixed top-0 right-0 z-30 p-5 h-screen w-[100vw] sm:w-[70vw] md:w-[50vw] lg:w-[30vw]">
+                class="detailsCartAr fixed top-0 left-0 z-30 p-5 h-screen w-[100vw] sm:w-[70vw] md:w-[50vw] lg:w-[30vw]">
                 <div class="mainText flex justify-between items-center my-5 border-b pb-5">
                     <h1 class="capitalize m-0 text-xl font-bold md:text-2xl text-heading">
                         shooping cart
