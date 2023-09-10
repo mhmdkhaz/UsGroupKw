@@ -28,7 +28,7 @@ function open(element, direction, valueDirection, overlay) {
   }, 200);
 }
 
-function funMinsPlusPriceChange(btnOperation, operation) {
+function funMinsPlusPriceChange(dataCount, btnOperation, operation) {
   let apperentElement = btnOperation.closest(".elementCart");
   let totalPriceCount = apperentElement.querySelector(
     ".suptotalTotalPrice h2 span"
@@ -37,7 +37,7 @@ function funMinsPlusPriceChange(btnOperation, operation) {
   let qty = apperentElement.querySelector(".numberQty");
 
   if (operation === "+") {
-    if (parseInt(qty.textContent) < 4) {
+    if (parseInt(qty.textContent) < dataCount) {
       qty.textContent = parseInt(qty.textContent) + 1;
     }
   } else if (operation === "-") {
@@ -93,7 +93,7 @@ closeCartFun();
 
 //add to cart
 
-let addToCartButtons = document.querySelectorAll(" .add-to-cart");
+let addToCartButtons = document.querySelectorAll(".add-to-cart");
 let selectedProducts = []; // مصفوفة تحتوي على العناصر التي تم الضغط عليها
 
 addToCartButtons.forEach((button) => {
@@ -108,16 +108,30 @@ function addToCart(button) {
     ".product-price span"
   ).textContent;
   const productImg = productContainer.querySelector(".imgProduct").src;
+  const productColor =
+    productContainer.querySelector(".color span").textContent;
+  const productSize = productContainer.querySelector(".size span").textContent;
 
   // details product page count
-  const productCount = document.querySelector(".  ");
+  const productCount = document.querySelector(".coountProduct");
 
   // function add id to element to filter elements
   addIdToProduct();
   const dataId = productContainer.dataset.id;
+  //
+  const dataCount = productContainer.dataset.count;
 
   // add element if exists or not
-  filterProdcut(dataId, productName, productPrice, productImg, productCount);
+  filterProdcut(
+    dataId,
+    dataCount,
+    productName,
+    productPrice,
+    productImg,
+    productCount,
+    productColor,
+    productSize
+  );
   // مجموع المنتج الواحد  فقط
   TotalpricePrduct(dataId);
   // حذف المنتج
@@ -128,19 +142,19 @@ function addToCart(button) {
   counterCart();
 }
 
-function minsPlusNumberCount() {
+function minsPlusNumberCount(dataCount) {
   let plusCart = document.querySelectorAll(".elementCart .plus");
   let minsCart = document.querySelectorAll(".elementCart .mins");
 
   plusCart.forEach((plusBtn) => {
     plusBtn.addEventListener("click", () => {
-      funMinsPlusPriceChange(plusBtn, "+");
+      funMinsPlusPriceChange(dataCount, plusBtn, "+");
     });
   });
 
   minsCart.forEach((minsBtn) => {
     minsBtn.addEventListener("click", () => {
-      funMinsPlusPriceChange(minsBtn, "-");
+      funMinsPlusPriceChangedataCount, (minsBtn, "-");
     });
   });
 }
@@ -229,10 +243,13 @@ function deleteIdToArray(elementCart) {
 
 function filterProdcut(
   dataId,
+  dataCount,
   productName,
   productPrice,
   productImg,
-  productCount
+  productCount,
+  productColor,
+  productSize
 ) {
   let arrayFilterIndex = selectedProducts.includes(dataId);
   let infoProductCart = document.querySelectorAll(".infoProduct");
@@ -243,12 +260,14 @@ function filterProdcut(
       if (product.dataset.id === dataId) {
         let numberQtyInput = product.querySelector(".numberQty");
 
-        console.log(productCount);
-
-        productCount
-          ? (numberQtyInput.textContent = parseInt(productCount.textContent))
-          : (numberQtyInput.textContent =
-              parseInt(numberQtyInput.textContent) + 1);
+        if (productCount) {
+          numberQtyInput.textContent = parseInt(productCount.textContent);
+        } else {
+          if (parseInt(numberQtyInput.textContent) < parseInt(dataCount)) {
+            numberQtyInput.textContent =
+              parseInt(numberQtyInput.textContent) + 1;
+          }
+        }
       }
     });
   } else {
@@ -276,6 +295,12 @@ function filterProdcut(
         langAttributeValue === "en" ? " kd" : "د.ك"
       }
             </p>
+            
+            <div class="flex justify-between my-2">
+              <p class="capitalize text-[#3c3b6e]">color :<span class="text-gray-400"> ${productColor}</span></p>
+              <p class="capitalize text-[#3c3b6e]">size :<span class="text-gray-400"> ${productSize}</span></p>
+            </div>
+
             <div class="flex justify-between items-center mt-4">
               <div class="flex qty h-9">
                 <button class="px-2 py-1 rounded-l-md mins">-</button>
@@ -295,7 +320,7 @@ function filterProdcut(
           </div>
         </div>
       `;
-      minsPlusNumberCount();
+      minsPlusNumberCount(dataCount);
       SuptotalPrice();
     });
   }
@@ -519,6 +544,8 @@ if (productDetails) {
   const qtyMinusBtn = document.querySelector("[data-qty-minus]");
   const qtyPlusBtn = document.querySelector("[data-qty-plus]");
   const priceProduct = document.querySelector(".spanPrice").textContent;
+  // get data count
+  const countProudct = productDetails.dataset.count;
 
   // set the product default quantity
   let qtyProdcut = 1;
@@ -528,7 +555,7 @@ if (productDetails) {
 
   const increaseProductQty = function () {
     // عدد المنتجات من قاعدة البيانات الا يزيد عن عددهم
-    if (qtyProdcut < 4) {
+    if (qtyProdcut < countProudct) {
       qtyProdcut++;
     }
     totalPrice = qtyProdcut * priceProduct;
