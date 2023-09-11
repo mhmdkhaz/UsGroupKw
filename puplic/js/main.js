@@ -28,16 +28,18 @@ function open(element, direction, valueDirection, overlay) {
   }, 200);
 }
 
-function funMinsPlusPriceChange(dataCount, btnOperation, operation) {
+function funMinsPlusPriceChange(btnOperation, operation) {
   let apperentElement = btnOperation.closest(".elementCart");
   let totalPriceCount = apperentElement.querySelector(
     ".suptotalTotalPrice h2 span"
   );
   let price = apperentElement.querySelector(".priceFromCart span");
   let qty = apperentElement.querySelector(".numberQty");
+  // get count
+  let count = apperentElement.dataset.count;
 
   if (operation === "+") {
-    if (parseInt(qty.textContent) < dataCount) {
+    if (parseInt(qty.textContent) < count) {
       qty.textContent = parseInt(qty.textContent) + 1;
     }
   } else if (operation === "-") {
@@ -72,12 +74,24 @@ backToTop.addEventListener("click", (e) => {
 //----------------------------------------- end baxk to top ------------------------------------------------
 
 //----------------------------------------- start in search mobile ------------------------------------------------
-let iconSearchMobile = document.querySelector(".iconSearchMobile");
-let search = document.querySelector(".search");
+const searchButton = document.getElementById("searchButton");
+const searchBox = document.getElementById("searchBox");
 
-iconSearchMobile.addEventListener("click", (e) => {
-  search.style.display = "flex";
-  search.style.transform = "scale(1)";
+searchButton.addEventListener("click", () => {
+  searchBox.classList.toggle("activeSearch");
+  searchBox.classList.toggle("notActiveSearch");
+});
+
+// أضف مستمع للنقر على الوثيقة لإخفاء مربع البحث إذا تم النقر خارجه
+document.addEventListener("click", function (event) {
+  if (
+    !searchBox.contains(event.target) &&
+    !searchButton.contains(event.target)
+  ) {
+    searchBox.classList.remove("activeSearch");
+    searchBox.classList.add("notActiveSearch");
+    console.log("d");
+  }
 });
 //----------------------------------------- end in search mobile ------------------------------------------------
 
@@ -157,13 +171,13 @@ function addToCart(button) {
   counterCart();
 }
 
-function minsPlusNumberCount(dataCount) {
+function minsPlusNumberCount() {
   let plusCart = document.querySelectorAll(".elementCart .plus");
   let minsCart = document.querySelectorAll(".elementCart .mins");
 
   plusCart.forEach((plusBtn) => {
     plusBtn.addEventListener("click", () => {
-      funMinsPlusPriceChange(dataCount, plusBtn, "+");
+      funMinsPlusPriceChange(plusBtn, "+");
     });
   });
 
@@ -231,15 +245,28 @@ deletElementCart();
 function counterCart() {
   let displayProduct = document.querySelector(".infoProduct");
   let emptyCart = document.querySelector(".emptyCart");
+  let btnCheckout = document.getElementById("checkoutSend");
 
   if (selectedProducts.length === 0) {
     setTimeout(() => {
-      emptyCart.style.display = "block";
+      // show empty cart
+      emptyCart.style.transform = "scale(1)";
+      emptyCart.style.height = "100%";
+
       displayProduct.style.display = "none";
+
+      // hide btn check
+      btnCheckout.style.transform = "scale(0)";
     }, 500);
   } else {
-    emptyCart.style.display = "none";
+    // hide empty cart
+    emptyCart.style.transform = "scale(0)";
+    emptyCart.style.height = "0";
+
     displayProduct.style.display = "block";
+
+    // show btn check
+    btnCheckout.style.transform = "scale(1)";
   }
 }
 
@@ -290,7 +317,7 @@ function filterProdcut(
 
     infoProductCart.forEach((cart) => {
       cart.innerHTML += `
-        <div class="elementCart flex mt-2" data-id="${dataId}">
+        <div class="elementCart flex mt-2" data-id="${dataId}" data-count="${dataCount}">
           <figure class="relative w-1/4  ${
             langAttributeValue === "en" ? "mr-4" : "ml-4"
           }  ">
@@ -339,7 +366,7 @@ function filterProdcut(
           </div>
         </div>
       `;
-      minsPlusNumberCount(dataCount);
+      minsPlusNumberCount();
       SuptotalPrice();
     });
   }
@@ -368,7 +395,7 @@ chekcoutFun();
 
 // ----------------------------------------------------end shared functions -------------------------------------------------------
 
-// Define your slide interval in milliseconds (e.g., 3000ms for 3 seconds)
+// Define your slide interval in milliseconds (e.g., 5000ms for 5 seconds)
 
 const slideInterval = 5000;
 
@@ -441,21 +468,23 @@ const startSlideTimer = () => {
 
 startSlideTimer();
 
-prevButton.addEventListener("click", () => {
-  currSlide--;
-  if (currSlide < 0) {
-    currSlide = maxSlide;
-  }
-  updateCarousel();
-});
+if (nextButton || prevButton) {
+  prevButton.addEventListener("click", () => {
+    currSlide--;
+    if (currSlide < 0) {
+      currSlide = maxSlide;
+    }
+    updateCarousel();
+  });
 
-nextButton.addEventListener("click", () => {
-  currSlide++;
-  if (currSlide > maxSlide) {
-    currSlide = 0;
-  }
-  updateCarousel();
-});
+  nextButton.addEventListener("click", () => {
+    currSlide++;
+    if (currSlide > maxSlide) {
+      currSlide = 0;
+    }
+    updateCarousel();
+  });
+}
 
 slides.forEach((slide) => {
   slide.addEventListener("touchstart", touchStart);
@@ -617,33 +646,33 @@ var flktyCategory = new Flickity(category, {
 // end in details product
 
 // --------------------------------------- start in show all proudct ---------------------------------------
-var fixedElement = document.getElementById("fixed-element");
-var filterElemetn = document.querySelector(".filterElement");
-if (fixedElement) {
-  window.addEventListener("scroll", function () {
-    var footer = document.querySelector("footer");
-    var fixedElementHeight = fixedElement.offsetHeight;
-    var footerOffset = footer.offsetTop;
+// var fixedElement = document.getElementById("fixed-element");
+// var filterElemetn = document.querySelector(".filterElement");
+// if (fixedElement) {
+//   window.addEventListener("scroll", function () {
+//     var footer = document.querySelector("footer");
+//     var fixedElementHeight = fixedElement.offsetHeight;
+//     var footerOffset = footer.offsetTop;
 
-    var scrollPosition =
-      window.pageYOffset || document.documentElement.scrollTop;
+//     var scrollPosition =
+//       window.pageYOffset || document.documentElement.scrollTop;
 
-    if (scrollPosition + fixedElementHeight + 100 >= footerOffset) {
-      fixedElement.style.position = "absolute";
-      fixedElement.style.top = "";
-      fixedElement.style.bottom = "0";
-    } else {
-      fixedElement.style.position = "fixed";
-      fixedElement.style.top = "";
-      fixedElement.style.bottom = "";
-    }
-    if (scrollPosition === 0) {
-      fixedElement.style.position = "absolute";
-      fixedElement.style.top = "0";
-      fixedElement.style.bottom = "";
-    }
-  });
-}
+//     if (scrollPosition + fixedElementHeight + 100 >= footerOffset) {
+//       fixedElement.style.position = "absolute";
+//       fixedElement.style.top = "";
+//       fixedElement.style.bottom = "0";
+//     } else {
+//       fixedElement.style.position = "fixed";
+//       fixedElement.style.top = "";
+//       fixedElement.style.bottom = "";
+//     }
+//     if (scrollPosition === 0) {
+//       fixedElement.style.position = "absolute";
+//       fixedElement.style.top = "0";
+//       fixedElement.style.bottom = "";
+//     }
+//   });
+// }
 //filter element close and open in mopile
 let filterElement = document.querySelector(".filterElement");
 let closeFilter = document.querySelector(".closeFilter i");

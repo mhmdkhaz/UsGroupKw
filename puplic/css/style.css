@@ -96,7 +96,6 @@ input::-webkit-inner-spin-button {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .loader {
@@ -156,6 +155,15 @@ input::-webkit-inner-spin-button {
 }
 
 /* end in back to top */
+
+/* start in search in mobile active */
+.activeSearch {
+  scale: 1;
+}
+.notActiveSearch {
+  scale: 0;
+}
+/* end in search in mobile active */
 
 /* start in cart */
 #cart {
@@ -710,7 +718,7 @@ input[type="radio"]:checked:after {
     left: 0;
     bottom: -100%;
     width: 100%;
-    height: 90%;
+    height: 98%;
     z-index: 100;
     border-radius: 8px;
     -webkit-border-radius: 8px;

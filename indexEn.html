@@ -45,7 +45,8 @@
 
         <!-- search -->
         <div
-          class="search  scale-0 mx-auto xl:max-w-lg 2xl:max-w-2xl bg-gray-100 transition-all delay-500 rounded-md hidden md:flex md:w-full md:scale-100 items-center fixed top-[90px]  w-11/12 -translate-x-2/4 -translate-y-2/4  sm:relative sm:top-0 sm:left-0 sm:-translate-x-0 sm:-translate-y-0 ">
+          class="search mx-auto xl:max-w-lg 2xl:max-w-2xl bg-gray-100 transition-all delay-300 rounded-md flex md:w-full  md:scale-100 items-center fixed top-[90px]  w-11/12 sm:relative sm:top-0 sm:left-0 sm:-translate-x-0 sm:-translate-y-0 notActiveSearch"
+          id="searchBox">
           <select class="bg-transparent uppercase font-normal text-sm p-4 mr-4 w-auto" name="" id="">
             <option>all categories</option>
           </select>
@@ -59,7 +60,7 @@
         <!-- buttons -->
         <nav class="contents">
           <ul class="ml-4 xl:w-48 flex items-center justify-end">
-            <li class="iconSearchMobile">
+            <li class="iconSearchMobile" id="searchButton">
               <i class="fa-solid fa-magnifying-glass ml-auto h-5 px-4 text-[#3c3b6e]"></i>
             </li>
             <li class="ml-2 lg:ml-4 relative inline-block">
@@ -113,7 +114,7 @@
         </div>
 
         <!-- check out cart -->
-        <div
+        <div id="checkoutSend"
           class="checkout relative bottom-0 mb-5 w-full px-5 py-3 md:py-4 flex items-center justify-between gap-x-5 rounded-md text-sm sm:text-base text-white focus:outline-none transition duration-300 bg-heading hover:bg-gray-600">
           <button class="btnCheckout">Proceed To Checkout</button>
           <div class="bg-white w-[2px] h-full"></div>
