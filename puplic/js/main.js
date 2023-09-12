@@ -74,25 +74,25 @@ backToTop.addEventListener("click", (e) => {
 //----------------------------------------- end baxk to top ------------------------------------------------
 
 //----------------------------------------- start in search mobile ------------------------------------------------
-const searchButton = document.getElementById("searchButton");
-const searchBox = document.getElementById("searchBox");
+// const searchButton = document.getElementById("searchButton");
+// const searchBox = document.getElementById("searchBox");
 
-searchButton.addEventListener("click", () => {
-  searchBox.classList.toggle("activeSearch");
-  searchBox.classList.toggle("notActiveSearch");
-});
+// searchButton.addEventListener("click", () => {
+//   searchBox.classList.toggle("activeSearch");
+//   searchBox.classList.toggle("notActiveSearch");
+// });
 
-// أضف مستمع للنقر على الوثيقة لإخفاء مربع البحث إذا تم النقر خارجه
-document.addEventListener("click", function (event) {
-  if (
-    !searchBox.contains(event.target) &&
-    !searchButton.contains(event.target)
-  ) {
-    searchBox.classList.remove("activeSearch");
-    searchBox.classList.add("notActiveSearch");
-    console.log("d");
-  }
-});
+// // أضف مستمع للنقر على الوثيقة لإخفاء مربع البحث إذا تم النقر خارجه
+// document.addEventListener("click", function (event) {
+//   if (
+//     !searchBox.contains(event.target) &&
+//     !searchButton.contains(event.target)
+//   ) {
+//     searchBox.classList.remove("activeSearch");
+//     searchBox.classList.add("notActiveSearch");
+//     console.log("d");
+//   }
+// });
 //----------------------------------------- end in search mobile ------------------------------------------------
 
 // ------------------------------------------------ start in cart ------------------------------------------------
@@ -379,18 +379,33 @@ let btnCheckout = document.querySelector(".btnCheckout");
 let closeCheckout = document.querySelector(".closeCheckout");
 let containerCheckout = document.querySelector(".Sectioncheckout");
 let overlayCheckout = document.querySelector(".overlayCheckout");
+let checkOutSend = document.getElementById("sendData");
 
 function chekcoutFun() {
   btnCheckout.addEventListener("click", () => {
     open(containerCheckout, "scale", 100, overlayCheckout);
     containerCheckout.style.display = "block";
-    close(detailsCart, "right", -100, overlay);
+    langAttributeValue === "en"
+      ? close(detailsCartEn, "right", -100, overlay)
+      : close(detailsCartAr, "left", -100, overlay);
   });
   closeCheckout.addEventListener("click", () => {
     close(containerCheckout, "scale", 0, overlayCheckout);
   });
 }
 chekcoutFun();
+
+// confirm that oreder message
+checkOutSend.addEventListener("click", (e) => {
+  e.preventDefault();
+  langAttributeValue === "en"
+    ? Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Something went wrong!',
+})
+    : Swal.fire("اوكك", "You clicked the button!", "success");
+});
 // ------------------------------------------------ end in checkout ------------------------------------------------
 
 // ----------------------------------------------------end shared functions -------------------------------------------------------

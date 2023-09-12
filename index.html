@@ -58,6 +58,9 @@
                 <!-- buttons -->
                 <nav class="contents">
                     <ul class="ml-4 xl:w-48 flex items-center justify-end">
+                        <li class="iconSearchMobile" id="searchButton">
+                            <i class="fa-solid fa-magnifying-glass ml-auto h-5 px-4 text-[#3c3b6e]"></i>
+                        </li>
                         <li class="ml-2 lg:ml-4 relative inline-block">
                             <a class="uppercase text-[#3c3b6e] text-2xl" href="#">عربي</a>
                         </li>
@@ -131,7 +134,7 @@
                         <input type="number" placeholder="الهاتف" class="w-full rounded-md px-2 py-2 outline-none mb-3">
                     </div>
                     <input type="text" placeholder="العنوان" class="w-full rounded-md px-2 py-2 outline-none mb-3">
-                    <input type="submit" value="send"
+                    <input type="submit" value="send" id="sendData"
                         class="capitalize tracking-widest rounded-md bg-[#007a3d] cursor-pointer px-5 py-2.5 text-center text-sm font-medium text-white transition-all hover:bg-[#117a3d] focus:outline-none">
                 </form>
             </div>
@@ -469,8 +472,11 @@
             </div>
         </section>
         <!-- end in footer -->
+
         <!-- start splide carsoule -->
         <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+        <!-- sweet alert  -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!-- start main js -->
         <script src="puplic/js/main.js"></script>
     </body>
